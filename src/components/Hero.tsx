@@ -92,7 +92,7 @@ export default function Hero(): ReactElement {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
             >
-              Agence immobilière de prestige spécialisée dans la vente, location et gestion de biens d'exception. 
+              Agence immobilière de prestige spécialisée dans la vente, location et gestion de biens d&apos;exception. 
               <br className="hidden sm:block" />
               <span className="golden-accent font-medium"> Expertise locale. Service premium. Confidentialité assurée.</span>
             </motion.p>

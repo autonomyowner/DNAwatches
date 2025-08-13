@@ -5,7 +5,7 @@ export const metadata = {
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
-import { Crown, Shield, Star, Clock, Users, Building } from "lucide-react";
+import { Crown, Shield, Star, Users, Building } from "lucide-react";
 import type { ReactElement } from "react";
 
 const stats = [

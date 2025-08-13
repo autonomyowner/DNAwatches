@@ -79,7 +79,7 @@ export default function PricingPage(): ReactElement {
             <Reveal>
               <div className="mb-8">
                 <span className="luxury-card mafia-glow px-6 py-3 text-accent-gold text-sm font-semibold tracking-widest uppercase">
-                  Biens d'Exception
+                  Biens d&apos;Exception
                 </span>
               </div>
             </Reveal>
@@ -93,7 +93,7 @@ export default function PricingPage(): ReactElement {
             
             <Reveal delay={400}>
               <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Une sélection exclusive de propriétés d'exception.
+                Une sélection exclusive de propriétés d&apos;exception.
                 <span className="golden-accent font-medium block mt-2"> À Alger, dans les quartiers les plus recherchés.</span>
               </p>
             </Reveal>
@@ -112,7 +112,7 @@ export default function PricingPage(): ReactElement {
                 Nos <span className="golden-accent">Services</span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Trois formules d'accompagnement pour vos projets immobiliers
+                Trois formules d&apos;accompagnement pour vos projets immobiliers
               </p>
             </div>
           </Reveal>
@@ -182,7 +182,7 @@ export default function PricingPage(): ReactElement {
               <div>
                 <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
                   Quartiers 
-                  <span className="golden-accent block">d'Exception</span>
+                  <span className="golden-accent block">d&apos;Exception</span>
                 </h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
                 <p className="text-lg text-white/85 leading-relaxed mb-8">
@@ -197,7 +197,7 @@ export default function PricingPage(): ReactElement {
                       <Building className="w-6 h-6 text-accent-gold" />
                       <div>
                         <h3 className="mafia-heading text-xl text-white">Alger Centre</h3>
-                        <p className="text-white/80 text-sm">Notre siège social et zone d'expertise</p>
+                        <p className="text-white/80 text-sm">Notre siège social et zone d&apos;expertise</p>
                       </div>
                     </div>
                   </div>
@@ -209,7 +209,7 @@ export default function PricingPage(): ReactElement {
               <div className="luxury-card rounded-2xl overflow-hidden">
                 <div className="bg-gradient-to-r from-accent-gold/20 via-background-tertiary to-accent-burgundy/20 p-6 border-b border-accent-gold/20">
                   <h3 className="mafia-heading text-2xl text-white mb-2">Biens Disponibles</h3>
-                  <p className="text-white/80 text-sm">Sélection de propriétés d'exception</p>
+                  <p className="text-white/80 text-sm">Sélection de propriétés d&apos;exception</p>
                 </div>
                 <div className="max-h-96 overflow-y-auto">
                   {properties.map((property) => (

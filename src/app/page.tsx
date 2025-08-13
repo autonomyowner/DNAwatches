@@ -5,7 +5,7 @@ import Section from "@/components/Section";
 import Hero from "@/components/Hero";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
-import { Crown, Shield, Clock, Building, Phone, ArrowRight, Quote, Key, Home as HomeIcon, MapPin } from "lucide-react";
+import { Crown, Shield, Building, Phone, ArrowRight, Quote, MapPin } from "lucide-react";
 
 const advantages = [
   { 
@@ -108,7 +108,7 @@ export default function Home(): ReactElement {
                 Nos <span className="golden-accent">Atouts</span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Quatre piliers d&apos;excellence qui font de nous le leader de l'immobilier de luxe à Alger
+                Quatre piliers d&apos;excellence qui font de nous le leader de l&apos;immobilier de luxe à Alger
               </p>
             </div>
           </Reveal>
@@ -148,7 +148,7 @@ export default function Home(): ReactElement {
                 <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
                 <p className="text-lg text-white/85 leading-relaxed mb-12">
                   De la recherche à la signature, nous orchestrons chaque transaction immobilière 
-                  avec l'expertise et la discrétion que méritent nos clients privilégiés.
+                  avec l&apos;expertise et la discrétion que méritent nos clients privilégiés.
                 </p>
                 <Button 
                   variant="gold" 
@@ -321,7 +321,7 @@ export default function Home(): ReactElement {
                 <span className="golden-accent block">Clients Privilégiés</span>
               </h2>
               <p className="text-xl text-white/85 mb-12 max-w-2xl mx-auto">
-                Découvrez pourquoi les personnalités les plus exigeantes d'Alger 
+                Découvrez pourquoi les personnalités les plus exigeantes d&apos;Alger 
                 nous font confiance pour leurs projets immobiliers les plus importants.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">

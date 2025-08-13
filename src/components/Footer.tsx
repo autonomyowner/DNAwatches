@@ -42,7 +42,7 @@ export default function Footer(): ReactElement {
                 </span>
               </div>
               <p className="text-white/80 leading-relaxed mb-6">
-                Depuis 2018, nous excellons dans l'immobilier de prestige 
+                Depuis 2018, nous excellons dans l&apos;immobilier de prestige 
                 à Alger avec expertise, discrétion et service personnalisé.
               </p>
               <div className="space-y-3">
