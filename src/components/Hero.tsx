@@ -13,13 +13,13 @@ export default function Hero(): ReactElement {
   // Use herovideo.mp4 as primary source for the mafia vibe
   const [sourceList, setSourceList] = useState<string[]>([]);
   useEffect(() => {
-    const candidates = [configuredSrc, "/herovideo.mp4", "/hero.mp4"].filter(Boolean) as string[];
+    const candidates = [configuredSrc, "/hero2.mp4"].filter(Boolean) as string[];
     setSourceList(candidates);
   }, [configuredSrc]);
 
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="relative h-screen w-full flex items-center film-grain" aria-label="Premium chauffeur service">
+      <div className="relative h-screen w-full flex items-center film-grain" aria-label="Premium real estate agency">
         {!videoError && (
           <video
             autoPlay
@@ -67,7 +67,7 @@ export default function Hero(): ReactElement {
               className="mb-8"
             >
               <span className="inline-block px-6 py-3 luxury-card mafia-glow text-accent-gold text-sm font-semibold tracking-widest uppercase">
-                SERVICES EXCLUSIFS
+                IMMOBILIER DE LUXE
               </span>
             </motion.div>
             
@@ -78,11 +78,11 @@ export default function Hero(): ReactElement {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <span className="block relative">
-                GRAN TURISMO
+                elwakil_immobilier
                 <div className="absolute -inset-2 bg-gradient-to-r from-accent-gold/5 via-transparent to-accent-gold/5 blur-xl" />
               </span>
               <span className="block golden-accent text-4xl sm:text-6xl lg:text-7xl font-light italic mt-2">
-                Chauffeur Privé
+                Alger, Algeria
               </span>
             </motion.h1>
             
@@ -92,9 +92,9 @@ export default function Hero(): ReactElement {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
             >
-              Service premium de chauffeur privé sur la Côte d&apos;Azur et l&apos;Italie du Nord. 
+              Agence immobilière de prestige spécialisée dans la vente, location et gestion de biens d'exception. 
               <br className="hidden sm:block" />
-              <span className="golden-accent font-medium"> Discrétion absolue. Confort suprême. Excellence garantie.</span>
+              <span className="golden-accent font-medium"> Expertise locale. Service premium. Confidentialité assurée.</span>
             </motion.p>
             
             <motion.div 
@@ -105,12 +105,12 @@ export default function Hero(): ReactElement {
             >
               <Button variant="gold" size="lg" asChild className="premium-shadow mafia-glow">
                 <Link href="/contact" className="text-lg px-10 py-5 font-semibold tracking-wide">
-                  RÉSERVER MAINTENANT
+                  NOUS CONTACTER
                 </Link>
               </Button>
               <Button variant="outline" size="lg" asChild className="luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10 hover:border-accent-gold/60 transition-all duration-300">
-                <Link href="/contact?type=quote" className="text-lg px-10 py-5 font-medium tracking-wide">
-                  DEVIS PERSONNALISÉ
+                <Link href="/contact?type=estimate" className="text-lg px-10 py-5 font-medium tracking-wide">
+                  ESTIMATION GRATUITE
                 </Link>
               </Button>
             </motion.div>
@@ -123,7 +123,7 @@ export default function Hero(): ReactElement {
               transition={{ duration: 1, delay: 1.5 }}
             >
               <p className="smoke-text text-sm tracking-[0.2em] uppercase font-medium">
-                Découvrir nos services exclusifs
+                Découvrir nos biens exclusifs
               </p>
               <motion.div
                 className="w-px h-20 bg-gradient-to-b from-accent-gold via-accent-gold/50 to-transparent mx-auto mt-6 relative"

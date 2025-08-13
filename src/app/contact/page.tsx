@@ -15,19 +15,19 @@ import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 import { Phone, MessageSquare, Instagram, Crown, Mail, MapPin, Clock, CheckCircle, Send } from "lucide-react";
 
-const bookingSchema = z.object({
+const contactSchema = z.object({
   name: z.string().min(2),
   email: z.string().email(),
   phone: z.string().optional(),
+  service: z.string().optional(),
   pickup: z.string().min(2),
   dropoff: z.string().min(2),
-  datetime: z.string().min(2),
+  datetime: z.string().min(1),
   message: z.string().optional(),
-  service: z.string().optional(),
   type: z.string().optional(),
 });
 
-type BookingForm = z.infer<typeof bookingSchema>;
+type BookingForm = z.infer<typeof contactSchema>;
 
 const contactMethods = [
   {
@@ -80,7 +80,7 @@ function ContactInner(): ReactElement {
     handleSubmit,
     formState: { errors, isSubmitting },
   } = useForm<BookingForm>({
-    resolver: zodResolver(bookingSchema),
+    resolver: zodResolver(contactSchema),
     defaultValues: { service: defaultService, type: defaultType },
   });
 
@@ -99,7 +99,12 @@ function ContactInner(): ReactElement {
     <>
       {/* Hero Section */}
       <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background-secondary to-background" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
+          style={{ backgroundImage: "url('/pic.jpg')" }}
+        />
+        <div className="absolute inset-0 bg-black/70" />
+        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/80" />
         <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-radial from-accent-gold/6 to-transparent opacity-40" />
         <div className="absolute bottom-0 right-0 w-1/3 h-2/3 bg-gradient-radial from-accent-burgundy/8 to-transparent opacity-30" />
         

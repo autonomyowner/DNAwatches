@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Services - Excellence Sur Mesure",
+  title: "Services - Immobilier de Prestige",
 };
 
 type Service = {
@@ -13,36 +13,36 @@ type Service = {
 
 const services: Service[] = [
   {
-    title: "TRANSFERTS AÉROPORT",
-    subtitle: "La Première Impression Compte",
-    description: "De l&apos;élégance de Nice à la sophistication de Monaco, nous orchestrons vos arrivées et départs avec une précision horlogère.",
-    features: ["Suivi de vol en temps réel", "Accueil personnalisé avec panneau", "Assistance bagages incluse", "Véhicules premium climatisés"],
+    title: "VENTE IMMOBILIÈRE",
+    subtitle: "L&apos;Art de Bien Vendre",
+    description: "De l&apos;évaluation à la signature, nous orchestrons chaque vente avec une expertise inégalée et une stratégie marketing premium.",
+    features: ["Estimation gratuite par expert", "Marketing digital premium", "Visite virtuelle incluse", "Négociation optimisée"],
     premium: false,
-    price: "À partir de 80€",
+    price: "Commission 3%",
   },
   {
-    title: "MISE À DISPOSITION",
-    subtitle: "Votre Temps, Notre Expertise",
-    description: "Un chauffeur dévoué à votre service, prêt à s&apos;adapter à vos besoins les plus exigeants avec une discrétion absolue.",
-    features: ["Flexibilité totale d&apos;horaires", "Temps d&apos;attente inclus", "Itinéraires personnalisés", "Chauffeur polyglotte"],
+    title: "LOCATION & GESTION",
+    subtitle: "Votre Patrimoine, Notre Expertise",
+    description: "Service complet de gestion locative avec sélection rigoureuse des locataires et suivi administratif intégral.",
+    features: ["Sélection locataires vérifiée", "Gestion administrative complète", "Maintenance et entretien", "Rapport mensuel détaillé"],
     premium: true,
-    price: "150€/heure",
+    price: "8% du loyer",
   },
   {
-    title: "ÉVÉNEMENTS PRESTIGE",
-    subtitle: "L&apos;Art de l&apos;Exception",
-    description: "Mariages royaux, MIPIM, Cannes Lions, Grand Prix de Monaco - nous élevons chaque événement au rang de légende.",
-    features: ["Coordination événementielle", "Flotte berline & van luxe", "Chauffeurs en livrée", "Service multi-véhicules"],
+    title: "CONSEIL INVESTISSEMENT",
+    subtitle: "L&apos;Art de l&apos;Investissement",
+    description: "Accompagnement stratégique personnalisé pour maximiser votre rentabilité immobilière avec notre expertise du marché algérois.",
+    features: ["Étude de marché approfondie", "Analyse rentabilité projet", "Accompagnement juridique", "Suivi post-achat"],
     premium: true,
     price: "Sur devis",
   },
   {
-    title: "TOURS & EXCURSIONS",
-    subtitle: "Révélateur de Merveilles",
-    description: "De Monaco à Milan, de Saint-Tropez à San Remo, découvrez la Riviera à travers le regard d&apos;un connaisseur.",
-    features: ["Itinéraires secrets exclusifs", "Arrêts photographiques premium", "Recommandations d&apos;initiés", "Guide culturel inclus"],
+    title: "ESTIMATION GRATUITE",
+    subtitle: "Connaissez la Valeur Réelle",
+    description: "Estimation précise de votre bien immobilier par nos experts certifiés, avec analyse comparative du marché local.",
+    features: ["Visite sur rendez-vous", "Analyse marché comparative", "Rapport détaillé écrit", "Conseils personnalisés"],
     premium: false,
-    price: "280€/demi-journée",
+    price: "Gratuit",
   },
 ];
 
@@ -50,11 +50,11 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
-import { Car, Clock, Crown, MapPin, Star, Shield, CheckCircle, ArrowRight } from "lucide-react";
+import { Building, Home, TrendingUp, Calculator, Star, Shield, CheckCircle, ArrowRight } from "lucide-react";
 import type { ReactElement } from "react";
 
 const getServiceIcon = (idx: number) => {
-  const icons = [Car, Clock, Crown, MapPin];
+  const icons = [Building, Home, TrendingUp, Calculator];
   return icons[idx];
 };
 
@@ -72,7 +72,7 @@ export default function ServicesPage(): ReactElement {
             <Reveal>
               <div className="mb-8">
                 <span className="luxury-card mafia-glow px-6 py-3 text-accent-gold text-sm font-semibold tracking-widest uppercase">
-                  Excellence Sur Mesure
+                  Immobilier de Prestige
                 </span>
               </div>
             </Reveal>
@@ -86,8 +86,8 @@ export default function ServicesPage(): ReactElement {
             
             <Reveal delay={400}>
               <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Quatre domaines d&apos;excellence où chaque détail compte.
-                <span className="golden-accent font-medium block mt-2"> Où l&apos;art du service rencontre la perfection.</span>
+                Quatre domaines d&apos;expertise pour vos projets immobiliers.
+                <span className="golden-accent font-medium block mt-2"> Où l&apos;expertise locale rencontre l&apos;excellence du service.</span>
               </p>
             </Reveal>
           </div>
@@ -160,7 +160,7 @@ export default function ServicesPage(): ReactElement {
                             href={`/contact?service=${encodeURIComponent(service.title)}`}
                             className="flex items-center gap-2"
                           >
-                            RÉSERVER
+                            CONTACT
                             <ArrowRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform duration-300" />
                           </a>
                         </Button>
@@ -194,18 +194,18 @@ export default function ServicesPage(): ReactElement {
             {[
               {
                 icon: Shield,
-                title: "DISCRÉTION ABSOLUE",
-                description: "Vos trajets, vos conversations, vos secrets restent entre nous. Parole d'honneur."
+                title: "CONFIDENTIALITÉ ASSURÉE",
+                description: "Vos projets, vos transactions, vos informations restent strictement confidentielles."
               },
               {
-                icon: Clock,
-                title: "PONCTUALITÉ SUISSE",
-                description: "Nous arrivons toujours 5 minutes avant l'heure convenue. Sans exception."
+                icon: TrendingUp,
+                title: "EXPERTISE LOCALE",
+                description: "Connaissance approfondie du marché immobilier algérois et de ses spécificités."
               },
               {
-                icon: Crown,
-                title: "EXCELLENCE TOTALE",
-                description: "Véhicules immaculés, chauffeurs irréprochables, service sans faille."
+                icon: Star,
+                title: "SERVICE PREMIUM",
+                description: "Accompagnement personnalisé, conseils avisés et suivi irréprochable."
               }
             ].map((guarantee, idx) => (
               <Reveal key={guarantee.title} delay={idx * 200}>
@@ -239,7 +239,7 @@ export default function ServicesPage(): ReactElement {
               </h2>
               <p className="text-xl text-white/85 mb-12 max-w-2xl mx-auto">
                 Rejoignez notre cercle exclusif de clients privilégiés et découvrez 
-                ce que signifie vraiment voyager avec style.
+                ce que signifie vraiment investir avec succès.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
@@ -249,8 +249,8 @@ export default function ServicesPage(): ReactElement {
                   className="mafia-glow premium-shadow text-lg px-12 py-5"
                 >
                   <a href="/contact" className="flex items-center gap-3">
-                    <Crown className="w-5 h-5" />
-                    RÉSERVER MAINTENANT
+                    <Building className="w-5 h-5" />
+                    NOUS CONTACTER
                   </a>
                 </Button>
                 <Button 
@@ -260,7 +260,7 @@ export default function ServicesPage(): ReactElement {
                   className="luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10 hover:border-accent-gold/60 text-lg px-12 py-5"
                 >
                   <a href="/pricing">
-                    VOIR NOS TARIFS
+                    VOIR NOS BIENS
                   </a>
                 </Button>
               </div>

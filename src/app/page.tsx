@@ -5,89 +5,89 @@ import Section from "@/components/Section";
 import Hero from "@/components/Hero";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
-import { Crown, Shield, Clock, Car, Phone, ArrowRight, Quote } from "lucide-react";
+import { Crown, Shield, Clock, Building, Phone, ArrowRight, Quote, Key, Home as HomeIcon, MapPin } from "lucide-react";
 
 const advantages = [
   { 
-    title: "PONCTUALITÉ SUISSE", 
-    desc: "Arrivée garantie 5 minutes avant l&apos;heure convenue. Sans exception.", 
-    icon: Clock,
+    title: "EXPERTISE LOCALE", 
+    desc: "Connaissance approfondie du marché immobilier algérois et expertise juridique.", 
+    icon: MapPin,
     premium: true 
   },
   { 
-    title: "CONFORT ABSOLU", 
-    desc: "Véhicules premium avec climatisation, Wi-Fi et rafraîchissements inclus.", 
-    icon: Car,
+    title: "BIENS EXCLUSIFS", 
+    desc: "Portefeuille de propriétés de prestige sélectionnées avec soin.", 
+    icon: Building,
     premium: false 
   },
   { 
-    title: "SÉCURITÉ TOTALE", 
-    desc: "Chauffeurs professionnels, véhicules entretenus, assurance premium.", 
+    title: "SERVICE PREMIUM", 
+    desc: "Accompagnement personnalisé de la recherche à la signature.", 
     icon: Shield,
     premium: false 
   },
   { 
-    title: "DISCRÉTION ABSOLUE", 
-    desc: "Confidentialité garantie. Vos trajets restent entre nous.", 
+    title: "CONFIDENTIALITÉ", 
+    desc: "Discrétion absolue pour vos transactions immobilières.", 
     icon: Crown,
     premium: true 
   },
 ];
 
-const featuredRoutes = [
-  { city: "Monaco", price: 60, description: "Principauté de Monaco", premium: true },
-  { city: "Nice Aéroport", price: 100, description: "Terminal VIP", premium: true },
-  { city: "Cannes", price: 130, description: "Croisette & Palais", premium: false },
-  { city: "Saint-Tropez", price: 320, description: "Port & Plages", premium: true },
-  { city: "San Remo", price: 100, description: "Riviera italienne", premium: false },
-  { city: "Milan", price: 600, description: "Fashion District", premium: true },
+const featuredProperties = [
+  { location: "Hydra", price: "850M", description: "Villa moderne vue mer", premium: true },
+  { location: "Bab Ezzouar", price: "450M", description: "Appartement standing", premium: true },
+  { location: "Alger Centre", price: "1.2Md", description: "Penthouse luxueux", premium: false },
+  { location: "Dely Ibrahim", price: "680M", description: "Villa familiale", premium: true },
+  { location: "Ben Aknoun", price: "520M", description: "Appartement neuf", premium: false },
+  { location: "Cheraga", price: "950M", description: "Villa avec piscine", premium: true },
 ];
 
 const testimonials = [
   {
-    text: "Un service irréprochable pour nos événements d&apos;entreprise. Ponctualité, discrétion et véhicules exceptionnels. Gran Turismo Riviera est devenu notre partenaire exclusif.",
-    author: "Marie C.",
-    role: "Directrice Événementiel",
-    company: "Luxury Events Monaco"
+    text: "elwakil_immobilier m'a aidé à trouver la villa de mes rêves à Hydra. Service exceptionnel, conseils avisés et suivi irréprochable. Une équipe de vrais professionnels.",
+    author: "Amina K.",
+    role: "Chef d'entreprise",
+    company: "Alger, Hydra"
   },
   {
-    text: "Depuis 3 ans, je fais confiance à GT Riviera pour mes déplacements professionnels. Un service premium qui justifie amplement son tarif. Recommandé sans hésitation.",
-    author: "Philippe M.",
-    role: "CEO",
-    company: "Tech Solutions Nice"
+    text: "Après avoir visité plusieurs agences, j'ai choisi elwakil_immobilier pour leur sérieux et leur expertise. Ils ont négocié le meilleur prix pour mon appartement à Bab Ezzouar.",
+    author: "Karim B.",
+    role: "Investisseur",
+    company: "Alger, Bab Ezzouar"
   },
   {
-    text: "Pour notre mariage à Cannes, l&apos;équipe a été parfaite. Coordination impeccable, véhicules immaculés et chauffeurs d&apos;une courtoisie exemplaire. Merci pour cette journée parfaite.",
-    author: "Isabella & Marco",
-    role: "Mariés",
-    company: "Villa Ephrussi, Cap Ferrat"
+    text: "Vente de notre maison familiale réalisée en moins de 2 mois ! L'équipe de elwakil_immobilier est très professionnelle et offre un service personnalisé remarquable.",
+    author: "Fatima & Ahmed",
+    role: "Propriétaires",
+    company: "Alger, Dely Ibrahim"
   }
 ];
 
 const stats = [
-  { number: "2009", label: "Année de Création", suffix: "" },
-  { number: "500", label: "Clients Privilégiés", suffix: "+" },
-  { number: "24", label: "Service Disponible", suffix: "/7" },
-  { number: "100", label: "Satisfaction Client", suffix: "%" },
+  { number: "2018", label: "Année de Création", suffix: "" },
+  { number: "300", label: "Biens Vendus", suffix: "+" },
+  { number: "95", label: "Satisfaction Client", suffix: "%" },
+  { number: "15", label: "Quartiers Couverts", suffix: "+" },
 ];
 
 const services = [
   {
-    title: "TRANSFERTS AÉROPORT",
-    description: "Service premium depuis/vers tous les aéroports de la Côte d&apos;Azur",
-    features: ["Suivi de vol", "Accueil personnalisé", "Assistance bagages"],
+    title: "VENTE IMMOBILIÈRE",
+    description: "Expertise complète pour la vente de votre bien immobilier",
+    features: ["Estimation gratuite", "Marketing digital", "Négociation optimisée"],
     href: "/services"
   },
   {
-    title: "ÉVÉNEMENTS PRESTIGE", 
-    description: "Coordination complète pour vos événements les plus importants",
-    features: ["Équipe dédiée", "Flotte multi-véhicules", "Coordination timing"],
+    title: "LOCATION & GESTION", 
+    description: "Gestion locative complète de vos investissements immobiliers",
+    features: ["Sélection locataires", "Gestion administrative", "Maintenance assurée"],
     href: "/services"
   },
   {
-    title: "TOURS PRIVÉS",
-    description: "Découverte exclusive des joyaux de la Riviera avec guide expert",
-    features: ["Itinéraires secrets", "Arrêts photographiques", "Recommandations VIP"],
+    title: "CONSEIL EN INVESTISSEMENT",
+    description: "Accompagnement personnalisé pour vos projets d'investissement",
+    features: ["Étude de marché", "Analyse rentabilité", "Suivi juridique"],
     href: "/services"
   }
 ];
@@ -108,7 +108,7 @@ export default function Home(): ReactElement {
                 Nos <span className="golden-accent">Atouts</span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Quatre piliers d&apos;excellence qui font de nous le choix des connaisseurs
+                Quatre piliers d&apos;excellence qui font de nous le leader de l'immobilier de luxe à Alger
               </p>
             </div>
           </Reveal>
@@ -147,8 +147,8 @@ export default function Home(): ReactElement {
                 </h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
                 <p className="text-lg text-white/85 leading-relaxed mb-12">
-                  De l&apos;aéroport à vos événements les plus prestigieux, 
-                  nous orchestrons chaque trajet avec l&apos;excellence d&apos;un maître horloger suisse.
+                  De la recherche à la signature, nous orchestrons chaque transaction immobilière 
+                  avec l'expertise et la discrétion que méritent nos clients privilégiés.
                 </p>
                 <Button 
                   variant="gold" 
@@ -157,7 +157,7 @@ export default function Home(): ReactElement {
                   className="mafia-glow premium-shadow"
                 >
                   <Link href="/services" className="flex items-center gap-3">
-                    <Crown className="w-5 h-5" />
+                    <Building className="w-5 h-5" />
                     DÉCOUVRIR NOS SERVICES
                   </Link>
                 </Button>
@@ -200,32 +200,32 @@ export default function Home(): ReactElement {
           <Reveal>
             <div className="text-center mb-16">
               <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
-                Tarifs <span className="golden-accent">Transparents</span>
+                Biens <span className="golden-accent">d&apos;Exception</span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Des prix justes pour un service d&apos;exception depuis Menton
+                Une sélection exclusive de propriétés de prestige à Alger
               </p>
             </div>
           </Reveal>
           
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
-            {featuredRoutes.map((route, idx) => (
-              <Reveal key={route.city} delay={idx * 100}>
+            {featuredProperties.map((property, idx) => (
+              <Reveal key={property.location} delay={idx * 100}>
                 <div className="luxury-card p-6 rounded-xl group hover:scale-105 transition-all duration-500">
                   <div className="flex items-center justify-between mb-4">
                     <div className="flex items-center gap-3">
-                      <div className={`w-3 h-3 rounded-full ${route.premium ? 'bg-accent-gold' : 'bg-accent-steel'}`} />
+                      <div className={`w-3 h-3 rounded-full ${property.premium ? 'bg-accent-gold' : 'bg-accent-steel'}`} />
                       <h3 className="mafia-heading text-lg text-white group-hover:text-accent-gold transition-colors duration-300">
-                        {route.city}
+                        {property.location}
                       </h3>
-                      {route.premium && <Crown className="w-4 h-4 text-accent-gold" />}
+                      {property.premium && <Crown className="w-4 h-4 text-accent-gold" />}
                     </div>
                     <div className="mafia-heading text-2xl text-accent-gold">
-                      €{route.price}
+                      {property.price} DA
                     </div>
                   </div>
                   <p className="text-white/60 text-sm">
-                    {route.description}
+                    {property.description}
                   </p>
                 </div>
               </Reveal>
@@ -241,7 +241,7 @@ export default function Home(): ReactElement {
                 className="luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10"
               >
                 <Link href="/pricing">
-                  VOIR TOUS NOS TARIFS
+                  VOIR TOUS NOS BIENS
                 </Link>
               </Button>
             </div>
@@ -317,12 +317,12 @@ export default function Home(): ReactElement {
           <Reveal>
             <div className="text-center max-w-4xl mx-auto">
               <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
-                Rejoignez le 
-                <span className="golden-accent block">Cercle d&apos;Excellence</span>
+                Rejoignez nos 
+                <span className="golden-accent block">Clients Privilégiés</span>
               </h2>
               <p className="text-xl text-white/85 mb-12 max-w-2xl mx-auto">
-                Découvrez pourquoi les personnalités les plus exigeantes de la Riviera 
-                nous font confiance pour leurs déplacements les plus importants.
+                Découvrez pourquoi les personnalités les plus exigeantes d'Alger 
+                nous font confiance pour leurs projets immobiliers les plus importants.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
@@ -333,7 +333,7 @@ export default function Home(): ReactElement {
                 >
                   <Link href="/contact" className="flex items-center gap-3">
                     <Phone className="w-5 h-5" />
-                    RÉSERVER MAINTENANT
+                    NOUS CONTACTER
                   </Link>
                 </Button>
                 <Button 
@@ -343,7 +343,7 @@ export default function Home(): ReactElement {
                   className="luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10 hover:border-accent-gold/60 text-lg px-12 py-5"
                 >
                   <Link href="/about">
-                    DÉCOUVRIR NOTRE HISTOIRE
+                    DÉCOUVRIR NOTRE AGENCE
                   </Link>
                 </Button>
               </div>

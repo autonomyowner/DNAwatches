@@ -29,20 +29,19 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — Chauffeur Privé`,
+    default: `${siteConfig.name} — Immobilier de Luxe`,
     template: `%s — ${siteConfig.name}`,
   },
-  description: "Chauffeur privé premium sur la Côte d'Azur et en Italie du Nord. Transferts en berline ou van, aéroports, événements, tours.",
+  description: siteConfig.description,
   metadataBase: new URL(siteConfig.baseUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${siteConfig.name} — Chauffeur Privé`,
-    description:
-      "Chauffeur privé premium sur la Côte d'Azur et en Italie du Nord. Transferts en berline ou van, aéroports, événements, tours.",
+    title: `${siteConfig.name} — Immobilier de Luxe`,
+    description: siteConfig.description,
     url: "/",
     siteName: siteConfig.name,
     type: "website",
-    locale: "fr_FR",
+    locale: "fr_DZ",
     images: [
       {
         url: "/og-default.jpg",
@@ -54,9 +53,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Chauffeur Privé`,
-    description:
-      "Chauffeur privé premium sur la Côte d'Azur et en Italie du Nord. Transferts en berline ou van, aéroports, événements, tours.",
+    title: `${siteConfig.name} — Immobilier de Luxe`,
+    description: siteConfig.description,
   },
 };
 

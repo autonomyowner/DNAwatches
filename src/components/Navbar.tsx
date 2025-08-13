@@ -1,8 +1,9 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState, type ReactElement } from "react";
-import { Menu, Phone, X, Crown } from "lucide-react";
+import { Menu, Phone, X } from "lucide-react";
 
 export default function Navbar(): ReactElement {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,9 +39,15 @@ export default function Navbar(): ReactElement {
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Primary">
         <div className="flex items-center gap-3">
           <Link href="/" className="group flex items-center gap-3">
-            <Crown className="w-7 h-7 text-accent-gold group-hover:rotate-12 transition-transform duration-300" />
+            <Image 
+              src="/logoelwakil.jpg" 
+              alt="elwakil_immobilier" 
+              width={40} 
+              height={40} 
+              className="group-hover:scale-110 transition-transform duration-300"
+            />
             <span className="mafia-heading text-2xl text-white tracking-wide group-hover:text-accent-gold transition-colors duration-300">
-              Gran Turismo Riviera
+              elwakil_immobilier
             </span>
           </Link>
         </div>
@@ -53,7 +60,7 @@ export default function Navbar(): ReactElement {
             Services
           </Link>
           <Link className="text-sm text-white/90 hover:text-accent-gold transition-colors duration-300 tracking-widest uppercase font-semibold hover:drop-shadow-lg" href="/pricing">
-            Tarifs
+            Biens
           </Link>
           <Link className="text-sm text-white/90 hover:text-accent-gold transition-colors duration-300 tracking-widest uppercase font-semibold hover:drop-shadow-lg" href="/contact">
             Contact
@@ -66,7 +73,7 @@ export default function Navbar(): ReactElement {
             className="group mafia-glow premium-shadow inline-flex items-center gap-2 bg-gradient-to-r from-accent-gold to-accent-gold-bright text-black px-8 py-3 text-sm font-bold rounded-lg hover:shadow-xl hover:shadow-accent-gold/30 transform hover:scale-105 transition-all duration-300 tracking-widest uppercase"
           >
             <Phone size={16} className="group-hover:rotate-12 transition-transform duration-300" />
-            RÉSERVER
+            CONTACT
           </Link>
         </div>
 
@@ -101,7 +108,7 @@ export default function Navbar(): ReactElement {
               className="block py-4 text-white/90 hover:text-accent-gold transition-colors duration-300 text-lg font-semibold tracking-wide border-b border-accent-gold/20 hover:border-accent-gold/50" 
               href="/pricing"
             >
-              TARIFS
+              BIENS
             </Link>
             <Link 
               onClick={handleCloseMenu} 
@@ -116,7 +123,7 @@ export default function Navbar(): ReactElement {
               className="mt-8 mafia-glow premium-shadow inline-flex w-full items-center justify-center gap-3 bg-gradient-to-r from-accent-gold to-accent-gold-bright text-black px-8 py-5 text-lg font-bold rounded-lg shadow-xl shadow-accent-gold/30 tracking-widest uppercase"
             >
               <Phone size={20} />
-              RÉSERVER MAINTENANT
+              NOUS CONTACTER
             </Link>
           </div>
         </div>

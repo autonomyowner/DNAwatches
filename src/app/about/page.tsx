@@ -1,35 +1,35 @@
 export const metadata = {
-  title: "À propos - L'Excellence à l'État Pur",
+  title: "À propos - L'Immobilier de Prestige à Alger",
 };
 
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
-import { Crown, Shield, Star, Clock, Users, Car } from "lucide-react";
+import { Crown, Shield, Star, Clock, Users, Building } from "lucide-react";
 import type { ReactElement } from "react";
 
 const stats = [
-  { number: "15+", label: "Années d'Excellence", icon: Crown },
-  { number: "500+", label: "Clients Privilégiés", icon: Users },
-  { number: "24/7", label: "Service Disponible", icon: Clock },
-  { number: "100%", label: "Satisfaction Garantie", icon: Star },
+  { number: "6+", label: "Années d'Expérience", icon: Crown },
+  { number: "300+", label: "Biens Vendus", icon: Building },
+  { number: "15+", label: "Quartiers Couverts", icon: Star },
+  { number: "95%", label: "Satisfaction Client", icon: Users },
 ];
 
 const values = [
   {
-    title: "DISCRÉTION ABSOLUE",
-    description: "Votre confidentialité est notre code d'honneur. Chaque trajet reste entre nous.",
+    title: "CONFIDENTIALITÉ TOTALE",
+    description: "Vos transactions immobilières restent strictement confidentielles. Discrétion garantie.",
     icon: Shield,
   },
   {
-    title: "EXCELLENCE INTEMPORELLE",
-    description: "Depuis 15 ans, nous cultivons l'art du service irréprochable.",
+    title: "EXCELLENCE IMMOBILIÈRE",
+    description: "Depuis 2018, nous excellons dans l'accompagnement de projets immobiliers d'exception.",
     icon: Crown,
   },
   {
-    title: "FLOTTE PRESTIGIEUSE", 
-    description: "Véhicules haut de gamme entretenus avec la précision d'un horloger suisse.",
-    icon: Car,
+    title: "BIENS EXCLUSIFS", 
+    description: "Portefeuille soigneusement sélectionné de propriétés de prestige à Alger.",
+    icon: Building,
   },
 ];
 
@@ -46,7 +46,7 @@ export default function AboutPage(): ReactElement {
             <Reveal>
               <div className="mb-8">
                 <span className="luxury-card mafia-glow px-6 py-3 text-accent-gold text-sm font-semibold tracking-widest uppercase">
-                  L&apos;Art du Raffinement
+                  L&apos;Art de l&apos;Immobilier
                 </span>
               </div>
             </Reveal>
@@ -54,14 +54,14 @@ export default function AboutPage(): ReactElement {
             <Reveal delay={200}>
               <h1 className="mafia-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.9] mb-8">
                 <span className="block">NOTRE</span>
-                <span className="block golden-accent">LÉGENDE</span>
+                <span className="block golden-accent">HISTOIRE</span>
               </h1>
             </Reveal>
             
             <Reveal delay={400}>
               <p className="text-2xl sm:text-3xl text-white/90 max-w-3xl leading-relaxed font-light">
-                Depuis quinze ans, nous écrivons l&apos;histoire du luxe automobile sur la Riviera. 
-                <span className="golden-accent font-medium"> Une tradition d&apos;excellence qui transcende le temps.</span>
+                Depuis 2018, nous redéfinissons l&apos;immobilier de prestige à Alger. 
+                <span className="golden-accent font-medium"> Une expertise locale au service de l&apos;excellence.</span>
               </p>
             </Reveal>
           </div>
@@ -103,24 +103,24 @@ export default function AboutPage(): ReactElement {
               <div className="space-y-8">
                 <div>
                   <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
-                    L&apos;Art de la 
-                    <span className="golden-accent block">Distinction</span>
+                    L&apos;Art de 
+                    <span className="golden-accent block">l&apos;Immobilier</span>
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
                 </div>
                 
                 <div className="space-y-6 text-lg text-white/85 leading-relaxed">
                   <p>
-                    Dans les ruelles pavées de Monaco aux avenues prestigieuses de Milan, 
-                    Gran Turismo Riviera s&apos;est forgé une réputation sans égale.
+                    Des quartiers huppés d&apos;Hydra aux résidences modernes de Bab Ezzouar, 
+                    elwakil_immobilier s&apos;est forgé une réputation d&apos;excellence.
                   </p>
                   <p>
-                    Nous ne sommes pas simplement un service de chauffeur. Nous sommes les 
-                    gardiens d&apos;une tradition, les architectes d&apos;expériences inoubliables, 
-                    les complices silencieux de vos moments les plus précieux.
+                    Nous ne sommes pas simplement une agence immobilière. Nous sommes les 
+                    architectes de vos projets de vie, les gardiens de votre confiance, 
+                    les complices discrets de vos investissements les plus importants.
                   </p>
                   <p className="golden-accent font-medium">
-                    Chaque trajet est une œuvre d&apos;art. Chaque client, une histoire unique.
+                    Chaque transaction est unique. Chaque client, une priorité absolue.
                   </p>
                 </div>
               </div>
@@ -132,8 +132,8 @@ export default function AboutPage(): ReactElement {
                   <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-background-tertiary to-accent-burgundy/10" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-8 left-8 right-8">
-                    <h3 className="mafia-heading text-2xl text-white mb-2">Véhicules d&apos;Exception</h3>
-                    <p className="text-white/80 text-sm">BMW i5, Mercedes V-Class, et plus encore</p>
+                    <h3 className="mafia-heading text-2xl text-white mb-2">Biens d&apos;Exception</h3>
+                    <p className="text-white/80 text-sm">Villas, appartements de luxe et investissements</p>
                   </div>
                   <div className="absolute top-8 right-8">
                     <Crown className="w-8 h-8 text-accent-gold" />
@@ -195,22 +195,22 @@ export default function AboutPage(): ReactElement {
                 <span className="golden-accent block">Cercle Privilégié</span>
               </h2>
               <p className="text-xl text-white/85 mb-12 max-w-2xl mx-auto">
-                Découvrez pourquoi les personnalités les plus exigeantes nous font confiance 
-                pour leurs déplacements les plus importants.
+                Découvrez pourquoi les investisseurs les plus avisés d&apos;Alger nous font confiance 
+                pour leurs projets immobiliers les plus ambitieux.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a 
                   href="/contact" 
                   className="mafia-glow premium-shadow inline-flex items-center justify-center gap-3 bg-gradient-to-r from-accent-gold to-accent-gold-bright text-black px-12 py-5 text-lg font-bold rounded-lg hover:scale-105 transition-all duration-300 tracking-widest uppercase"
                 >
-                  <Crown className="w-5 h-5" />
+                  <Building className="w-5 h-5" />
                   DÉCOUVRIR NOS SERVICES
                 </a>
                 <a 
                   href="/pricing" 
                   className="luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10 hover:border-accent-gold/60 inline-flex items-center justify-center px-12 py-5 text-lg font-medium rounded-lg transition-all duration-300 tracking-wide"
                 >
-                  VOIR NOS TARIFS
+                  VOIR NOS BIENS
                 </a>
               </div>
             </div>
