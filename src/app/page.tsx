@@ -6,7 +6,7 @@ import Hero from "@/components/Hero";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
 import { siteConfig } from "@/config/site";
-import { CreditCard, Shield, Palette, Zap, Users, Quote, ChevronRight, Phone, PenTool, Hammer, Home as HomeIcon, MessageSquare } from "lucide-react";
+import { Shield, Palette, Zap, Users, Quote, ChevronRight, Phone, PenTool, Hammer, Home as HomeIcon, MessageSquare } from "lucide-react";
 
 const advantages = [
   { 
@@ -130,7 +130,7 @@ export default function Home(): ReactElement {
                   Nos <span className="text-transparent bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 bg-clip-text">Services</span>
               </h2>
               <p className="text-xl text-slate-700 max-w-3xl mx-auto">
-                Nous vous accompagnons de l'idée à la réalisation, avec des solutions complètes qui allient architecture, construction, rénovation et ameublement sur mesure.
+                Nous vous accompagnons de l&apos;idée à la réalisation, avec des solutions complètes qui allient architecture, construction, rénovation et ameublement sur mesure.
               </p>
             </div>
           </Reveal>
