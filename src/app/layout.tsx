@@ -29,14 +29,14 @@ const cormorant = Cormorant_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — Immobilier de Luxe`,
+    default: `${siteConfig.name} — Fabrication de Meubles Modernes`,
     template: `%s — ${siteConfig.name}`,
   },
   description: siteConfig.description,
   metadataBase: new URL(siteConfig.baseUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${siteConfig.name} — Immobilier de Luxe`,
+    title: `${siteConfig.name} — Fabrication de Meubles Modernes`,
     description: siteConfig.description,
     url: "/",
     siteName: siteConfig.name,
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Immobilier de Luxe`,
+    title: `${siteConfig.name} — Agence de Voyages et Tourisme`,
     description: siteConfig.description,
   },
 };
@@ -65,7 +65,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${cormorant.variable} antialiased pt-20`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${cormorant.variable} antialiased pt-20 bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900`}>
         <Navbar />
         <main>{children}</main>
         <Footer />

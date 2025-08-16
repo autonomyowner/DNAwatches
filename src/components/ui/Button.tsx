@@ -10,10 +10,10 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary: "bg-background-secondary text-white hover:bg-background-tertiary focus-visible:ring-accent-gold",
-        outline: "bg-transparent ring-1 ring-accent-gold/30 text-white hover:bg-accent-gold/10 hover:ring-accent-gold/50",
-        ghost: "bg-transparent text-white hover:bg-accent-gold/10",
-        gold: "bg-gradient-to-r from-accent-gold to-accent-gold-bright text-black font-semibold hover:from-accent-gold-bright hover:to-accent-gold hover:scale-105 focus-visible:ring-accent-gold shadow-lg hover:shadow-xl",
+        primary: "bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 text-white font-semibold hover:from-slate-800 hover:via-rose-800 hover:to-slate-800 hover:scale-105 focus-visible:ring-rose-900 shadow-lg hover:shadow-xl",
+        outline: "bg-transparent ring-1 ring-slate-700/50 text-white hover:bg-gradient-to-br hover:from-slate-900/20 hover:via-rose-900/20 hover:to-slate-900/20 hover:ring-rose-700/50",
+        ghost: "bg-transparent text-white hover:bg-gradient-to-br hover:from-slate-900/10 hover:via-rose-900/10 hover:to-slate-900/10",
+        secondary: "bg-[#A0B99F] text-white hover:bg-[#F9AFA7] focus-visible:ring-[#F28B82]",
       },
       size: {
         sm: "h-9 px-4 text-xs",

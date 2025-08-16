@@ -136,8 +136,8 @@ function ContactInner(): ReactElement {
       </Section>
 
       {/* Contact Methods */}
-      <Section className="relative bg-background-secondary">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent-smoke/5 via-transparent to-accent-steel/5" />
+      <Section className="relative bg-gray-50">
+        <div className="absolute inset-0 bg-gray-50" />
         
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -172,7 +172,7 @@ function ContactInner(): ReactElement {
 
       {/* Contact Form */}
       <Section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-background to-background-secondary" />
+        <div className="absolute inset-0 bg-white" />
         
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -204,7 +204,7 @@ function ContactInner(): ReactElement {
                         pour confirmer votre réservation.
                       </p>
                       <Button 
-                        variant="gold" 
+                        variant="primary" 
                         size="lg" 
                         asChild 
                         className="premium-shadow"
@@ -220,7 +220,7 @@ function ContactInner(): ReactElement {
                             NOM COMPLET *
                           </label>
                           <Input 
-                            className="luxury-card border-accent-gold/30 bg-background-tertiary text-white placeholder-white/40 focus:border-accent-gold" 
+                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
                             placeholder="Votre nom et prénom"
                             {...register("name")} 
                           />
@@ -233,7 +233,7 @@ function ContactInner(): ReactElement {
                             EMAIL *
                           </label>
                           <Input 
-                            className="luxury-card border-accent-gold/30 bg-background-tertiary text-white placeholder-white/40 focus:border-accent-gold" 
+                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
                             type="email" 
                             placeholder="votre@email.com"
                             {...register("email")} 
@@ -250,7 +250,7 @@ function ContactInner(): ReactElement {
                             TÉLÉPHONE
                           </label>
                           <Input 
-                            className="luxury-card border-accent-gold/30 bg-background-tertiary text-white placeholder-white/40 focus:border-accent-gold" 
+                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
                             placeholder="+33 6 XX XX XX XX"
                             {...register("phone")} 
                           />
@@ -260,7 +260,7 @@ function ContactInner(): ReactElement {
                             SERVICE SOUHAITÉ
                           </label>
                           <Input 
-                            className="luxury-card border-accent-gold/30 bg-background-tertiary text-white placeholder-white/40 focus:border-accent-gold" 
+                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
                             placeholder="Transfert, Événement, Tour..."
                             {...register("service")} 
                           />
@@ -273,7 +273,7 @@ function ContactInner(): ReactElement {
                             POINT DE DÉPART *
                           </label>
                           <Input 
-                            className="luxury-card border-accent-gold/30 bg-background-tertiary text-white placeholder-white/40 focus:border-accent-gold" 
+                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
                             placeholder="Adresse de prise en charge"
                             {...register("pickup")} 
                           />
@@ -286,7 +286,7 @@ function ContactInner(): ReactElement {
                             DESTINATION *
                           </label>
                           <Input 
-                            className="luxury-card border-accent-gold/30 bg-background-tertiary text-white placeholder-white/40 focus:border-accent-gold" 
+                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
                             placeholder="Adresse de destination"
                             {...register("dropoff")} 
                           />
@@ -301,7 +301,7 @@ function ContactInner(): ReactElement {
                           DATE & HEURE *
                         </label>
                         <Input 
-                          className="luxury-card border-accent-gold/30 bg-background-tertiary text-white focus:border-accent-gold" 
+                          className="luxury-card border-gray-300 bg-background-tertiary text-white focus:border-teal-500" 
                           type="datetime-local" 
                           {...register("datetime")} 
                         />
@@ -315,7 +315,7 @@ function ContactInner(): ReactElement {
                           DEMANDES SPÉCIALES
                         </label>
                         <Textarea 
-                          className="luxury-card border-accent-gold/30 bg-background-tertiary text-white placeholder-white/40 focus:border-accent-gold min-h-[120px]" 
+                          className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500 min-h-[120px]" 
                           rows={4} 
                           placeholder="Bagages spéciaux, arrêts intermédiaires, préférences..."
                           {...register("message")} 
@@ -325,7 +325,7 @@ function ContactInner(): ReactElement {
                       <Button 
                         type="submit" 
                         disabled={isSubmitting} 
-                        variant="gold"
+                        variant="primary"
                         size="lg"
                         className="w-full mafia-glow premium-shadow text-lg py-5"
                       >
@@ -384,7 +384,7 @@ function ContactInner(): ReactElement {
 
                   <div className="mt-8 pt-6 border-t border-accent-gold/20">
                     <div className="luxury-card rounded-xl overflow-hidden aspect-square relative">
-                      <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-background-tertiary to-accent-burgundy/10" />
+                      <div className="absolute inset-0 bg-gray-50" />
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-center">
                           <Crown className="w-12 h-12 text-accent-gold mx-auto mb-4" />

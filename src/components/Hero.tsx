@@ -1,43 +1,22 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useMemo, useState, type ReactElement } from "react";
+import { type ReactElement } from "react";
 import { motion } from "framer-motion";
 import Container from "@/components/Container";
 import Button from "@/components/ui/Button";
 
 export default function Hero(): ReactElement {
-  const configuredSrc = useMemo(() => process.env.NEXT_PUBLIC_HERO_VIDEO_URL, []);
-  const [videoError, setVideoError] = useState(false);
-
-  // Use herovideo.mp4 as primary source for the mafia vibe
-  const [sourceList, setSourceList] = useState<string[]>([]);
-  useEffect(() => {
-    const candidates = [configuredSrc, "/hero2.mp4"].filter(Boolean) as string[];
-    setSourceList(candidates);
-  }, [configuredSrc]);
 
   return (
     <section className="relative isolate overflow-hidden">
       <div className="relative h-screen w-full flex items-center film-grain" aria-label="Premium real estate agency">
-        {!videoError && (
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            preload="metadata"
-            onError={() => setVideoError(true)}
-            className="absolute inset-0 h-full w-full object-cover scale-105"
-            poster="/hero.jpg"
-            aria-hidden
-            disablePictureInPicture
-          >
-            {sourceList.map((src) => (
-              <source key={src} src={src} type="video/mp4" />
-            ))}
-          </video>
-        )}
+        {/* Hero background image */}
+        <div 
+          className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }}
+          aria-hidden
+        />
         
         {/* Enhanced cinematic overlays */}
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
@@ -45,13 +24,13 @@ export default function Hero(): ReactElement {
         <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
         
         {/* Sophisticated lighting effects */}
-        <div className="absolute top-0 left-1/3 w-2/3 h-1/2 bg-gradient-radial from-accent-gold/8 to-transparent opacity-40" />
-        <div className="absolute bottom-0 right-1/3 w-1/2 h-2/3 bg-gradient-radial from-accent-burgundy/12 to-transparent opacity-30" />
-        <div className="absolute top-1/4 left-0 w-1/3 h-1/2 bg-gradient-radial from-accent-smoke/6 to-transparent opacity-25" />
+        <div className="absolute top-0 left-1/3 w-2/3 h-1/2 bg-gradient-radial from-teal-500/8 to-transparent opacity-40" />
+        <div className="absolute bottom-0 right-1/3 w-1/2 h-2/3 bg-gradient-radial from-cyan-500/12 to-transparent opacity-30" />
+        <div className="absolute top-1/4 left-0 w-1/3 h-1/2 bg-gradient-radial from-slate-600/6 to-transparent opacity-25" />
         
-        {/* Enhanced vignette with golden accent */}
+        {/* Enhanced vignette with teal accent */}
         <div className="absolute inset-0 shadow-[inset_0_0_300px_rgba(0,0,0,0.9)]" />
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(255,215,0,0.03)]" />
+        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(20,184,166,0.03)]" />
         
         <Container>
           <motion.div 
@@ -66,8 +45,8 @@ export default function Hero(): ReactElement {
               transition={{ duration: 1, delay: 0.3 }}
               className="mb-8"
             >
-              <span className="inline-block px-6 py-3 luxury-card mafia-glow text-accent-gold text-sm font-semibold tracking-widest uppercase">
-                IMMOBILIER DE LUXE
+              <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
+                FABRICATION DE MEUBLES MODERNES
               </span>
             </motion.div>
             
@@ -78,11 +57,11 @@ export default function Hero(): ReactElement {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <span className="block relative">
-                elwakil_immobilier
-                <div className="absolute -inset-2 bg-gradient-to-r from-accent-gold/5 via-transparent to-accent-gold/5 blur-xl" />
+                TRIOMPHE HOME DESIGN
+                <div className="absolute -inset-2 bg-gradient-to-r from-[#F28B82]/10 via-transparent to-[#F28B82]/10 blur-xl" />
               </span>
-              <span className="block golden-accent text-4xl sm:text-6xl lg:text-7xl font-light italic mt-2">
-                Alger, Algeria
+              <span className="block text-[#F28B82] text-4xl sm:text-6xl lg:text-7xl font-light italic mt-2">
+                Vos Meubles Sur Mesure
               </span>
             </motion.h1>
             
@@ -92,9 +71,9 @@ export default function Hero(): ReactElement {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
             >
-              Agence immobilière de prestige spécialisée dans la vente, location et gestion de biens d&apos;exception. 
+              Fabrication de tous types de meubles et décorations modernes selon vos demandes. 
               <br className="hidden sm:block" />
-              <span className="golden-accent font-medium"> Expertise locale. Service premium. Confidentialité assurée.</span>
+              <span className="text-[#F9AFA7] font-medium"> Cuisine, dressing, meuble TV, coiffeuse, lit capitonné, armoire, bureau...</span>
             </motion.p>
             
             <motion.div 
@@ -103,14 +82,14 @@ export default function Hero(): ReactElement {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.9 }}
             >
-              <Button variant="gold" size="lg" asChild className="premium-shadow mafia-glow">
+              <Button variant="primary" size="lg" asChild className="premium-shadow mafia-glow">
                 <Link href="/contact" className="text-lg px-10 py-5 font-semibold tracking-wide">
-                  NOUS CONTACTER
+                  DEMANDER UN DEVIS
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10 hover:border-accent-gold/60 transition-all duration-300">
-                <Link href="/contact?type=estimate" className="text-lg px-10 py-5 font-medium tracking-wide">
-                  ESTIMATION GRATUITE
+              <Button variant="outline" size="lg" asChild className="luxury-card bg-gradient-to-br from-slate-900 via-red-900 to-slate-900 border-slate-900/40 text-white hover:bg-red-900/10 hover:border-red-900/60 transition-all duration-300">
+                <Link href="/pricing" className="text-lg px-10 py-5 font-medium tracking-wide">
+                  NOS SERVICES
                 </Link>
               </Button>
             </motion.div>
@@ -123,17 +102,17 @@ export default function Hero(): ReactElement {
               transition={{ duration: 1, delay: 1.5 }}
             >
               <p className="smoke-text text-sm tracking-[0.2em] uppercase font-medium">
-                Découvrir nos biens exclusifs
+                Découvrez notre expertise artisanale
               </p>
               <motion.div
-                className="w-px h-20 bg-gradient-to-b from-accent-gold via-accent-gold/50 to-transparent mx-auto mt-6 relative"
+                className="w-px h-20 bg-gradient-to-b from-[#F28B82] via-[#F28B82]/50 to-transparent mx-auto mt-6 relative"
                 animate={{ 
                   scaleY: [1, 0.3, 1],
                   opacity: [0.8, 0.4, 0.8]
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-accent-gold rounded-full animate-pulse" />
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-[#F28B82] rounded-full animate-pulse" />
               </motion.div>
             </motion.div>
           </motion.div>

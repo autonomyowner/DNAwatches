@@ -70,7 +70,7 @@ export default function PricingPage(): ReactElement {
     <>
       {/* Hero Section */}
       <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
-        <div className="absolute inset-0 bg-gradient-to-br from-background via-background-secondary to-background" />
+        <div className="absolute inset-0 bg-white" />
         <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-radial from-accent-gold/6 to-transparent opacity-40" />
         <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-gradient-radial from-accent-burgundy/8 to-transparent opacity-30" />
         
@@ -102,7 +102,7 @@ export default function PricingPage(): ReactElement {
       </Section>
 
       {/* Packages Section */}
-      <Section className="relative bg-background-secondary">
+      <Section className="relative bg-gray-50">
         <div className="absolute inset-0 bg-gradient-to-b from-accent-smoke/5 via-transparent to-accent-steel/5" />
         
         <Container>
@@ -155,7 +155,7 @@ export default function PricingPage(): ReactElement {
                   </div>
                   
                   <Button 
-                    variant={service.popular ? "gold" : "outline"} 
+                    variant={service.popular ? "primary" : "outline"} 
                     size="lg" 
                     asChild 
                     className={`w-full ${service.popular ? 'premium-shadow' : 'luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10'}`}
@@ -174,7 +174,7 @@ export default function PricingPage(): ReactElement {
 
       {/* Routes & Destinations */}
       <Section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-background to-background-secondary" />
+        <div className="absolute inset-0 bg-white" />
         
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
@@ -190,7 +190,7 @@ export default function PricingPage(): ReactElement {
                   les plus recherchés de la capitale et sa banlieue.
                 </p>
                 <div className="luxury-card rounded-2xl overflow-hidden aspect-[4/3] relative">
-                  <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/10 via-background-tertiary to-accent-burgundy/10" />
+                  <div className="absolute inset-0 bg-gray-50" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex items-center gap-3">
@@ -207,7 +207,7 @@ export default function PricingPage(): ReactElement {
             
             <Reveal delay={300}>
               <div className="luxury-card rounded-2xl overflow-hidden">
-                <div className="bg-gradient-to-r from-accent-gold/20 via-background-tertiary to-accent-burgundy/20 p-6 border-b border-accent-gold/20">
+                <div className="bg-[#123524] p-6 border-b border-teal-400/20">
                   <h3 className="mafia-heading text-2xl text-white mb-2">Biens Disponibles</h3>
                   <p className="text-white/80 text-sm">Sélection de propriétés d&apos;exception</p>
                 </div>
@@ -249,7 +249,7 @@ export default function PricingPage(): ReactElement {
       </Section>
 
       {/* Guarantees */}
-      <Section className="relative bg-background-secondary">
+      <Section className="relative bg-gray-50">
         <div className="absolute inset-0 bg-gradient-to-r from-accent-burgundy-dark/10 via-transparent to-accent-gold/5" />
         
         <Container>
@@ -302,7 +302,7 @@ export default function PricingPage(): ReactElement {
 
       {/* CTA Section */}
       <Section className="relative">
-        <div className="absolute inset-0 bg-gradient-to-br from-accent-gold/5 via-background to-accent-burgundy-dark/10" />
+        <div className="absolute inset-0 bg-gray-50" />
         
         <Container>
           <Reveal>
@@ -317,7 +317,7 @@ export default function PricingPage(): ReactElement {
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
-                  variant="gold" 
+                  variant="primary" 
                   size="lg" 
                   asChild 
                   className="mafia-glow premium-shadow text-lg px-12 py-5"
