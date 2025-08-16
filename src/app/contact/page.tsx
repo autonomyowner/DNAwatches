@@ -183,7 +183,7 @@ function ContactInner(): ReactElement {
                     <span className="golden-accent block">Contact</span>
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-6" />
-                  <p className="text-lg text-white/85 leading-relaxed">
+                  <p className="text-lg leading-relaxed bg-gradient-to-br from-slate-900 via-amber-400 to-slate-900 bg-clip-text text-transparent font-bold">
                     Complétez ce formulaire pour votre projet de meubles sur mesure. 
                     Chaque détail compte pour créer votre mobilier idéal.
                   </p>

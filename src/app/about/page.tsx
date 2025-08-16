@@ -113,7 +113,7 @@ export default function AboutPage(): ReactElement {
                   <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
                 </div>
                 
-                <div className="space-y-6 text-lg text-white/85 leading-relaxed">
+                <div className="space-y-6 text-lg leading-relaxed bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent font-bold">
                   <p>
                     Des familles aux entreprises de la région de Setif, 
                     Triomphe Home Design s&apos;est forgé une réputation d&apos;excellence.
@@ -123,7 +123,7 @@ export default function AboutPage(): ReactElement {
                     artisans de votre confort, les créateurs de vos espaces, 
                     les complices de votre bien-être quotidien.
                   </p>
-                  <p className="golden-accent font-medium">
+                  <p>
                     Chaque meuble est unique. Chaque client, une priorité absolue.
                   </p>
                 </div>

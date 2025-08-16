@@ -43,9 +43,9 @@ export default function Hero(): ReactElement {
               transition={{ duration: 1, delay: 0.5 }}
             >
               <span 
-                className="block relative font-light italic text-6xl sm:text-8xl lg:text-9xl" 
+                className="block relative font-light text-6xl sm:text-8xl lg:text-9xl tracking-wider" 
                 style={{ 
-                  fontFamily: 'var(--font-dancing)',
+                  fontFamily: 'var(--font-cormorant)',
                   textShadow: '4px 4px 8px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,0.5)'
                 }}
               >
@@ -53,12 +53,15 @@ export default function Hero(): ReactElement {
                 <span className="absolute -inset-4 bg-gradient-to-r from-white/20 via-transparent to-white/20 blur-2xl -z-10" />
               </span>
               <span 
-                className="block font-light text-5xl sm:text-7xl lg:text-8xl mt-2 tracking-wider" 
+                className="block font-light italic text-3xl sm:text-5xl lg:text-6xl mt-2" 
                 style={{ 
-                  fontFamily: 'var(--font-cormorant)',
+                  fontFamily: 'var(--font-dancing)',
                 }}
               >
-                HOME DESIGN
+                <span className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent font-bold">
+                  HOME
+                </span>{" "}
+                DESIGN
               </span>
               <span 
                 className="block text-white/90 text-3xl sm:text-5xl lg:text-6xl font-light italic mt-4" 
@@ -81,9 +84,9 @@ export default function Hero(): ReactElement {
                 textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
               }}
             >
-              Fabrication de meubles sur mesure, construction, rénovation et services d&apos;architecture & design. 
+              Construction • Rénovation • Aménagement • Ameublement
               <br className="hidden sm:block" />
-              <span className="font-medium text-white/95"> Cuisine, dressing, meuble TV, coiffeuse, lit capitonné, armoire, bureau, construction et conception architecturale...</span>
+              <span className="font-medium text-white/95">De la conception architecturale à la réalisation sur mesure, nous créons et transformons vos espaces : cuisines, dressings, bureaux, meubles TV, lits capitonnés, armoires, et bien plus.</span>
             </motion.p>
             
             <motion.div 
