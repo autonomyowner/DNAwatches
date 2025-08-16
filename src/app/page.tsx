@@ -37,22 +37,22 @@ const advantages = [
 
 const featuredServices = [
   { 
-    title: "Cuisine Sur Mesure", 
-    description: "Fabrication cuisine moderne complète avec finitions premium", 
-    icon: CreditCard,
-    features: ["Design personnalisé", "Matériaux premium", "Installation incluse"]
+    title: "🏗️ Construction & Rénovation", 
+    description: "Projets résidentiels et commerciaux", 
+    icon: Hammer,
+    features: ["Travaux de gros œuvre et de finition", "Rénovation intérieure et extérieure", "Projets clés en main"]
   },
   { 
-    title: "Dressing", 
-    description: "Dressing personnalisé optimisé pour votre espace", 
-    icon: Users,
-    features: ["Rangement optimisé", "Finitions parfaites", "Sur mesure"]
+    title: "🏡 Aménagement & Design", 
+    description: "Conception architecturale personnalisée", 
+    icon: PenTool,
+    features: ["Optimisation d'espaces intérieurs", "Décoration et design contemporain", "Conseils personnalisés"]
   },
   { 
-    title: "Meuble TV", 
-    description: "Meuble TV design moderne et fonctionnel", 
-    icon: Zap,
-    features: ["Design épuré", "Câblage intégré", "Matériaux nobles"]
+    title: "🪑 Ameublement Sur Mesure", 
+    description: "Cuisine moderne avec finitions premium", 
+    icon: Palette,
+    features: ["Dressing personnalisé optimisé pour votre espace", "Meuble TV & mobilier design avec matériaux nobles", "Bureaux, lits capitonnés, armoires, coiffeuses et plus"]
   }
 ];
 
@@ -130,7 +130,7 @@ export default function Home(): ReactElement {
                   Nos <span className="text-transparent bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 bg-clip-text">Services</span>
               </h2>
               <p className="text-xl text-slate-700 max-w-3xl mx-auto">
-                Fabrication sur mesure de meubles haut de gamme, alliant tradition artisanale et design contemporain
+                Nous vous accompagnons de l'idée à la réalisation, avec des solutions complètes qui allient architecture, construction, rénovation et ameublement sur mesure.
               </p>
             </div>
           </Reveal>
@@ -138,20 +138,13 @@ export default function Home(): ReactElement {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {featuredServices.map((service, idx) => (
               <Reveal key={service.title} delay={idx * 200}>
-                <div className="luxury-card relative bg-[#F6D0CB]/80 backdrop-blur-lg border border-[#F28B82]/30 p-8 rounded-xl hover:shadow-2xl hover:shadow-[#F28B82]/20 transition-all duration-500 group overflow-hidden">
-                  {/* Background image */}
-                  <div 
-                    className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-                    style={{ backgroundImage: "url('/photo-1714060335405-81b17c8c0a22.avif')" }}
-                  />
-                  <div className="absolute inset-0 bg-[#F6D0CB]/85" />
-                  
-                  <service.icon className="w-16 h-16 text-transparent bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 bg-clip-text mb-6 group-hover:scale-110 transition-transform duration-300 relative z-10" />
-                  <h3 className="text-2xl font-bold text-slate-800 mb-4 relative z-10">{service.title}</h3>
-                  <p className="text-slate-700 leading-relaxed mb-6 relative z-10">{service.description}</p>
-                  <ul className="space-y-2 relative z-10">
+                <div className="bg-white border border-gray-200 px-8 pt-4 pb-8 rounded-xl hover:shadow-xl transition-all duration-500 group text-center">
+                  <service.icon className="w-16 h-16 text-transparent bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 bg-clip-text mb-6 group-hover:scale-110 transition-transform duration-300 mx-auto" />
+                  <h3 className="text-2xl font-bold text-slate-800 mb-4">{service.title}</h3>
+                  <p className="text-slate-700 leading-relaxed mb-6">{service.description}</p>
+                  <ul className="space-y-2">
                     {service.features.map((feature, i) => (
-                      <li key={i} className="flex items-center text-slate-600">
+                      <li key={i} className="flex items-center justify-center text-slate-600">
                         <ChevronRight className="w-4 h-4 text-[#F28B82] mr-2" />
                         {feature}
                       </li>
