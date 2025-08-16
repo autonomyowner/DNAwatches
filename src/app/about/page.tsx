@@ -37,14 +37,17 @@ export default function AboutPage(): ReactElement {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <Section className="relative overflow-hidden pt-32 pb-20">
-        <div className="absolute inset-0 bg-white" />
+      <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
         
         <Container>
           <div className="relative z-10 max-w-4xl">
             <Reveal>
               <div className="mb-8">
-                <span className="bg-gray-100 px-6 py-3 text-gray-800 text-sm font-semibold tracking-widest uppercase rounded-lg">
+                <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
                   L&apos;Art de la Menuiserie
                 </span>
               </div>
@@ -53,14 +56,14 @@ export default function AboutPage(): ReactElement {
             <Reveal delay={200}>
               <h1 className="mafia-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.9] mb-8">
                 <span className="block">NOTRE</span>
-                <span className="block text-teal-600">EXPERTISE</span>
+                <span className="block golden-accent">EXPERTISE</span>
               </h1>
             </Reveal>
             
             <Reveal delay={400}>
-              <p className="text-2xl sm:text-3xl text-gray-800 max-w-3xl leading-relaxed font-light">
+              <p className="text-2xl sm:text-3xl text-white/90 max-w-3xl leading-relaxed font-light">
                 Depuis 2020, nous excellons dans la fabrication de meubles modernes à Setif. 
-                <span className="text-teal-600 font-medium"> Un savoir-faire artisanal au service de votre confort.</span>
+                <span className="golden-accent font-medium"> Un savoir-faire artisanal au service de votre confort.</span>
               </p>
             </Reveal>
           </div>
@@ -68,20 +71,22 @@ export default function AboutPage(): ReactElement {
       </Section>
 
       {/* Stats Section */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1665836372090-29f9515f1a60.avif')" }} />
+        <div className="absolute inset-0 bg-white/85" />
         
         <Container>
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {stats.map((stat, idx) => (
               <Reveal key={stat.label} delay={idx * 150}>
                 <div className="text-center group">
-                  <div className="bg-[#123524] border border-[#123524] p-8 rounded-xl border-2 border-transparent hover:border-teal-400/30 transition-all duration-500 shadow-sm">
-                    <stat.icon className="w-12 h-12 text-teal-600 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
-                    <div className="mafia-heading text-4xl lg:text-5xl text-white mb-2 group-hover:text-teal-600 transition-colors duration-300">
+                  <div className="luxury-card mafia-glow p-8 rounded-xl border-2 border-rose-900/40 hover:border-rose-900/60 transition-all duration-500">
+                    <stat.icon className="w-12 h-12 text-rose-400 mx-auto mb-4 group-hover:scale-110 transition-transform duration-300" />
+                    <div className="mafia-heading text-4xl lg:text-5xl text-white mb-2 group-hover:text-rose-400 transition-colors duration-300">
                       {stat.number}
                     </div>
-                    <p className="text-gray-600 font-medium tracking-wide uppercase text-sm">
+                    <p className="text-white/80 font-medium tracking-wide uppercase text-sm">
                       {stat.label}
                     </p>
                   </div>
@@ -93,22 +98,22 @@ export default function AboutPage(): ReactElement {
       </Section>
 
       {/* Story Section */}
-      <Section className="relative">
-        <div className="absolute inset-0 bg-white" />
+      <Section className="relative bg-gray-50">
+        <div className="absolute inset-0 bg-gray-50" />
         
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
             <Reveal>
               <div className="space-y-8">
                 <div>
-                  <h2 className="mafia-heading text-5xl lg:text-6xl vantablack mb-6">
+                  <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
                     L&apos;Art de 
-                    <span className="text-teal-600 block">la Menuiserie</span>
+                    <span className="golden-accent block">la Menuiserie</span>
                   </h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-teal-600 to-teal-400 rounded-full mb-8" />
+                  <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
                 </div>
                 
-                <div className="space-y-6 text-lg text-gray-800 leading-relaxed">
+                <div className="space-y-6 text-lg text-white/85 leading-relaxed">
                   <p>
                     Des familles aux entreprises de la région de Setif, 
                     Triomphe Home Design s&apos;est forgé une réputation d&apos;excellence.
@@ -118,7 +123,7 @@ export default function AboutPage(): ReactElement {
                     artisans de votre confort, les créateurs de vos espaces, 
                     les complices de votre bien-être quotidien.
                   </p>
-                  <p className="text-teal-600 font-medium">
+                  <p className="golden-accent font-medium">
                     Chaque meuble est unique. Chaque client, une priorité absolue.
                   </p>
                 </div>
@@ -127,11 +132,12 @@ export default function AboutPage(): ReactElement {
             
             <Reveal delay={300}>
               <div className="relative">
-                <div className="border border-gray-200 rounded-2xl overflow-hidden aspect-[4/5] relative group shadow-lg">
+                <div className="luxury-card mafia-glow border border-rose-900/40 rounded-2xl overflow-hidden aspect-[4/5] relative group">
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: "url('/6.jpg')" }}
                   />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                 </div>
               </div>
             </Reveal>
@@ -140,14 +146,16 @@ export default function AboutPage(): ReactElement {
       </Section>
 
       {/* Values Section */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1714060335405-81b17c8c0a22.avif')" }} />
+        <div className="absolute inset-0 bg-black/70" />
         
         <Container>
           <Reveal>
             <div className="text-center mb-16">
-              <h2 className="mafia-heading text-5xl lg:text-6xl vantablack mb-6">
-                Nos <span className="text-teal-600">Valeurs</span>
+              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
+                Nos <span className="golden-accent">Valeurs</span>
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Les piliers inébranlables de notre savoir-faire artisanal
@@ -158,12 +166,12 @@ export default function AboutPage(): ReactElement {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {values.map((value, idx) => (
               <Reveal key={value.title} delay={idx * 200}>
-                <div className="bg-[#123524] border border-[#123524] p-8 rounded-xl group hover:scale-105 transition-all duration-500 shadow-sm">
+                <div className="luxury-card mafia-glow p-8 rounded-xl group hover:scale-105 transition-all duration-500">
                   <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-teal-500/20 transition-colors duration-300">
-                      <value.icon className="w-8 h-8 text-teal-600" />
+                    <div className="w-16 h-16 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-rose-500/20 transition-colors duration-300">
+                      <value.icon className="w-8 h-8 text-rose-400" />
                     </div>
-                    <h3 className="mafia-heading text-xl text-white mb-4 group-hover:text-teal-600 transition-colors duration-300">
+                    <h3 className="mafia-heading text-xl text-white mb-4 group-hover:text-rose-400 transition-colors duration-300">
                       {value.title}
                     </h3>
                     <p className="text-white/90 leading-relaxed">
@@ -178,14 +186,14 @@ export default function AboutPage(): ReactElement {
       </Section>
 
       {/* Location Section */}
-      <Section className="relative bg-white">
-        <div className="absolute inset-0 bg-white" />
+      <Section className="relative bg-gray-50">
+        <div className="absolute inset-0 bg-gray-50" />
         
         <Container>
           <Reveal>
             <div className="text-center mb-16">
-              <h2 className="mafia-heading text-5xl lg:text-6xl vantablack mb-6">
-                Notre <span className="text-teal-600">Atelier</span>
+              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
+                Notre <span className="golden-accent">Atelier</span>
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 Visitez notre atelier à Setif Bousekine pour découvrir nos créations
@@ -196,14 +204,14 @@ export default function AboutPage(): ReactElement {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <Reveal>
               <div className="space-y-6">
-                <div className="bg-[#123524] border border-[#123524] p-8 rounded-xl shadow-sm">
+                <div className="luxury-card mafia-glow p-8 rounded-xl">
                   <div className="flex items-center gap-4 mb-6">
-                    <div className="w-12 h-12 bg-gradient-to-br from-teal-600 to-teal-400 rounded-full flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-br from-rose-600 to-rose-400 rounded-full flex items-center justify-center">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
                       <h3 className="mafia-heading text-xl text-white">Adresse</h3>
-                      <p className="text-gray-600">Setif Bousekine</p>
+                      <p className="text-white/80">Setif Bousekine</p>
                     </div>
                   </div>
                   <p className="text-white/90 leading-relaxed mb-6">
@@ -214,7 +222,7 @@ export default function AboutPage(): ReactElement {
                     href="https://maps.app.goo.gl/nh5JsSvQrQiXgHSj7"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 text-teal-600 hover:text-teal-500 transition-colors duration-300 font-medium"
+                    className="inline-flex items-center gap-2 text-rose-400 hover:text-rose-300 transition-colors duration-300 font-medium"
                   >
                     <MapPin className="w-4 h-4" />
                     Voir sur Google Maps
@@ -224,7 +232,7 @@ export default function AboutPage(): ReactElement {
             </Reveal>
             
             <Reveal delay={300}>
-              <div className="aspect-video rounded-xl overflow-hidden border border-gray-200 shadow-sm">
+              <div className="aspect-video rounded-xl overflow-hidden luxury-card border border-rose-900/40 mafia-glow">
                 <iframe
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3204.8!2d5.4!3d36.19!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMzYuMTksIDUuNA!5e0!3m2!1sen!2sdz!4v1"
                   width="100%"
@@ -242,15 +250,16 @@ export default function AboutPage(): ReactElement {
       </Section>
 
       {/* CTA Section */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1558969213-ff7823387b5c.avif')" }} />
         
         <Container>
           <Reveal>
             <div className="text-center max-w-4xl mx-auto">
-              <h2 className="mafia-heading text-5xl lg:text-6xl vantablack mb-8">
+              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
                 Rejoignez nos 
-                <span className="text-teal-600 block">Clients Satisfaits</span>
+                <span className="golden-accent block">Clients Satisfaits</span>
               </h2>
               <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
                 Découvrez pourquoi les familles les plus exigeantes de la région nous font confiance 
@@ -259,14 +268,14 @@ export default function AboutPage(): ReactElement {
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a 
                   href="/contact" 
-                  className="inline-flex items-center justify-center gap-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white px-12 py-5 text-lg font-bold rounded-lg hover:scale-105 transition-all duration-300 tracking-widest uppercase shadow-lg"
+                  className="inline-flex items-center justify-center gap-3 bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 text-white px-12 py-5 text-lg font-bold rounded-lg hover:scale-105 transition-all duration-300 tracking-widest uppercase mafia-glow premium-shadow"
                 >
                   <Palette className="w-5 h-5" />
                   DÉCOUVRIR NOS CRÉATIONS
                 </a>
                 <a 
                   href="/pricing" 
-                  className="border border-gray-300 text-gray-800 hover:bg-gray-100 hover:border-teal-400/60 inline-flex items-center justify-center px-12 py-5 text-lg font-medium rounded-lg transition-all duration-300 tracking-wide"
+                  className="luxury-card border-rose-900/40 text-white hover:bg-rose-900/10 hover:border-rose-900/60 inline-flex items-center justify-center px-12 py-5 text-lg font-medium rounded-lg transition-all duration-300 tracking-wide"
                 >
                   VOIR NOS RÉALISATIONS
                 </a>

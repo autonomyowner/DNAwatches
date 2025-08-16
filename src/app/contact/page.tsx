@@ -20,14 +20,14 @@ const contactSchema = z.object({
   email: z.string().email(),
   phone: z.string().optional(),
   service: z.string().optional(),
-  pickup: z.string().min(2),
-  dropoff: z.string().min(2),
-  datetime: z.string().min(1),
+  projectType: z.string().optional(),
+  budget: z.string().optional(),
+  timeline: z.string().optional(),
   message: z.string().optional(),
-  type: z.string().optional(),
+  location: z.string().optional(),
 });
 
-type BookingForm = z.infer<typeof contactSchema>;
+type ContactForm = z.infer<typeof contactSchema>;
 
 const contactMethods = [
   {
@@ -50,7 +50,7 @@ const contactMethods = [
     icon: Instagram,
     title: "INSTAGRAM",
     subtitle: "Suivez nos actualités",
-    value: "@granturismoriviera",
+    value: "@triomphe_homedesign",
     href: siteConfig.instagramLink,
     primary: false
   }
@@ -73,20 +73,19 @@ export default function ContactPage(): ReactElement {
 function ContactInner(): ReactElement {
   const search = useSearchParams();
   const defaultService = search.get("service") ?? undefined;
-  const defaultType = search.get("type") ?? undefined;
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
-  } = useForm<BookingForm>({
+  } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { service: defaultService, type: defaultType },
+    defaultValues: { service: defaultService },
   });
 
   const [isSent, setIsSent] = useState(false);
 
-  async function handleSubmitBooking(values: BookingForm): Promise<void> {
+  async function handleSubmitContact(values: ContactForm): Promise<void> {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
@@ -101,18 +100,16 @@ function ContactInner(): ReactElement {
       <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{ backgroundImage: "url('/pic.jpg')" }}
+          style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }}
         />
-        <div className="absolute inset-0 bg-black/70" />
-        <div className="absolute inset-0 bg-gradient-to-br from-black/60 via-black/40 to-black/80" />
-        <div className="absolute top-0 left-0 w-1/2 h-full bg-gradient-radial from-accent-gold/6 to-transparent opacity-40" />
-        <div className="absolute bottom-0 right-0 w-1/3 h-2/3 bg-gradient-radial from-accent-burgundy/8 to-transparent opacity-30" />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
         
         <Container>
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <Reveal>
               <div className="mb-8">
-                <span className="luxury-card mafia-glow px-6 py-3 text-accent-gold text-sm font-semibold tracking-widest uppercase">
+                <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
                   Votre Demande, Notre Priorité
                 </span>
               </div>
@@ -127,7 +124,7 @@ function ContactInner(): ReactElement {
             
             <Reveal delay={400}>
               <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Réservez votre expérience d&apos;exception en quelques instants.
+                Partagez votre projet de meubles sur mesure avec nous.
                 <span className="golden-accent font-medium block mt-2"> Notre équipe vous répond dans l&apos;heure.</span>
               </p>
             </Reveal>
@@ -136,8 +133,10 @@ function ContactInner(): ReactElement {
       </Section>
 
       {/* Contact Methods */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1665836372090-29f9515f1a60.avif')" }} />
+        <div className="absolute inset-0 bg-white/85" />
         
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
@@ -150,13 +149,13 @@ function ContactInner(): ReactElement {
                   className={`luxury-card p-8 rounded-xl group hover:scale-105 transition-all duration-500 block ${method.primary ? 'mafia-glow' : ''}`}
                 >
                   <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-accent-gold/20 transition-colors duration-300">
-                      <method.icon className="w-8 h-8 text-accent-gold" />
+                    <div className="w-16 h-16 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-rose-500/20 transition-colors duration-300">
+                      <method.icon className="w-8 h-8 text-rose-400" />
                     </div>
-                    <h3 className="mafia-heading text-xl text-white mb-2 group-hover:text-accent-gold transition-colors duration-300">
+                    <h3 className="mafia-heading text-xl text-white mb-2 group-hover:text-rose-400 transition-colors duration-300">
                       {method.title}
                     </h3>
-                    <p className="text-accent-gold text-sm font-medium mb-2">
+                    <p className="text-rose-400 text-sm font-medium mb-2">
                       {method.subtitle}
                     </p>
                     <p className="text-white/80 text-sm">
@@ -171,8 +170,8 @@ function ContactInner(): ReactElement {
       </Section>
 
       {/* Contact Form */}
-      <Section className="relative">
-        <div className="absolute inset-0 bg-white" />
+      <Section className="relative bg-gray-50">
+        <div className="absolute inset-0 bg-gray-50" />
         
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
@@ -181,12 +180,12 @@ function ContactInner(): ReactElement {
                 <div className="mb-8">
                   <h2 className="mafia-heading text-4xl lg:text-5xl text-white mb-4">
                     Formulaire de 
-                    <span className="golden-accent block">Réservation</span>
+                    <span className="golden-accent block">Contact</span>
                   </h2>
                   <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-6" />
                   <p className="text-lg text-white/85 leading-relaxed">
-                    Complétez ce formulaire et recevez votre confirmation dans l&apos;heure. 
-                    Chaque détail compte pour nous.
+                    Complétez ce formulaire pour votre projet de meubles sur mesure. 
+                    Chaque détail compte pour créer votre mobilier idéal.
                   </p>
                 </div>
               </Reveal>
@@ -196,12 +195,12 @@ function ContactInner(): ReactElement {
                   {isSent ? (
                     <div className="text-center py-12">
                       <div className="w-20 h-20 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-10 h-10 text-accent-gold" />
+                        <CheckCircle className="w-10 h-10 text-rose-400" />
                       </div>
                       <h3 className="mafia-heading text-2xl text-white mb-4">Demande Reçue</h3>
                       <p className="text-white/80 mb-6">
                         Merci pour votre confiance. Notre équipe vous recontacte dans l&apos;heure 
-                        pour confirmer votre réservation.
+                        pour discuter de votre projet.
                       </p>
                       <Button 
                         variant="primary" 
@@ -213,14 +212,14 @@ function ContactInner(): ReactElement {
                       </Button>
                     </div>
                   ) : (
-                    <form className="space-y-6" onSubmit={handleSubmit(handleSubmitBooking)}>
+                    <form className="space-y-6" onSubmit={handleSubmit(handleSubmitContact)}>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-white font-medium mb-2 tracking-wide">
                             NOM COMPLET *
                           </label>
                           <Input 
-                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
+                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
                             placeholder="Votre nom et prénom"
                             {...register("name")} 
                           />
@@ -233,7 +232,7 @@ function ContactInner(): ReactElement {
                             EMAIL *
                           </label>
                           <Input 
-                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
+                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
                             type="email" 
                             placeholder="votre@email.com"
                             {...register("email")} 
@@ -250,18 +249,18 @@ function ContactInner(): ReactElement {
                             TÉLÉPHONE
                           </label>
                           <Input 
-                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
-                            placeholder="+33 6 XX XX XX XX"
+                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                            placeholder="+213 XXX XX XX XX"
                             {...register("phone")} 
                           />
                         </div>
                         <div>
                           <label className="block text-white font-medium mb-2 tracking-wide">
-                            SERVICE SOUHAITÉ
+                            TYPE DE MEUBLE
                           </label>
                           <Input 
-                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
-                            placeholder="Transfert, Événement, Tour..."
+                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                            placeholder="Cuisine, Dressing, Salon..."
                             {...register("service")} 
                           />
                         </div>
@@ -270,54 +269,45 @@ function ContactInner(): ReactElement {
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                           <label className="block text-white font-medium mb-2 tracking-wide">
-                            POINT DE DÉPART *
+                            BUDGET ESTIMATIF
                           </label>
                           <Input 
-                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
-                            placeholder="Adresse de prise en charge"
-                            {...register("pickup")} 
+                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                            placeholder="Ex: 200 000 - 500 000 DA"
+                            {...register("budget")} 
                           />
-                          {errors.pickup && (
-                            <p className="text-red-400 text-xs mt-1">Point de départ requis</p>
-                          )}
                         </div>
                         <div>
                           <label className="block text-white font-medium mb-2 tracking-wide">
-                            DESTINATION *
+                            DÉLAI SOUHAITÉ
                           </label>
                           <Input 
-                            className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500" 
-                            placeholder="Adresse de destination"
-                            {...register("dropoff")} 
+                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                            placeholder="2-3 semaines, 1-2 mois..."
+                            {...register("timeline")} 
                           />
-                          {errors.dropoff && (
-                            <p className="text-red-400 text-xs mt-1">Destination requise</p>
-                          )}
                         </div>
                       </div>
 
                       <div>
                         <label className="block text-white font-medium mb-2 tracking-wide">
-                          DATE & HEURE *
+                          LIEU D&apos;INSTALLATION
                         </label>
                         <Input 
-                          className="luxury-card border-gray-300 bg-background-tertiary text-white focus:border-teal-500" 
-                          type="datetime-local" 
-                          {...register("datetime")} 
+                          className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                          placeholder="Ville, commune..." 
+                          {...register("location")} 
                         />
-                        {errors.datetime && (
-                          <p className="text-red-400 text-xs mt-1">Date et heure requises</p>
-                        )}
                       </div>
 
                       <div>
                         <label className="block text-white font-medium mb-2 tracking-wide">
-                          DEMANDES SPÉCIALES
+                          DESCRIPTION DU PROJET
                         </label>
                         <Textarea 
-                          className="luxury-card border-gray-300 bg-[#123524] text-white placeholder-white/60 focus:border-teal-500 min-h-[120px]" 
+                          className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500 min-h-[120px]" 
                           rows={4} 
-                          placeholder="Bagages spéciaux, arrêts intermédiaires, préférences..."
+                          placeholder="Décrivez votre projet : dimensions, style, matériaux préférés, fonctionnalités spéciales..."
                           {...register("message")} 
                         />
                       </div>

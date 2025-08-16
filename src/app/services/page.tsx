@@ -61,14 +61,17 @@ export default function ServicesPage(): ReactElement {
   return (
     <div className="bg-white min-h-screen">
       {/* Hero Section */}
-      <Section className="relative overflow-hidden pt-32 pb-20">
-        <div className="absolute inset-0 bg-white" />
+      <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
         
         <Container>
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <Reveal>
               <div className="mb-8">
-                <span className="bg-gray-100 px-6 py-3 text-gray-800 text-sm font-semibold tracking-widest uppercase rounded-lg">
+                <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
                   Fabrication de Meubles
                 </span>
               </div>
@@ -77,14 +80,14 @@ export default function ServicesPage(): ReactElement {
             <Reveal delay={200}>
               <h1 className="mafia-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.9] mb-8">
                 <span className="block">NOS</span>
-                <span className="block text-teal-600">SERVICES</span>
+                <span className="block golden-accent">SERVICES</span>
               </h1>
             </Reveal>
             
             <Reveal delay={400}>
-              <p className="text-2xl sm:text-3xl text-gray-800 max-w-4xl mx-auto leading-relaxed font-light">
+              <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
                 Quatre solutions complètes pour votre aménagement intérieur.
-                <span className="text-teal-600 font-medium block mt-2"> Où l&apos;artisanat rencontre l&apos;excellence moderne.</span>
+                <span className="golden-accent font-medium block mt-2"> Où l&apos;artisanat rencontre l&apos;excellence moderne.</span>
               </p>
             </Reveal>
           </div>
@@ -92,8 +95,10 @@ export default function ServicesPage(): ReactElement {
       </Section>
 
       {/* Services Grid */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1665836372090-29f9515f1a60.avif')" }} />
+        <div className="absolute inset-0 bg-white/85" />
         
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -101,26 +106,26 @@ export default function ServicesPage(): ReactElement {
               const Icon = getServiceIcon(idx);
               return (
                 <Reveal key={service.title} delay={idx * 150}>
-                  <div className={`bg-[#123524] border border-[#123524] rounded-2xl p-8 group hover:scale-105 transition-all duration-500 relative overflow-hidden shadow-sm ${service.premium ? 'border-teal-200' : ''}`}>
+                  <div className={`luxury-card mafia-glow rounded-2xl p-8 group hover:scale-105 transition-all duration-500 relative overflow-hidden ${service.premium ? 'border-2 border-rose-900/50' : ''}`}>
                     {service.premium && (
                       <div className="absolute top-4 right-4">
-                        <div className="bg-teal-100 px-3 py-1 rounded-full">
-                          <Star className="w-4 h-4 text-teal-600 inline mr-1" />
-                          <span className="text-teal-600 text-xs font-semibold tracking-wide">PREMIUM</span>
+                        <div className="luxury-card px-3 py-1 rounded-full border border-rose-900/40">
+                          <Star className="w-4 h-4 text-rose-400 inline mr-1" />
+                          <span className="text-rose-400 text-xs font-semibold tracking-wide">PREMIUM</span>
                         </div>
                       </div>
                     )}
                     
                     <div className="relative z-10">
                       <div className="flex items-center gap-4 mb-6">
-                        <div className="w-16 h-16 bg-gray-100 rounded-xl flex items-center justify-center group-hover:bg-teal-500/20 transition-colors duration-300">
-                          <Icon className="w-8 h-8 text-teal-600" />
+                        <div className="w-16 h-16 luxury-card rounded-xl flex items-center justify-center group-hover:bg-rose-500/20 transition-colors duration-300">
+                          <Icon className="w-8 h-8 text-rose-400" />
                         </div>
                         <div>
-                          <h3 className="mafia-heading text-2xl text-white group-hover:text-teal-600 transition-colors duration-300">
+                          <h3 className="mafia-heading text-2xl text-white group-hover:text-rose-400 transition-colors duration-300">
                             {service.title}
                           </h3>
-                          <p className="text-teal-600 text-sm font-medium tracking-wide">
+                          <p className="text-rose-400 text-sm font-medium tracking-wide">
                             {service.subtitle}
                           </p>
                         </div>
@@ -133,23 +138,23 @@ export default function ServicesPage(): ReactElement {
                       <div className="space-y-3 mb-8">
                         {service.features.map((feature) => (
                           <div key={feature} className="flex items-center gap-3">
-                            <CheckCircle className="w-5 h-5 text-teal-600 flex-shrink-0" />
-                            <span className="text-gray-600 text-sm">{feature}</span>
+                            <CheckCircle className="w-5 h-5 text-rose-400 flex-shrink-0" />
+                            <span className="text-white/80 text-sm">{feature}</span>
                           </div>
                         ))}
                       </div>
                       
                       <div className="flex items-center justify-between">
                         <div>
-                          <span className="text-gray-500 text-sm tracking-wide uppercase">Tarif</span>
-                          <div className="mafia-heading text-2xl text-teal-600">
+                          <span className="text-white/70 text-sm tracking-wide uppercase">Tarif</span>
+                          <div className="mafia-heading text-2xl text-rose-400">
                             {service.price}
                           </div>
                         </div>
                         
                         <a 
                           href={`/contact?service=${encodeURIComponent(service.title)}`}
-                          className="inline-flex items-center gap-2 bg-gradient-to-r from-teal-600 to-teal-500 text-white px-6 py-3 text-sm font-medium rounded-lg hover:scale-105 transition-all duration-300 shadow-lg"
+                          className="inline-flex items-center gap-2 bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 text-white px-6 py-3 text-sm font-medium rounded-lg hover:scale-105 transition-all duration-300 mafia-glow premium-shadow"
                         >
                           CONTACT
                           <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" />
@@ -165,14 +170,16 @@ export default function ServicesPage(): ReactElement {
       </Section>
 
       {/* Premium Guarantees */}
-      <Section className="relative bg-white">
-        <div className="absolute inset-0 bg-white" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1714060335405-81b17c8c0a22.avif')" }} />
+        <div className="absolute inset-0 bg-black/70" />
         
         <Container>
           <Reveal>
             <div className="text-center mb-16">
-              <h2 className="mafia-heading text-5xl lg:text-6xl vantablack mb-6">
-                Nos <span className="text-teal-600">Garanties</span>
+              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
+                Nos <span className="golden-accent">Garanties</span>
               </h2>
               <p className="text-xl text-white/90 max-w-3xl mx-auto">
                 L&apos;engagement d&apos;une qualité artisanale sans compromis
@@ -199,11 +206,11 @@ export default function ServicesPage(): ReactElement {
               }
             ].map((guarantee, idx) => (
               <Reveal key={guarantee.title} delay={idx * 200}>
-                <div className="bg-[#123524] border border-[#123524] text-center p-8 rounded-xl group hover:scale-105 transition-all duration-500 shadow-sm">
-                  <div className="w-20 h-20 mx-auto mb-6 bg-gray-100 rounded-full flex items-center justify-center group-hover:bg-teal-500/20 transition-colors duration-300">
-                    <guarantee.icon className="w-10 h-10 text-teal-600" />
+                <div className="luxury-card mafia-glow text-center p-8 rounded-xl group hover:scale-105 transition-all duration-500">
+                  <div className="w-20 h-20 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-rose-500/20 transition-colors duration-300">
+                    <guarantee.icon className="w-10 h-10 text-rose-400" />
                   </div>
-                  <h3 className="mafia-heading text-xl text-white mb-4 group-hover:text-teal-600 transition-colors duration-300">
+                  <h3 className="mafia-heading text-xl text-white mb-4 group-hover:text-rose-400 transition-colors duration-300">
                     {guarantee.title}
                   </h3>
                   <p className="text-white/90 leading-relaxed">
@@ -217,15 +224,16 @@ export default function ServicesPage(): ReactElement {
       </Section>
 
       {/* CTA Section */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1558969213-ff7823387b5c.avif')" }} />
         
         <Container>
           <Reveal>
             <div className="text-center max-w-4xl mx-auto">
-              <h2 className="mafia-heading text-5xl lg:text-6xl vantablack mb-8">
+              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
                 Prêt pour 
-                <span className="text-teal-600 block">Votre Projet ?</span>
+                <span className="golden-accent block">Votre Projet ?</span>
               </h2>
               <p className="text-xl text-white/90 mb-12 max-w-2xl mx-auto">
                 Rejoignez notre clientèle satisfaite et découvrez 
@@ -234,14 +242,14 @@ export default function ServicesPage(): ReactElement {
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <a 
                   href="/contact" 
-                  className="inline-flex items-center gap-3 bg-gradient-to-r from-teal-600 to-teal-500 text-white px-12 py-5 text-lg font-bold rounded-lg hover:scale-105 transition-all duration-300 tracking-widest uppercase shadow-lg"
+                  className="inline-flex items-center gap-3 bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 text-white px-12 py-5 text-lg font-bold rounded-lg hover:scale-105 transition-all duration-300 tracking-widest uppercase mafia-glow premium-shadow"
                 >
                   <CreditCard className="w-5 h-5" />
                   NOUS CONTACTER
                 </a>
                 <a 
                   href="/about"
-                  className="border border-gray-300 text-gray-800 hover:bg-gray-100 hover:border-teal-400/60 inline-flex items-center justify-center px-12 py-5 text-lg font-medium rounded-lg transition-all duration-300 tracking-wide"
+                  className="luxury-card border-rose-900/40 text-white hover:bg-rose-900/10 hover:border-rose-900/60 inline-flex items-center justify-center px-12 py-5 text-lg font-medium rounded-lg transition-all duration-300 tracking-wide"
                 >
                   VOIR NOS RÉALISATIONS
                 </a>

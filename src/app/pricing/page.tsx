@@ -1,58 +1,58 @@
-export const metadata = { title: "Nos Biens - Propriétés d'Exception" };
+export const metadata = { title: "Nos Tarifs - Triomphe Home Design - Fabrication de Meubles" };
 
-const properties: Array<{ location: string; price: string; premium?: boolean; description?: string; type: string }> = [
-  { location: "Hydra", price: "850M", type: "Villa", description: "Vue mer panoramique" },
-  { location: "Bab Ezzouar", price: "450M", type: "Appartement", description: "Quartier moderne" },
-  { location: "Alger Centre", price: "1.2Md", premium: true, type: "Penthouse", description: "Luxe absolu" },
-  { location: "Dely Ibrahim", price: "680M", type: "Villa", description: "Cadre verdoyant" },
-  { location: "Ben Aknoun", price: "520M", premium: true, type: "Appartement", description: "Standing supérieur" },
-  { location: "Cheraga", price: "950M", type: "Villa", description: "Avec piscine" },
-  { location: "El Biar", price: "1.5Md", premium: true, type: "Villa", description: "Quartier diplomatique" },
-  { location: "Bir Mourad Raïs", price: "380M", type: "Duplex", description: "Neuf avec terrasse" },
+const furnitureProjects: Array<{ name: string; price: string; premium?: boolean; description?: string; category: string }> = [
+  { name: "Cuisine Moderne", price: "Sur devis", category: "Cuisine", description: "Design personnalisé" },
+  { name: "Dressing Optimisé", price: "Sur devis", category: "Dressing", description: "Solutions modulables" },
+  { name: "Meuble TV + Console", price: "Sur devis", premium: true, category: "Salon", description: "Ensemble coordonné" },
+  { name: "Lit Capitonné + Tables", price: "Sur devis", category: "Chambre", description: "Finitions luxueuses" },
+  { name: "Bureau + Bibliothèque", price: "Sur devis", premium: true, category: "Bureau", description: "Ergonomie maximale" },
+  { name: "Armoire Sur Mesure", price: "Sur devis", category: "Rangement", description: "Optimisation espace" },
+  { name: "Coiffeuse + Miroir", price: "Sur devis", premium: true, category: "Chambre", description: "Design élégant" },
+  { name: "Mobilier Complet", price: "Sur devis", category: "Ensemble", description: "Projet global" },
 ];
 
 const services = [
   {
-    name: "VENTE",
-    subtitle: "L'Art de Bien Vendre",
-    duration: "Service complet",
-    price: "3%",
+    name: "CONCEPTION",
+    subtitle: "Design Sur Mesure",
+    duration: "Projet personnalisé",
+    price: "Gratuit",
     features: [
-      "Estimation gratuite par expert",
-      "Marketing digital premium",
-      "Visite virtuelle incluse",
-      "Négociation optimisée",
-      "Accompagnement juridique"
+      "Visite à domicile",
+      "Plans 3D détaillés",
+      "Conseils d'aménagement",
+      "Choix des matériaux",
+      "Devis détaillé"
     ],
     popular: false
   },
   {
-    name: "GESTION LOCATIVE", 
-    subtitle: "Votre Patrimoine, Notre Expertise",
-    duration: "Gestion mensuelle",
-    price: "8%",
+    name: "FABRICATION", 
+    subtitle: "Artisanat d'Excellence",
+    duration: "2-6 semaines",
+    price: "Sur devis",
     features: [
-      "Sélection locataires vérifiée",
-      "Gestion administrative complète", 
-      "Maintenance et entretien",
-      "Rapport mensuel détaillé",
-      "Assurance loyers impayés",
-      "Service disponible 6j/7"
+      "Matériaux nobles sélectionnés",
+      "Finitions artisanales", 
+      "Contrôle qualité strict",
+      "Garantie 5 ans",
+      "Suivi de fabrication",
+      "Respect des délais"
     ],
     popular: true
   },
   {
-    name: "CONSEIL VIP",
-    subtitle: "L'Excellence Personnalisée",
-    duration: "Sur mesure",
-    price: "Sur devis",
+    name: "INSTALLATION",
+    subtitle: "Service Complet",
+    duration: "1-2 jours",
+    price: "Inclus",
     features: [
-      "Conseil en investissement",
-      "Équipe dédiée personnelle",
-      "Accès biens exclusifs",
-      "Négociation privilégiée",
-      "Service concierge immobilier",
-      "Suivi patrimonial complet"
+      "Installation professionnelle",
+      "Montage et assemblage",
+      "Réglages et finitions",
+      "Nettoyage du chantier",
+      "Formation à l'utilisation",
+      "Garantie installation"
     ],
     popular: false
   }
@@ -62,7 +62,7 @@ import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
-import { Building, Crown, Star, Check, ArrowRight, TrendingUp, Shield } from "lucide-react";
+import { Palette, Crown, Star, Check, ArrowRight, TrendingUp, Shield } from "lucide-react";
 import type { ReactElement } from "react";
 
 export default function PricingPage(): ReactElement {
@@ -70,16 +70,17 @@ export default function PricingPage(): ReactElement {
     <>
       {/* Hero Section */}
       <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
-        <div className="absolute inset-0 bg-white" />
-        <div className="absolute top-0 right-0 w-1/2 h-full bg-gradient-radial from-accent-gold/6 to-transparent opacity-40" />
-        <div className="absolute bottom-0 left-0 w-1/3 h-2/3 bg-gradient-radial from-accent-burgundy/8 to-transparent opacity-30" />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }} />
+        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
         
         <Container>
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <Reveal>
               <div className="mb-8">
-                <span className="luxury-card mafia-glow px-6 py-3 text-accent-gold text-sm font-semibold tracking-widest uppercase">
-                  Biens d&apos;Exception
+                <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
+                  Tarifs et Services
                 </span>
               </div>
             </Reveal>
@@ -87,14 +88,14 @@ export default function PricingPage(): ReactElement {
             <Reveal delay={200}>
               <h1 className="mafia-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.9] mb-8">
                 <span className="block">NOS</span>
-                <span className="block golden-accent">BIENS</span>
+                <span className="block golden-accent">TARIFS</span>
               </h1>
             </Reveal>
             
             <Reveal delay={400}>
               <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Une sélection exclusive de propriétés d&apos;exception.
-                <span className="golden-accent font-medium block mt-2"> À Alger, dans les quartiers les plus recherchés.</span>
+                Transparence et qualité pour vos meubles sur mesure.
+                <span className="golden-accent font-medium block mt-2"> De la conception à l&apos;installation, tout inclus.</span>
               </p>
             </Reveal>
           </div>
@@ -102,8 +103,10 @@ export default function PricingPage(): ReactElement {
       </Section>
 
       {/* Packages Section */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gradient-to-b from-accent-smoke/5 via-transparent to-accent-steel/5" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1665836372090-29f9515f1a60.avif')" }} />
+        <div className="absolute inset-0 bg-white/85" />
         
         <Container>
           <Reveal>
@@ -112,7 +115,7 @@ export default function PricingPage(): ReactElement {
                 Nos <span className="golden-accent">Services</span>
               </h2>
               <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Trois formules d&apos;accompagnement pour vos projets immobiliers
+                Trois étapes pour réaliser vos meubles sur mesure
               </p>
             </div>
           </Reveal>
@@ -120,25 +123,25 @@ export default function PricingPage(): ReactElement {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((service, idx) => (
               <Reveal key={service.name} delay={idx * 150}>
-                <div className={`luxury-card rounded-2xl p-8 relative overflow-hidden group hover:scale-105 transition-all duration-500 ${service.popular ? 'mafia-glow border-2 border-accent-gold/50' : ''}`}>
+                <div className={`luxury-card mafia-glow rounded-2xl p-8 relative overflow-hidden group hover:scale-105 transition-all duration-500 ${service.popular ? 'border-2 border-rose-900/50' : ''}`}>
                   {service.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="luxury-card px-6 py-2 rounded-full border border-accent-gold/50">
-                        <Star className="w-4 h-4 text-accent-gold inline mr-2" />
-                        <span className="text-accent-gold text-sm font-semibold tracking-wide">PLUS POPULAIRE</span>
+                      <div className="luxury-card px-6 py-2 rounded-full border border-rose-900/40">
+                        <Star className="w-4 h-4 text-rose-400 inline mr-2" />
+                        <span className="text-rose-400 text-sm font-semibold tracking-wide">PLUS POPULAIRE</span>
                       </div>
                     </div>
                   )}
                   
                   <div className="text-center mb-8">
-                    <h3 className="mafia-heading text-3xl text-white mb-2 group-hover:text-accent-gold transition-colors duration-300">
+                    <h3 className="mafia-heading text-3xl text-white mb-2 group-hover:text-rose-400 transition-colors duration-300">
                       {service.name}
                     </h3>
-                    <p className="text-accent-gold text-sm font-medium tracking-wide mb-4">
+                    <p className="text-rose-400 text-sm font-medium tracking-wide mb-4">
                       {service.subtitle}
                     </p>
                     <div className="mb-6">
-                      <div className="mafia-heading text-5xl text-accent-gold mb-2">
+                      <div className="mafia-heading text-5xl text-rose-400 mb-2">
                         {service.price === "Sur devis" ? service.price : `${service.price}`}
                       </div>
                       <p className="text-white/60 text-sm">{service.duration}</p>
@@ -148,7 +151,7 @@ export default function PricingPage(): ReactElement {
                   <div className="space-y-4 mb-8">
                     {service.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-accent-gold flex-shrink-0" />
+                        <Check className="w-5 h-5 text-rose-400 flex-shrink-0" />
                         <span className="text-white/80 text-sm">{feature}</span>
                       </div>
                     ))}
@@ -158,7 +161,7 @@ export default function PricingPage(): ReactElement {
                     variant={service.popular ? "primary" : "outline"} 
                     size="lg" 
                     asChild 
-                    className={`w-full ${service.popular ? 'premium-shadow' : 'luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10'}`}
+                    className={`w-full ${service.popular ? 'premium-shadow mafia-glow bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900' : 'luxury-card border-rose-900/40 text-white hover:bg-rose-900/10'}`}
                   >
                     <a href="/contact" className="flex items-center justify-center gap-2">
                       {service.price === "Sur devis" ? "NOUS CONTACTER" : "EN SAVOIR PLUS"}
@@ -172,32 +175,35 @@ export default function PricingPage(): ReactElement {
         </Container>
       </Section>
 
-      {/* Routes & Destinations */}
-      <Section className="relative">
-        <div className="absolute inset-0 bg-white" />
+      {/* Furniture Projects */}
+      <Section className="relative bg-gray-50">
+        <div className="absolute inset-0 bg-gray-50" />
         
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <Reveal>
               <div>
                 <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
-                  Quartiers 
-                  <span className="golden-accent block">d&apos;Exception</span>
+                  Projets 
+                  <span className="golden-accent block">Réalisés</span>
                 </h2>
                 <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
                 <p className="text-lg text-white/85 leading-relaxed mb-8">
-                  Depuis notre agence à Alger, nous couvrons les quartiers 
-                  les plus recherchés de la capitale et sa banlieue.
+                  Découvrez notre savoir-faire à travers nos réalisations 
+                  et trouvez l&apos;inspiration pour votre projet.
                 </p>
-                <div className="luxury-card rounded-2xl overflow-hidden aspect-[4/3] relative">
-                  <div className="absolute inset-0 bg-gray-50" />
+                <div className="luxury-card mafia-glow rounded-2xl overflow-hidden aspect-[4/3] relative">
+                  <div 
+                    className="absolute inset-0 bg-cover bg-center"
+                    style={{ backgroundImage: "url('/6.jpg')" }}
+                  />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex items-center gap-3">
-                      <Building className="w-6 h-6 text-accent-gold" />
+                      <Palette className="w-6 h-6 text-rose-400" />
                       <div>
-                        <h3 className="mafia-heading text-xl text-white">Alger Centre</h3>
-                        <p className="text-white/80 text-sm">Notre siège social et zone d&apos;expertise</p>
+                        <h3 className="mafia-heading text-xl text-white">Setif Bousekine</h3>
+                        <p className="text-white/80 text-sm">Notre atelier et zone de création</p>
                       </div>
                     </div>
                   </div>
@@ -207,39 +213,39 @@ export default function PricingPage(): ReactElement {
             
             <Reveal delay={300}>
               <div className="luxury-card rounded-2xl overflow-hidden">
-                <div className="bg-[#123524] p-6 border-b border-teal-400/20">
-                  <h3 className="mafia-heading text-2xl text-white mb-2">Biens Disponibles</h3>
-                  <p className="text-white/80 text-sm">Sélection de propriétés d&apos;exception</p>
+                <div className="luxury-card mafia-glow p-6 border-b border-rose-900/40">
+                  <h3 className="mafia-heading text-2xl text-white mb-2">Projets Récent</h3>
+                  <p className="text-white/80 text-sm">Sélection de nos réalisations</p>
                 </div>
                 <div className="max-h-96 overflow-y-auto">
-                  {properties.map((property) => (
+                  {furnitureProjects.map((project) => (
                     <div 
-                      key={property.location} 
-                      className="flex items-center justify-between p-4 border-b border-accent-gold/10 last:border-none hover:bg-accent-gold/5 transition-colors duration-300"
+                      key={project.name} 
+                      className="flex items-center justify-between p-4 border-b border-rose-900/20 last:border-none hover:bg-rose-900/5 transition-colors duration-300"
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`w-3 h-3 rounded-full ${property.premium ? 'bg-accent-gold' : 'bg-accent-steel'}`} />
+                        <div className={`w-3 h-3 rounded-full ${project.premium ? 'bg-rose-400' : 'bg-white/60'}`} />
                         <div>
-                          <div className="text-white font-medium">{property.location}</div>
-                          <div className="text-white/50 text-xs">{property.type}</div>
-                          {property.description && (
-                            <div className="text-white/60 text-xs">{property.description}</div>
+                          <div className="text-white font-medium">{project.name}</div>
+                          <div className="text-white/50 text-xs">{project.category}</div>
+                          {project.description && (
+                            <div className="text-white/60 text-xs">{project.description}</div>
                           )}
                         </div>
-                        {property.premium && (
-                          <Crown className="w-4 h-4 text-accent-gold" />
+                        {project.premium && (
+                          <Crown className="w-4 h-4 text-rose-400" />
                         )}
                       </div>
-                      <div className="mafia-heading text-xl text-accent-gold">
-                        {property.price} DA
+                      <div className="mafia-heading text-xl text-rose-400">
+                        {project.price}
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="p-4 bg-accent-gold/5 border-t border-accent-gold/20">
+                <div className="p-4 bg-rose-900/5 border-t border-rose-900/20">
                   <div className="flex items-center gap-2 text-white/70 text-xs">
                     <TrendingUp className="w-4 h-4" />
-                    <span>Prix indicatifs. Estimation gratuite sur demande</span>
+                    <span>Tarifs sur devis. Consultation gratuite</span>
                   </div>
                 </div>
               </div>
@@ -249,8 +255,10 @@ export default function PricingPage(): ReactElement {
       </Section>
 
       {/* Guarantees */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gradient-to-r from-accent-burgundy-dark/10 via-transparent to-accent-gold/5" />
+      <Section className="relative">
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1714060335405-81b17c8c0a22.avif')" }} />
+        <div className="absolute inset-0 bg-black/70" />
         
         <Container>
           <Reveal>
@@ -268,26 +276,26 @@ export default function PricingPage(): ReactElement {
             {[
               {
                 icon: Shield,
-                title: "TRANSACTIONS SÉCURISÉES",
-                description: "Accompagnement juridique complet. Tous les documents vérifiés par nos experts."
+                title: "QUALITÉ GARANTIE",
+                description: "Matériaux nobles et finitions artisanales. Garantie 5 ans sur tous nos meubles."
               },
               {
                 icon: Crown,
-                title: "BIENS VÉRIFIÉS",
-                description: "Chaque propriété inspectée par nos experts. Garantie de qualité et d'authenticité."
+                title: "FABRICATION PREMIUM",
+                description: "Chaque meuble fabriqué par nos artisans experts. Contrôle qualité à chaque étape."
               },
               {
                 icon: TrendingUp,
-                title: "EXPERTISE MARCHÉ",
-                description: "Connaissance approfondie du marché local. Conseils avisés pour optimiser votre investissement."
+                title: "SERVICE PERSONNALISÉ",
+                description: "Accompagnement complet de la conception à l'installation. Conseils d'aménagement inclus."
               }
             ].map((guarantee, idx) => (
               <Reveal key={guarantee.title} delay={idx * 200}>
                 <div className="luxury-card text-center p-8 rounded-xl group hover:scale-105 transition-all duration-500">
-                  <div className="w-20 h-20 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-accent-gold/20 transition-colors duration-300">
-                    <guarantee.icon className="w-10 h-10 text-accent-gold" />
+                  <div className="w-20 h-20 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-rose-500/20 transition-colors duration-300">
+                    <guarantee.icon className="w-10 h-10 text-rose-400" />
                   </div>
-                  <h3 className="mafia-heading text-xl text-white mb-4 group-hover:text-accent-gold transition-colors duration-300">
+                  <h3 className="mafia-heading text-xl text-white mb-4 group-hover:text-rose-400 transition-colors duration-300">
                     {guarantee.title}
                   </h3>
                   <p className="text-white/80 leading-relaxed">
@@ -302,18 +310,19 @@ export default function PricingPage(): ReactElement {
 
       {/* CTA Section */}
       <Section className="relative">
-        <div className="absolute inset-0 bg-gray-50" />
+        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+             style={{ backgroundImage: "url('/photo-1558969213-ff7823387b5c.avif')" }} />
         
         <Container>
           <Reveal>
             <div className="text-center max-w-4xl mx-auto">
               <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
                 Prêt à 
-                <span className="golden-accent block">Investir ?</span>
+                <span className="golden-accent block">Commander ?</span>
               </h2>
               <p className="text-xl text-white/85 mb-12 max-w-2xl mx-auto">
-                Contactez-nous pour une estimation gratuite ou découvrez 
-                nos biens exclusifs disponibles à la vente ou à la location.
+                Contactez-nous pour un devis personnalisé ou découvrez 
+                nos réalisations et notre savoir-faire artisanal.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center">
                 <Button 
@@ -323,7 +332,7 @@ export default function PricingPage(): ReactElement {
                   className="mafia-glow premium-shadow text-lg px-12 py-5"
                 >
                   <a href="/contact" className="flex items-center gap-3">
-                    <Building className="w-5 h-5" />
+                    <Palette className="w-5 h-5" />
                     NOUS CONTACTER
                   </a>
                 </Button>
@@ -331,7 +340,7 @@ export default function PricingPage(): ReactElement {
                   variant="outline" 
                   size="lg" 
                   asChild 
-                  className="luxury-card border-accent-gold/40 text-white hover:bg-accent-gold/10 hover:border-accent-gold/60 text-lg px-12 py-5"
+                  className="luxury-card border-rose-900/40 text-white hover:bg-rose-900/10 hover:border-rose-900/60 text-lg px-12 py-5"
                 >
                   <a href="/services">
                     DÉCOUVRIR NOS SERVICES
