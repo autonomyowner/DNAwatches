@@ -10,31 +10,17 @@ export default function Hero(): ReactElement {
 
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="relative h-screen w-full flex items-center film-grain" aria-label="Premium real estate agency">
-        {/* Hero background image */}
+      <div className="relative h-screen w-full flex items-center pt-20 sm:pt-0" aria-label="Premium furniture crafting">
+        {/* Hero background image - 100% visible */}
         <div 
           className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }}
+          style={{ backgroundImage: "url('/h.jpg')" }}
           aria-hidden
         />
         
-        {/* Enhanced cinematic overlays */}
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-        
-        {/* Sophisticated lighting effects */}
-        <div className="absolute top-0 left-1/3 w-2/3 h-1/2 bg-gradient-radial from-teal-500/8 to-transparent opacity-40" />
-        <div className="absolute bottom-0 right-1/3 w-1/2 h-2/3 bg-gradient-radial from-cyan-500/12 to-transparent opacity-30" />
-        <div className="absolute top-1/4 left-0 w-1/3 h-1/2 bg-gradient-radial from-slate-600/6 to-transparent opacity-25" />
-        
-        {/* Enhanced vignette with teal accent */}
-        <div className="absolute inset-0 shadow-[inset_0_0_300px_rgba(0,0,0,0.9)]" />
-        <div className="absolute inset-0 shadow-[inset_0_0_150px_rgba(20,184,166,0.03)]" />
-        
         <Container>
           <motion.div 
-            className="relative z-10 max-w-4xl"
+            className="relative z-10 max-w-5xl"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
@@ -45,35 +31,59 @@ export default function Hero(): ReactElement {
               transition={{ duration: 1, delay: 0.3 }}
               className="mb-8"
             >
-              <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
+              <span className="inline-block px-8 py-4 bg-white/95 backdrop-blur-sm text-slate-900 border border-slate-200/50 text-sm font-semibold tracking-[0.3em] uppercase rounded-full shadow-lg">
                 FABRICATION DE MEUBLES MODERNES
               </span>
             </motion.div>
             
             <motion.h1 
-              className="mafia-heading text-5xl sm:text-7xl lg:text-9xl text-white tracking-tight leading-[0.85] mb-10"
+              className="text-6xl sm:text-8xl lg:text-9xl text-white tracking-tight leading-[0.85] mb-10"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.5 }}
             >
-              <span className="block relative">
-                TRIOMPHE HOME DESIGN
-                <div className="absolute -inset-2 bg-gradient-to-r from-[#F28B82]/10 via-transparent to-[#F28B82]/10 blur-xl" />
+              <span 
+                className="block relative font-light italic text-6xl sm:text-8xl lg:text-9xl" 
+                style={{ 
+                  fontFamily: 'var(--font-dancing)',
+                  textShadow: '4px 4px 8px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,0.5)'
+                }}
+              >
+                TRIOMPHE
+                <span className="absolute -inset-4 bg-gradient-to-r from-white/20 via-transparent to-white/20 blur-2xl -z-10" />
               </span>
-              <span className="block text-[#F28B82] text-4xl sm:text-6xl lg:text-7xl font-light italic mt-2">
+              <span 
+                className="block font-light text-5xl sm:text-7xl lg:text-8xl mt-2 tracking-wider" 
+                style={{ 
+                  fontFamily: 'var(--font-cormorant)',
+                }}
+              >
+                HOME DESIGN
+              </span>
+              <span 
+                className="block text-white/90 text-3xl sm:text-5xl lg:text-6xl font-light italic mt-4" 
+                style={{ 
+                  fontFamily: 'var(--font-dancing)',
+                  textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
+                }}
+              >
                 Vos Meubles Sur Mesure
               </span>
             </motion.h1>
             
             <motion.p 
-              className="text-xl sm:text-2xl text-white/95 max-w-3xl leading-relaxed mb-14 font-light"
+              className="text-xl sm:text-2xl text-white max-w-4xl leading-relaxed mb-14 font-light"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.7 }}
+              style={{ 
+                fontFamily: 'var(--font-geist-sans)',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
+              }}
             >
-              Fabrication de tous types de meubles et décorations modernes selon vos demandes. 
+              Fabrication de meubles sur mesure, construction, rénovation et services d&apos;architecture & design. 
               <br className="hidden sm:block" />
-              <span className="text-[#F9AFA7] font-medium"> Cuisine, dressing, meuble TV, coiffeuse, lit capitonné, armoire, bureau...</span>
+              <span className="font-medium text-white/95"> Cuisine, dressing, meuble TV, coiffeuse, lit capitonné, armoire, bureau, construction et conception architecturale...</span>
             </motion.p>
             
             <motion.div 
@@ -82,13 +92,13 @@ export default function Hero(): ReactElement {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.9 }}
             >
-              <Button variant="primary" size="lg" asChild className="premium-shadow mafia-glow">
-                <Link href="/contact" className="text-lg px-10 py-5 font-semibold tracking-wide">
+              <Button variant="ghost" size="lg" asChild className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white hover:from-slate-800 hover:via-purple-800 hover:to-slate-800 font-bold shadow-xl hover:shadow-2xl shadow-purple-500/40 hover:scale-105 focus-visible:ring-purple-600">
+                <Link href="/contact" className="text-lg px-12 py-6 font-bold tracking-wide">
                   DEMANDER UN DEVIS
                 </Link>
               </Button>
-              <Button variant="outline" size="lg" asChild className="luxury-card bg-gradient-to-br from-slate-900 via-red-900 to-slate-900 border-slate-900/40 text-white hover:bg-red-900/10 hover:border-red-900/60 transition-all duration-300">
-                <Link href="/pricing" className="text-lg px-10 py-5 font-medium tracking-wide">
+              <Button variant="outline" size="lg" asChild className="border-2 border-white text-white hover:bg-white hover:text-slate-900 font-semibold shadow-xl">
+                <Link href="/pricing" className="text-lg px-12 py-6 font-semibold tracking-wide">
                   NOS SERVICES
                 </Link>
               </Button>
@@ -101,18 +111,21 @@ export default function Hero(): ReactElement {
               animate={{ opacity: 1 }}
               transition={{ duration: 1, delay: 1.5 }}
             >
-              <p className="smoke-text text-sm tracking-[0.2em] uppercase font-medium">
+              <p className="text-white text-sm tracking-[0.3em] uppercase font-medium drop-shadow-lg" style={{ 
+                fontFamily: 'var(--font-geist-sans)',
+                textShadow: '1px 1px 2px rgba(0,0,0,0.7)'
+              }}>
                 Découvrez notre expertise artisanale
               </p>
               <motion.div
-                className="w-px h-20 bg-gradient-to-b from-[#F28B82] via-[#F28B82]/50 to-transparent mx-auto mt-6 relative"
+                className="w-px h-20 bg-gradient-to-b from-white via-white/70 to-transparent mx-auto mt-6 relative"
                 animate={{ 
                   scaleY: [1, 0.3, 1],
-                  opacity: [0.8, 0.4, 0.8]
+                  opacity: [0.9, 0.5, 0.9]
                 }}
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
               >
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-[#F28B82] rounded-full animate-pulse" />
+                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white rounded-full animate-pulse shadow-lg" />
               </motion.div>
             </motion.div>
           </motion.div>
@@ -121,5 +134,3 @@ export default function Hero(): ReactElement {
     </section>
   );
 }
-
-

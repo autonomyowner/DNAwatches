@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Services - Triomphe Home Design - Fabrication de Meubles",
+  title: "Services - Triomphe Home Design - Fabrication, Construction, Architecture & Design",
 };
 
 type Service = {
@@ -37,6 +37,22 @@ const services: Service[] = [
     price: "Sur devis",
   },
   {
+    title: "CONSTRUCTION & RÉNOVATION",
+    subtitle: "Transformation Complète",
+    description: "Services de construction et rénovation complète pour tous types de projets, du petit aménagement à la rénovation totale.",
+    features: ["Construction neuve", "Rénovation complète", "Gros œuvre & second œuvre", "Projet clé en main"],
+    premium: true,
+    price: "Sur devis",
+  },
+  {
+    title: "ARCHITECTURE & DESIGN",
+    subtitle: "Conception & Maîtrise d'Œuvre",
+    description: "Services d'architecture et de design d'intérieur avec conception 3D et suivi de projet par nos architectes qualifiés.",
+    features: ["Plans architecturaux", "Design d'intérieur", "Modélisation 3D", "Suivi de chantier"],
+    premium: true,
+    price: "Sur devis",
+  },
+  {
     title: "DEVIS GRATUIT PERSONNALISÉ",
     subtitle: "Consultation Expert",
     description: "Obtenez votre devis personnalisé avec visite à domicile et conseils d'aménagement par nos experts menuisiers.",
@@ -49,11 +65,11 @@ const services: Service[] = [
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
-import { CreditCard, Palette, Layers, Zap, Star, Shield, CheckCircle, ArrowRight, TrendingUp } from "lucide-react";
+import { CreditCard, Palette, Layers, Zap, Star, Shield, CheckCircle, ArrowRight, TrendingUp, Hammer, Ruler } from "lucide-react";
 import type { ReactElement } from "react";
 
 const getServiceIcon = (idx: number) => {
-  const icons = [CreditCard, Palette, Layers, Zap];
+  const icons = [CreditCard, Palette, Layers, Hammer, Ruler, Zap];
   return icons[idx];
 };
 
@@ -63,7 +79,7 @@ export default function ServicesPage(): ReactElement {
       {/* Hero Section */}
       <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-             style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }} />
+             style={{ backgroundImage: "url('/pexels-heyho-6782352.jpg')" }} />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
         
@@ -86,7 +102,7 @@ export default function ServicesPage(): ReactElement {
             
             <Reveal delay={400}>
               <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Quatre solutions complètes pour votre aménagement intérieur.
+                Six solutions complètes pour tous vos projets d&apos;aménagement et de construction.
                 <span className="golden-accent font-medium block mt-2"> Où l&apos;artisanat rencontre l&apos;excellence moderne.</span>
               </p>
             </Reveal>

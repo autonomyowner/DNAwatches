@@ -100,7 +100,7 @@ function ContactInner(): ReactElement {
       <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{ backgroundImage: "url('/premium_photo-1710010209274-2c2266291da2.avif')" }}
+          style={{ backgroundImage: "url('/pexels-heyho-6970074.jpg')" }}
         />
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
         <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
