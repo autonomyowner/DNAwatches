@@ -1,29 +1,39 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useState, type ReactElement } from "react";
+import { useEffect, useState, memo, useCallback, type ReactElement } from "react";
 import { Menu, X } from "lucide-react";
 
-export default function Navbar(): ReactElement {
+function Navbar(): ReactElement {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
+  // Throttle scroll events for better performance
   useEffect(() => {
+    let ticking = false;
+    
     function onScroll() {
-      setScrolled(window.scrollY > 4);
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          setScrolled(window.scrollY > 4);
+          ticking = false;
+        });
+        ticking = true;
+      }
     }
+    
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
-  function handleToggleMenu(): void {
+  const handleToggleMenu = useCallback((): void => {
     setIsOpen((prev) => !prev);
-  }
+  }, []);
 
-  function handleCloseMenu(): void {
+  const handleCloseMenu = useCallback((): void => {
     setIsOpen(false);
-  }
+  }, []);
 
   return (
     <header
@@ -128,3 +138,6 @@ export default function Navbar(): ReactElement {
     </header>
   );
 }
+
+// Memoize the component to prevent unnecessary re-renders
+export default memo(Navbar);

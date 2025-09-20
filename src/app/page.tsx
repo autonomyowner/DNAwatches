@@ -5,6 +5,7 @@ import Section from "@/components/Section";
 import Hero from "@/components/Hero";
 import Button from "@/components/ui/Button";
 import Reveal from "@/components/Reveal";
+import OptimizedImage from "@/components/OptimizedImage";
 
 const services = [
   {
@@ -67,9 +68,14 @@ export default function Home(): ReactElement {
               <Reveal key={service.title} delay={idx * 200}>
                 <div className="bg-[#f5f3f0] p-8 rounded-xl text-center hover:shadow-lg transition-all duration-300 group">
                   <div className="w-24 h-24 mx-auto mb-6 rounded-full overflow-hidden">
-                    <div 
-                      className="w-full h-full bg-cover bg-center transition-transform duration-500 group-hover:scale-110"
-                      style={{ backgroundImage: `url('${service.image}')` }}
+                    <OptimizedImage
+                      src={service.image}
+                      alt={service.title}
+                      width={96}
+                      height={96}
+                      className="w-full h-full transition-transform duration-500 group-hover:scale-110"
+                      sizes="96px"
+                      quality={80}
                     />
                   </div>
                   <h3 className="text-xl font-bold text-[#2d2d2d] mb-4">{service.title}</h3>
@@ -106,9 +112,14 @@ export default function Home(): ReactElement {
             
             <Reveal delay={200}>
               <div className="relative">
-                <div 
-                  className="aspect-[3/4] bg-cover bg-center rounded-2xl"
-                  style={{ backgroundImage: "url('/8.jpg')" }}
+                <OptimizedImage
+                  src="/8.jpg"
+                  alt="Design moderne rencontre confort douillet"
+                  width={600}
+                  height={800}
+                  className="aspect-[3/4] rounded-2xl"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 600px"
+                  quality={85}
                 />
                 <div className="absolute -left-8 top-8 w-32 h-32 bg-[#f5f3f0] rounded-full -z-10"></div>
               </div>
@@ -132,9 +143,14 @@ export default function Home(): ReactElement {
             {popularProducts.map((product, idx) => (
               <Reveal key={product.title} delay={idx * 100}>
                 <div className="bg-[#f5f3f0] rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 group">
-                  <div 
-                    className="aspect-square bg-cover bg-center transition-transform duration-500 group-hover:scale-105"
-                    style={{ backgroundImage: `url('${product.image}')` }}
+                  <OptimizedImage
+                    src={product.image}
+                    alt={product.title}
+                    width={400}
+                    height={400}
+                    className="aspect-square transition-transform duration-500 group-hover:scale-105"
+                    sizes="(max-width: 768px) 50vw, (max-width: 1200px) 25vw, 400px"
+                    quality={80}
                   />
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-[#2d2d2d]">{product.title}</h3>

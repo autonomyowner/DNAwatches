@@ -1,17 +1,19 @@
 "use client";
 
-import { useEffect, useRef, useState, type ReactElement, type ReactNode } from "react";
+import { useEffect, useRef, useState, memo, type ReactElement, type ReactNode } from "react";
 import { clsx } from "clsx";
 
 type Props = { children: ReactNode; className?: string; delay?: number };
 
-export default function Reveal({ children, className, delay = 0 }: Props): ReactElement {
+function Reveal({ children, className, delay = 0 }: Props): ReactElement {
   const ref = useRef<HTMLDivElement>(null);
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
     const element = ref.current;
     if (!element) return;
+    
+    // Use passive listener for better performance
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -21,8 +23,12 @@ export default function Reveal({ children, className, delay = 0 }: Props): React
           }
         });
       },
-      { threshold: 0.15 }
+      { 
+        threshold: 0.15,
+        rootMargin: '50px' // Start animation slightly before element is visible
+      }
     );
+    
     observer.observe(element);
     return () => observer.disconnect();
   }, [delay]);
@@ -40,5 +46,8 @@ export default function Reveal({ children, className, delay = 0 }: Props): React
     </div>
   );
 }
+
+// Memoize the component to prevent unnecessary re-renders
+export default memo(Reveal);
 
 

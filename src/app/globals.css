@@ -1,5 +1,10 @@
 @import "tailwindcss";
 
+html, body {
+  width: 100%;
+  max-width: 100%;
+}
+
 :root {
   --background: #faf9f7;
   --foreground: #2d2d2d;
@@ -52,6 +57,24 @@ body {
   font-family: var(--font-sans), system-ui, sans-serif;
   background: linear-gradient(to bottom right, #faf9f7 0%, #f5f3f0 50%, #ebe8e3 100%);
   background-attachment: fixed;
+  /* Optimize for mobile performance */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  /* Reduce motion for users who prefer it */
+  scroll-behavior: smooth;
+}
+
+/* Respect user's motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
 
 .lux-heading {
@@ -478,6 +501,77 @@ body {
     animation-timing-function: cubic-bezier(0.25, 0.46, 0.45, 0.94);
     will-change: transform, opacity;
     contain: layout style paint;
+  }
+}
+
+/* Mobile-specific optimizations */
+@media (max-width: 768px) {
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Avoid janky scroll/overflow from fixed backgrounds on mobile */
+  body {
+    background-attachment: scroll;
+  }
+
+  /* Reduce heavy effects on mobile */
+  .film-grain::before {
+    display: none;
+  }
+  
+  .mafia-glow::before {
+    display: none;
+  }
+  
+  /* Optimize shadows for mobile */
+  .premium-shadow {
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  }
+  
+  .luxury-card {
+    box-shadow: 0 4px 16px rgba(45, 45, 45, 0.1);
+  }
+  
+  /* Reduce complex gradients on mobile */
+  .holographic {
+    background: transparent;
+    animation: none;
+  }
+  
+  /* Optimize 3D effects for mobile */
+  .card-3d-hover:hover {
+    transform: translateY(-2px) scale(1.01);
+  }
+  
+  /* Reduce backdrop blur on mobile for performance */
+  .glass-morphism {
+    backdrop-filter: blur(5px);
+  }
+}
+
+/* Touch-friendly interactions */
+@media (hover: none) and (pointer: coarse) {
+  /* Increase touch targets */
+  button, a, [role="button"] {
+    min-height: 44px;
+    min-width: 44px;
+  }
+  
+  /* Remove hover effects on touch devices */
+  .enhanced-hover:hover {
+    transform: none;
+    filter: none;
+  }
+  
+  .card-3d-hover:hover {
+    transform: none;
+  }
+  
+  /* Optimize for touch scrolling */
+  .overflow-auto {
+    -webkit-overflow-scrolling: touch;
   }
 }
 

@@ -1,21 +1,37 @@
 "use client";
 
 import Link from "next/link";
-import { type ReactElement } from "react";
+import { memo, type ReactElement } from "react";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import Container from "@/components/Container";
 import Button from "@/components/ui/Button";
 
-export default function Hero(): ReactElement {
+function Hero(): ReactElement {
+  // Debug: Log when component renders
+  console.log('Hero component rendering');
 
   return (
     <section className="relative isolate overflow-hidden">
       <div className="relative h-screen w-full flex items-center pt-20 sm:pt-0" aria-label="Triomphe décoration maison">
-        {/* Hero background image with overlay */}
+        {/* Hero background image with overlay - optimized for mobile */}
         <div 
-          className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{ backgroundImage: "url('/pexels-heyho-6970074.jpg')" }}
-          aria-hidden
+          aria-hidden="true"
+        />
+        <Image
+          src="/pexels-heyho-6970074.jpg"
+          alt="Décoration maison moderne"
+          fill
+          priority
+          quality={90}
+          sizes="100vw"
+          className="object-cover"
+          placeholder="blur"
+          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+          onLoad={() => console.log('Hero image loaded successfully')}
+          onError={(e) => console.error('Hero image failed to load:', e)}
         />
         <div className="absolute inset-0 bg-black/40" />
         
@@ -85,3 +101,6 @@ export default function Hero(): ReactElement {
     </section>
   );
 }
+
+// Memoize the component to prevent unnecessary re-renders
+export default memo(Hero);
