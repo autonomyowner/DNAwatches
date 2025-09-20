@@ -10,126 +10,74 @@ export default function Hero(): ReactElement {
 
   return (
     <section className="relative isolate overflow-hidden">
-      <div className="relative h-screen w-full flex items-center pt-20 sm:pt-0" aria-label="Premium furniture crafting">
-        {/* Hero background image - 100% visible */}
+      <div className="relative h-screen w-full flex items-center pt-20 sm:pt-0" aria-label="Triomphe décoration maison">
+        {/* Hero background image with overlay */}
         <div 
           className="absolute inset-0 h-full w-full bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/h.jpg')" }}
+          style={{ backgroundImage: "url('/pexels-heyho-6970074.jpg')" }}
           aria-hidden
         />
+        <div className="absolute inset-0 bg-black/40" />
         
         <Container>
           <motion.div 
-            className="relative z-10 max-w-5xl"
+            className="relative z-10 max-w-4xl text-center"
             initial={{ opacity: 0, y: 50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.2, ease: "easeOut" }}
           >
-            <motion.div
+            <motion.h1 
+              className="text-5xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-tight mb-8"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 1, delay: 0.3 }}
-              className="mb-8"
+              style={{ 
+                fontFamily: 'var(--font-sans)',
+                textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
+              }}
             >
-              <span className="inline-block px-8 py-4 bg-white/95 backdrop-blur-sm text-slate-900 border border-slate-200/50 text-sm font-semibold tracking-[0.3em] uppercase rounded-full shadow-lg">
-                FABRICATION DE MEUBLES MODERNES
-              </span>
-            </motion.div>
-            
-            <motion.h1 
-              className="text-6xl sm:text-8xl lg:text-9xl text-white tracking-tight leading-[0.85] mb-10"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-            >
-              <span 
-                className="block relative font-light text-6xl sm:text-8xl lg:text-9xl tracking-wider" 
-                style={{ 
-                  fontFamily: 'var(--font-cormorant)',
-                  textShadow: '4px 4px 8px rgba(0,0,0,0.7), 2px 2px 4px rgba(0,0,0,0.5)'
-                }}
-              >
-                TRIOMPHE
-                <span className="absolute -inset-4 bg-gradient-to-r from-white/20 via-transparent to-white/20 blur-2xl -z-10" />
-              </span>
-              <span 
-                className="block font-light italic text-3xl sm:text-5xl lg:text-6xl mt-2" 
-                style={{ 
-                  fontFamily: 'var(--font-dancing)',
-                }}
-              >
-                <span className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent font-bold">
-                  HOME
-                </span>{" "}
-                DESIGN
-              </span>
-              <span 
-                className="block text-white/90 text-3xl sm:text-5xl lg:text-6xl font-light italic mt-4" 
-                style={{ 
-                  fontFamily: 'var(--font-dancing)',
-                  textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
-                }}
-              >
-                Vos Meubles Sur Mesure
-              </span>
+              Décorez votre espace de rêve avec nos pièces.
             </motion.h1>
             
             <motion.p 
-              className="text-xl sm:text-2xl text-white max-w-4xl leading-relaxed mb-14 font-light"
+              className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed mb-12 font-light"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.7 }}
+              transition={{ duration: 1, delay: 0.5 }}
               style={{ 
-                fontFamily: 'var(--font-geist-sans)',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.6)'
+                fontFamily: 'var(--font-sans)',
+                textShadow: '1px 1px 2px rgba(0,0,0,0.6)'
               }}
             >
-              Construction • Rénovation • Aménagement • Ameublement
-              <br className="hidden sm:block" />
-              <span className="font-medium text-white/95">De la conception architecturale à la réalisation sur mesure, nous créons et transformons vos espaces : cuisines, dressings, bureaux, meubles TV, lits capitonnés, armoires, et bien plus.</span>
+              Transformez votre maison avec notre collection soigneusement sélectionnée de meubles et d&apos;objets de décoration modernes. 
+              Des vases élégants aux bougies douillettes, nous apportons style et confort à chaque coin de votre espace.
             </motion.p>
             
             <motion.div 
-              className="flex flex-col sm:flex-row gap-6"
+              className="flex justify-center"
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.9 }}
+              transition={{ duration: 1, delay: 0.7 }}
             >
-              <Button variant="ghost" size="lg" asChild className="bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 text-white hover:from-slate-800 hover:via-purple-800 hover:to-slate-800 font-bold shadow-xl hover:shadow-2xl shadow-purple-500/40 hover:scale-105 focus-visible:ring-purple-600">
-                <Link href="/contact" className="text-lg px-12 py-6 font-bold tracking-wide">
-                  DEMANDER UN DEVIS
-                </Link>
-              </Button>
-              <Button variant="outline" size="lg" asChild className="border-2 border-white text-white hover:bg-white hover:text-slate-900 font-semibold shadow-xl">
-                <Link href="/pricing" className="text-lg px-12 py-6 font-semibold tracking-wide">
-                  NOS SERVICES
+              <Button variant="outline" size="lg" asChild className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-[#2d2d2d] font-semibold shadow-xl">
+                <Link href="/services" className="text-lg px-8 py-4 font-semibold tracking-wide">
+                  EXPLORER MAINTENANT
                 </Link>
               </Button>
             </motion.div>
             
-            {/* Enhanced call to action */}
+            {/* Decorative elements */}
             <motion.div
-              className="mt-20 text-center"
+              className="absolute left-8 top-1/2 transform -translate-y-1/2 hidden lg:block"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1.5 }}
+              transition={{ duration: 1, delay: 1 }}
             >
-              <p className="text-white text-sm tracking-[0.3em] uppercase font-medium drop-shadow-lg" style={{ 
-                fontFamily: 'var(--font-geist-sans)',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.7)'
-              }}>
-                Découvrez notre expertise artisanale
-              </p>
-              <motion.div
-                className="w-px h-20 bg-gradient-to-b from-white via-white/70 to-transparent mx-auto mt-6 relative"
-                animate={{ 
-                  scaleY: [1, 0.3, 1],
-                  opacity: [0.9, 0.5, 0.9]
-                }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <div className="absolute top-0 left-1/2 transform -translate-x-1/2 w-2 h-2 bg-white rounded-full animate-pulse shadow-lg" />
-              </motion.div>
+              <div className="space-y-3">
+                <div className="w-3 h-3 bg-white/60 rounded-full"></div>
+                <div className="w-3 h-3 bg-white/40 rounded-full"></div>
+                <div className="w-3 h-3 bg-white/20 rounded-full"></div>
+              </div>
             </motion.div>
           </motion.div>
         </Container>

@@ -1,14 +1,14 @@
-export const metadata = { title: "Nos Tarifs - Triomphe Home Design - Fabrication de Meubles" };
+export const metadata = { title: "Nos Tarifs - Triomphe - Maison de la Perfection" };
 
-const furnitureProjects: Array<{ name: string; price: string; premium?: boolean; description?: string; category: string }> = [
-  { name: "Cuisine Moderne", price: "Sur devis", category: "Cuisine", description: "Design personnalisé" },
-  { name: "Dressing Optimisé", price: "Sur devis", category: "Dressing", description: "Solutions modulables" },
-  { name: "Meuble TV + Console", price: "Sur devis", premium: true, category: "Salon", description: "Ensemble coordonné" },
-  { name: "Lit Capitonné + Tables", price: "Sur devis", category: "Chambre", description: "Finitions luxueuses" },
-  { name: "Bureau + Bibliothèque", price: "Sur devis", premium: true, category: "Bureau", description: "Ergonomie maximale" },
-  { name: "Armoire Sur Mesure", price: "Sur devis", category: "Rangement", description: "Optimisation espace" },
-  { name: "Coiffeuse + Miroir", price: "Sur devis", premium: true, category: "Chambre", description: "Design élégant" },
-  { name: "Mobilier Complet", price: "Sur devis", category: "Ensemble", description: "Projet global" },
+const decorationProjects: Array<{ name: string; price: string; premium?: boolean; description?: string; category: string }> = [
+  { name: "Vases Artisanaux", price: "Sur devis", category: "Vases", description: "Design unique" },
+  { name: "Bougies Parfumées", price: "Sur devis", category: "Bougies", description: "Parfums naturels" },
+  { name: "Sculptures Modernes", price: "Sur devis", premium: true, category: "Sculptures", description: "Pièces uniques" },
+  { name: "Lampes Design", price: "Sur devis", category: "Éclairage", description: "Ambiance parfaite" },
+  { name: "Ensembles Décoratifs", price: "Sur devis", premium: true, category: "Ensembles", description: "Harmonie complète" },
+  { name: "Arrangements Floraux", price: "Sur devis", category: "Floral", description: "Nature chez vous" },
+  { name: "Porte-bougies Élégants", price: "Sur devis", premium: true, category: "Accessoires", description: "Style raffiné" },
+  { name: "Décoration Complète", price: "Sur devis", category: "Projet Global", description: "Transformation totale" },
 ];
 
 const services = [
@@ -21,7 +21,7 @@ const services = [
       "Visite à domicile",
       "Plans 3D détaillés",
       "Conseils d'aménagement",
-      "Choix des matériaux",
+      "Choix des couleurs",
       "Devis détaillé"
     ],
     popular: false
@@ -29,13 +29,13 @@ const services = [
   {
     name: "FABRICATION", 
     subtitle: "Artisanat d'Excellence",
-    duration: "2-6 semaines",
+    duration: "1-4 semaines",
     price: "Sur devis",
     features: [
       "Matériaux nobles sélectionnés",
       "Finitions artisanales", 
       "Contrôle qualité strict",
-      "Garantie 5 ans",
+      "Garantie 2 ans",
       "Suivi de fabrication",
       "Respect des délais"
     ],
@@ -44,14 +44,14 @@ const services = [
   {
     name: "INSTALLATION",
     subtitle: "Service Complet",
-    duration: "1-2 jours",
+    duration: "1 jour",
     price: "Inclus",
     features: [
       "Installation professionnelle",
       "Montage et assemblage",
       "Réglages et finitions",
       "Nettoyage du chantier",
-      "Formation à l'utilisation",
+      "Conseils d'entretien",
       "Garantie installation"
     ],
     popular: false
@@ -69,33 +69,31 @@ export default function PricingPage(): ReactElement {
   return (
     <>
       {/* Hero Section */}
-      <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
+      <Section className="relative overflow-hidden pt-32 pb-20">
         <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
              style={{ backgroundImage: "url('/pexels-fotoaibe-1571460.jpg')" }} />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-black/40" />
         
         <Container>
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <Reveal>
               <div className="mb-8">
-                <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
+                <span className="inline-block px-6 py-3 bg-white/95 backdrop-blur-sm text-[#2d2d2d] border border-[#d4c4b0] text-sm font-semibold tracking-widest uppercase rounded-full">
                   Tarifs et Services
                 </span>
               </div>
             </Reveal>
             
             <Reveal delay={200}>
-              <h1 className="mafia-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.9] mb-8">
-                <span className="block">NOS</span>
-                <span className="block golden-accent">TARIFS</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl text-white leading-tight mb-8 font-bold">
+                Nos Tarifs
               </h1>
             </Reveal>
             
             <Reveal delay={400}>
-              <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Transparence et qualité pour vos meubles sur mesure.
-                <span className="golden-accent font-medium block mt-2"> De la conception à l&apos;installation, tout inclus.</span>
+              <p className="text-xl sm:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
+                Transparence et qualité pour vos projets de décoration.
+                <span className="font-medium block mt-2"> De la conception à l&apos;installation, tout inclus.</span>
               </p>
             </Reveal>
           </div>
@@ -103,19 +101,15 @@ export default function PricingPage(): ReactElement {
       </Section>
 
       {/* Packages Section */}
-      <Section className="relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-             style={{ backgroundImage: "url('/photo-1665836372090-29f9515f1a60.avif')" }} />
-        <div className="absolute inset-0 bg-white/85" />
-        
+      <Section className="bg-white py-20">
         <Container>
           <Reveal>
             <div className="text-center mb-16">
-              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
-                Nos <span className="golden-accent">Services</span>
+              <h2 className="text-4xl lg:text-5xl text-[#2d2d2d] mb-6 font-bold">
+                Nos <span className="text-[#8b7355]">Services</span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
-                Trois étapes pour réaliser vos meubles sur mesure
+              <p className="text-xl text-[#6b6b6b] max-w-3xl mx-auto">
+                Trois étapes pour réaliser vos projets de décoration
               </p>
             </div>
           </Reveal>
@@ -123,36 +117,36 @@ export default function PricingPage(): ReactElement {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
             {services.map((service, idx) => (
               <Reveal key={service.name} delay={idx * 150}>
-                <div className={`luxury-card mafia-glow rounded-2xl p-8 relative overflow-hidden group hover:scale-105 transition-all duration-500 ${service.popular ? 'border-2 border-rose-900/50' : ''}`}>
+                <div className={`bg-[#f5f3f0] rounded-2xl p-8 relative overflow-hidden group hover:shadow-lg transition-all duration-500 ${service.popular ? 'border-2 border-[#8b7355]' : ''}`}>
                   {service.popular && (
                     <div className="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                      <div className="luxury-card px-6 py-2 rounded-full border border-rose-900/40">
-                        <Star className="w-4 h-4 text-rose-400 inline mr-2" />
-                        <span className="text-rose-400 text-sm font-semibold tracking-wide">PLUS POPULAIRE</span>
+                      <div className="bg-white px-6 py-2 rounded-full border border-[#8b7355]">
+                        <Star className="w-4 h-4 text-[#8b7355] inline mr-2" />
+                        <span className="text-[#8b7355] text-sm font-semibold tracking-wide">PLUS POPULAIRE</span>
                       </div>
                     </div>
                   )}
                   
                   <div className="text-center mb-8">
-                    <h3 className="mafia-heading text-3xl text-white mb-2 group-hover:text-rose-400 transition-colors duration-300">
+                    <h3 className="text-3xl text-[#2d2d2d] mb-2 group-hover:text-[#8b7355] transition-colors duration-300 font-bold">
                       {service.name}
                     </h3>
-                    <p className="text-rose-400 text-sm font-medium tracking-wide mb-4">
+                    <p className="text-[#8b7355] text-sm font-medium tracking-wide mb-4">
                       {service.subtitle}
                     </p>
                     <div className="mb-6">
-                      <div className="mafia-heading text-5xl text-rose-400 mb-2">
+                      <div className="text-5xl text-[#8b7355] mb-2 font-bold">
                         {service.price === "Sur devis" ? service.price : `${service.price}`}
                       </div>
-                      <p className="text-white/60 text-sm">{service.duration}</p>
+                      <p className="text-[#6b6b6b] text-sm">{service.duration}</p>
                     </div>
                   </div>
                   
                   <div className="space-y-4 mb-8">
                     {service.features.map((feature) => (
                       <div key={feature} className="flex items-center gap-3">
-                        <Check className="w-5 h-5 text-rose-400 flex-shrink-0" />
-                        <span className="text-white/80 text-sm">{feature}</span>
+                        <Check className="w-5 h-5 text-[#8b7355] flex-shrink-0" />
+                        <span className="text-[#6b6b6b] text-sm">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -161,7 +155,7 @@ export default function PricingPage(): ReactElement {
                     variant={service.popular ? "primary" : "outline"} 
                     size="lg" 
                     asChild 
-                    className={`w-full ${service.popular ? 'premium-shadow mafia-glow bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900' : 'luxury-card border-rose-900/40 text-white hover:bg-rose-900/10'}`}
+                    className={`w-full ${service.popular ? 'bg-[#2d2d2d] hover:bg-[#8b7355]' : 'border-2 border-[#8b7355] text-[#8b7355] hover:bg-[#8b7355] hover:text-white'}`}
                   >
                     <a href="/contact" className="flex items-center justify-center gap-2">
                       {service.price === "Sur devis" ? "NOUS CONTACTER" : "EN SAVOIR PLUS"}
@@ -175,24 +169,21 @@ export default function PricingPage(): ReactElement {
         </Container>
       </Section>
 
-      {/* Furniture Projects */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
-        
+      {/* Decoration Projects */}
+      <Section className="bg-[#faf9f7] py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
             <Reveal>
               <div>
-                <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
+                <h2 className="text-4xl lg:text-5xl text-[#2d2d2d] mb-8 font-bold">
                   Projets 
-                  <span className="golden-accent block">Réalisés</span>
+                  <span className="block text-[#8b7355]">Réalisés</span>
                 </h2>
-                <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-8" />
-                <p className="text-lg leading-relaxed mb-8 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 bg-clip-text text-transparent font-bold">
+                <p className="text-lg leading-relaxed mb-8 text-[#6b6b6b]">
                   Découvrez notre savoir-faire à travers nos réalisations 
                   et trouvez l&apos;inspiration pour votre projet.
                 </p>
-                <div className="luxury-card mafia-glow rounded-2xl overflow-hidden aspect-[4/3] relative">
+                <div className="bg-[#f5f3f0] rounded-2xl overflow-hidden aspect-[4/3] relative">
                   <div 
                     className="absolute inset-0 bg-cover bg-center"
                     style={{ backgroundImage: "url('/6.jpg')" }}
@@ -200,9 +191,9 @@ export default function PricingPage(): ReactElement {
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
                   <div className="absolute bottom-6 left-6 right-6">
                     <div className="flex items-center gap-3">
-                      <Palette className="w-6 h-6 text-rose-400" />
+                      <Palette className="w-6 h-6 text-[#8b7355]" />
                       <div>
-                        <h3 className="mafia-heading text-xl text-white">Setif Bousekine</h3>
+                        <h3 className="text-xl text-white font-bold">Setif Bousekine</h3>
                         <p className="text-white/80 text-sm">Notre atelier et zone de création</p>
                       </div>
                     </div>
@@ -212,38 +203,38 @@ export default function PricingPage(): ReactElement {
             </Reveal>
             
             <Reveal delay={300}>
-              <div className="luxury-card rounded-2xl overflow-hidden">
-                <div className="luxury-card mafia-glow p-6 border-b border-rose-900/40">
-                  <h3 className="mafia-heading text-2xl text-white mb-2">Projets Récent</h3>
-                  <p className="text-white/80 text-sm">Sélection de nos réalisations</p>
+              <div className="bg-white rounded-2xl overflow-hidden shadow-lg">
+                <div className="bg-[#f5f3f0] p-6 border-b border-[#d4c4b0]">
+                  <h3 className="text-2xl text-[#2d2d2d] mb-2 font-bold">Projets Récents</h3>
+                  <p className="text-[#6b6b6b] text-sm">Sélection de nos réalisations</p>
                 </div>
                 <div className="max-h-96 overflow-y-auto">
-                  {furnitureProjects.map((project) => (
+                  {decorationProjects.map((project) => (
                     <div 
                       key={project.name} 
-                      className="flex items-center justify-between p-4 border-b border-rose-900/20 last:border-none hover:bg-rose-900/5 transition-colors duration-300"
+                      className="flex items-center justify-between p-4 border-b border-[#d4c4b0] last:border-none hover:bg-[#f5f3f0] transition-colors duration-300"
                     >
                       <div className="flex items-center gap-3">
-                        <div className={`w-3 h-3 rounded-full ${project.premium ? 'bg-rose-400' : 'bg-white/60'}`} />
+                        <div className={`w-3 h-3 rounded-full ${project.premium ? 'bg-[#8b7355]' : 'bg-[#6b6b6b]'}`} />
                         <div>
-                          <div className="text-white font-medium">{project.name}</div>
-                          <div className="text-white/50 text-xs">{project.category}</div>
+                          <div className="text-[#2d2d2d] font-medium">{project.name}</div>
+                          <div className="text-[#6b6b6b] text-xs">{project.category}</div>
                           {project.description && (
-                            <div className="text-white/60 text-xs">{project.description}</div>
+                            <div className="text-[#6b6b6b] text-xs">{project.description}</div>
                           )}
                         </div>
                         {project.premium && (
-                          <Crown className="w-4 h-4 text-rose-400" />
+                          <Crown className="w-4 h-4 text-[#8b7355]" />
                         )}
                       </div>
-                      <div className="mafia-heading text-xl text-rose-400">
+                      <div className="text-xl text-[#8b7355] font-bold">
                         {project.price}
                       </div>
                     </div>
                   ))}
                 </div>
-                <div className="p-4 bg-rose-900/5 border-t border-rose-900/20">
-                  <div className="flex items-center gap-2 text-white/70 text-xs">
+                <div className="p-4 bg-[#f5f3f0] border-t border-[#d4c4b0]">
+                  <div className="flex items-center gap-2 text-[#6b6b6b] text-xs">
                     <TrendingUp className="w-4 h-4" />
                     <span>Tarifs sur devis. Consultation gratuite</span>
                   </div>
@@ -255,18 +246,14 @@ export default function PricingPage(): ReactElement {
       </Section>
 
       {/* Guarantees */}
-      <Section className="relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-             style={{ backgroundImage: "url('/photo-1714060335405-81b17c8c0a22.avif')" }} />
-        <div className="absolute inset-0 bg-black/70" />
-        
+      <Section className="bg-white py-20">
         <Container>
           <Reveal>
             <div className="text-center mb-16">
-              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-6">
-                Nos <span className="golden-accent">Engagements</span>
+              <h2 className="text-4xl lg:text-5xl text-[#2d2d2d] mb-6 font-bold">
+                Nos <span className="text-[#8b7355]">Engagements</span>
               </h2>
-              <p className="text-xl text-white/80 max-w-3xl mx-auto">
+              <p className="text-xl text-[#6b6b6b] max-w-3xl mx-auto">
                 La promesse d&apos;un service irréprochable, sans surprise
               </p>
             </div>
@@ -277,12 +264,12 @@ export default function PricingPage(): ReactElement {
               {
                 icon: Shield,
                 title: "QUALITÉ GARANTIE",
-                description: "Matériaux nobles et finitions artisanales. Garantie 5 ans sur tous nos meubles."
+                description: "Matériaux nobles et finitions artisanales. Garantie 2 ans sur tous nos produits."
               },
               {
                 icon: Crown,
                 title: "FABRICATION PREMIUM",
-                description: "Chaque meuble fabriqué par nos artisans experts. Contrôle qualité à chaque étape."
+                description: "Chaque pièce fabriquée par nos artisans experts. Contrôle qualité à chaque étape."
               },
               {
                 icon: TrendingUp,
@@ -291,14 +278,14 @@ export default function PricingPage(): ReactElement {
               }
             ].map((guarantee, idx) => (
               <Reveal key={guarantee.title} delay={idx * 200}>
-                <div className="luxury-card text-center p-8 rounded-xl group hover:scale-105 transition-all duration-500">
-                  <div className="w-20 h-20 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-rose-500/20 transition-colors duration-300">
-                    <guarantee.icon className="w-10 h-10 text-rose-400" />
+                <div className="bg-[#f5f3f0] text-center p-8 rounded-xl group hover:shadow-lg transition-all duration-500">
+                  <div className="w-20 h-20 mx-auto mb-6 bg-white rounded-full flex items-center justify-center group-hover:bg-[#8b7355]/10 transition-colors duration-300">
+                    <guarantee.icon className="w-10 h-10 text-[#8b7355]" />
                   </div>
-                  <h3 className="mafia-heading text-xl text-white mb-4 group-hover:text-rose-400 transition-colors duration-300">
+                  <h3 className="text-xl text-[#2d2d2d] mb-4 group-hover:text-[#8b7355] transition-colors duration-300 font-bold">
                     {guarantee.title}
                   </h3>
-                  <p className="text-white/80 leading-relaxed">
+                  <p className="text-[#6b6b6b] leading-relaxed">
                     {guarantee.description}
                   </p>
                 </div>
@@ -309,18 +296,15 @@ export default function PricingPage(): ReactElement {
       </Section>
 
       {/* CTA Section */}
-      <Section className="relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-             style={{ backgroundImage: "url('/photo-1558969213-ff7823387b5c.avif')" }} />
-        
+      <Section className="bg-[#faf9f7] py-20">
         <Container>
           <Reveal>
             <div className="text-center max-w-4xl mx-auto">
-              <h2 className="mafia-heading text-5xl lg:text-6xl text-white mb-8">
+              <h2 className="text-4xl lg:text-5xl text-[#2d2d2d] mb-8 font-bold">
                 Prêt à 
-                <span className="golden-accent block">Commander ?</span>
+                <span className="block text-[#8b7355]">Commander ?</span>
               </h2>
-              <p className="text-xl text-white/85 mb-12 max-w-2xl mx-auto">
+              <p className="text-xl text-[#6b6b6b] mb-12 max-w-2xl mx-auto">
                 Contactez-nous pour un devis personnalisé ou découvrez 
                 nos réalisations et notre savoir-faire artisanal.
               </p>
@@ -329,7 +313,7 @@ export default function PricingPage(): ReactElement {
                   variant="primary" 
                   size="lg" 
                   asChild 
-                  className="mafia-glow premium-shadow text-lg px-12 py-5"
+                  className="bg-[#2d2d2d] hover:bg-[#8b7355] text-lg px-12 py-5"
                 >
                   <a href="/contact" className="flex items-center gap-3">
                     <Palette className="w-5 h-5" />
@@ -340,7 +324,7 @@ export default function PricingPage(): ReactElement {
                   variant="outline" 
                   size="lg" 
                   asChild 
-                  className="luxury-card border-rose-900/40 text-white hover:bg-rose-900/10 hover:border-rose-900/60 text-lg px-12 py-5"
+                  className="border-2 border-[#8b7355] text-[#8b7355] hover:bg-[#8b7355] hover:text-white text-lg px-12 py-5"
                 >
                   <a href="/services">
                     DÉCOUVRIR NOS SERVICES

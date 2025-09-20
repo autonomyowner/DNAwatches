@@ -97,35 +97,33 @@ function ContactInner(): ReactElement {
   return (
     <>
       {/* Hero Section */}
-      <Section className="relative overflow-hidden pt-32 pb-20 film-grain">
+      <Section className="relative overflow-hidden pt-32 pb-20">
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
           style={{ backgroundImage: "url('/pexels-heyho-6970074.jpg')" }}
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/30 to-black/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-transparent to-black/40" />
+        <div className="absolute inset-0 bg-black/40" />
         
         <Container>
           <div className="relative z-10 max-w-5xl mx-auto text-center">
             <Reveal>
               <div className="mb-8">
-                <span className="inline-block px-6 py-3 luxury-card mafia-glow text-white bg-gradient-to-br from-slate-900 via-rose-900 to-slate-900 border border-rose-900/40 text-sm font-semibold tracking-widest uppercase">
+                <span className="inline-block px-6 py-3 bg-white/95 backdrop-blur-sm text-[#2d2d2d] border border-[#d4c4b0] text-sm font-semibold tracking-widest uppercase rounded-full">
                   Votre Demande, Notre Priorité
                 </span>
               </div>
             </Reveal>
             
             <Reveal delay={200}>
-              <h1 className="mafia-heading text-6xl sm:text-7xl lg:text-8xl text-white leading-[0.9] mb-8">
-                <span className="block">NOUS</span>
-                <span className="block golden-accent">CONTACTER</span>
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl text-white leading-tight mb-8 font-bold">
+                Nous Contacter
               </h1>
             </Reveal>
             
             <Reveal delay={400}>
-              <p className="text-2xl sm:text-3xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Partagez votre projet de meubles sur mesure avec nous.
-                <span className="golden-accent font-medium block mt-2"> Notre équipe vous répond dans l&apos;heure.</span>
+              <p className="text-xl sm:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
+                Partagez votre projet de décoration avec nous.
+                <span className="font-medium block mt-2"> Notre équipe vous répond dans l&apos;heure.</span>
               </p>
             </Reveal>
           </div>
@@ -133,11 +131,7 @@ function ContactInner(): ReactElement {
       </Section>
 
       {/* Contact Methods */}
-      <Section className="relative">
-        <div className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-             style={{ backgroundImage: "url('/photo-1665836372090-29f9515f1a60.avif')" }} />
-        <div className="absolute inset-0 bg-white/85" />
-        
+      <Section className="bg-white py-20">
         <Container>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
             {contactMethods.map((method, idx) => (
@@ -146,19 +140,19 @@ function ContactInner(): ReactElement {
                   href={method.href}
                   target={method.title === "INSTAGRAM" ? "_blank" : undefined}
                   rel={method.title === "INSTAGRAM" ? "noreferrer noopener" : undefined}
-                  className={`luxury-card p-8 rounded-xl group hover:scale-105 transition-all duration-500 block ${method.primary ? 'mafia-glow' : ''}`}
+                  className={`bg-[#f5f3f0] p-8 rounded-xl group hover:shadow-lg transition-all duration-500 block ${method.primary ? 'border-2 border-[#8b7355]' : ''}`}
                 >
                   <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center group-hover:bg-rose-500/20 transition-colors duration-300">
-                      <method.icon className="w-8 h-8 text-rose-400" />
+                    <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center group-hover:bg-[#8b7355]/10 transition-colors duration-300">
+                      <method.icon className="w-8 h-8 text-[#8b7355]" />
                     </div>
-                    <h3 className="mafia-heading text-xl text-white mb-2 group-hover:text-rose-400 transition-colors duration-300">
+                    <h3 className="text-xl text-[#2d2d2d] mb-2 group-hover:text-[#8b7355] transition-colors duration-300 font-bold">
                       {method.title}
                     </h3>
-                    <p className="text-rose-400 text-sm font-medium mb-2">
+                    <p className="text-[#8b7355] text-sm font-medium mb-2">
                       {method.subtitle}
                     </p>
-                    <p className="text-white/80 text-sm">
+                    <p className="text-[#6b6b6b] text-sm">
                       {method.value}
                     </p>
                   </div>
@@ -170,35 +164,32 @@ function ContactInner(): ReactElement {
       </Section>
 
       {/* Contact Form */}
-      <Section className="relative bg-gray-50">
-        <div className="absolute inset-0 bg-gray-50" />
-        
+      <Section className="bg-[#faf9f7] py-20">
         <Container>
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
             <div className="lg:col-span-2">
               <Reveal>
                 <div className="mb-8">
-                  <h2 className="mafia-heading text-4xl lg:text-5xl text-white mb-4">
+                  <h2 className="text-4xl lg:text-5xl text-[#2d2d2d] mb-4 font-bold">
                     Formulaire de 
-                    <span className="golden-accent block">Contact</span>
+                    <span className="block text-[#8b7355]">Contact</span>
                   </h2>
-                  <div className="w-24 h-1 bg-gradient-to-r from-accent-gold to-accent-gold-bright rounded-full mb-6" />
-                  <p className="text-lg leading-relaxed bg-gradient-to-br from-slate-900 via-amber-400 to-slate-900 bg-clip-text text-transparent font-bold">
-                    Complétez ce formulaire pour votre projet de meubles sur mesure. 
-                    Chaque détail compte pour créer votre mobilier idéal.
+                  <p className="text-lg leading-relaxed text-[#6b6b6b]">
+                    Complétez ce formulaire pour votre projet de décoration sur mesure. 
+                    Chaque détail compte pour créer votre espace idéal.
                   </p>
                 </div>
               </Reveal>
 
               <Reveal delay={200}>
-                <div className="luxury-card rounded-2xl p-8">
+                <div className="bg-white rounded-2xl p-8 shadow-lg">
                   {isSent ? (
                     <div className="text-center py-12">
-                      <div className="w-20 h-20 mx-auto mb-6 luxury-card rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-10 h-10 text-rose-400" />
+                      <div className="w-20 h-20 mx-auto mb-6 bg-[#f5f3f0] rounded-full flex items-center justify-center">
+                        <CheckCircle className="w-10 h-10 text-[#8b7355]" />
                       </div>
-                      <h3 className="mafia-heading text-2xl text-white mb-4">Demande Reçue</h3>
-                      <p className="text-white/80 mb-6">
+                      <h3 className="text-2xl text-[#2d2d2d] mb-4 font-bold">Demande Reçue</h3>
+                      <p className="text-[#6b6b6b] mb-6">
                         Merci pour votre confiance. Notre équipe vous recontacte dans l&apos;heure 
                         pour discuter de votre projet.
                       </p>
@@ -206,7 +197,7 @@ function ContactInner(): ReactElement {
                         variant="primary" 
                         size="lg" 
                         asChild 
-                        className="premium-shadow"
+                        className="bg-[#2d2d2d] hover:bg-[#8b7355]"
                       >
                         <Link href="/">RETOUR À L&apos;ACCUEIL</Link>
                       </Button>
@@ -215,52 +206,52 @@ function ContactInner(): ReactElement {
                     <form className="space-y-6" onSubmit={handleSubmit(handleSubmitContact)}>
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-white font-medium mb-2 tracking-wide">
+                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
                             NOM COMPLET *
                           </label>
                           <Input 
-                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
                             placeholder="Votre nom et prénom"
                             {...register("name")} 
                           />
                           {errors.name && (
-                            <p className="text-red-400 text-xs mt-1">Nom requis</p>
+                            <p className="text-red-500 text-xs mt-1">Nom requis</p>
                           )}
                         </div>
                         <div>
-                          <label className="block text-white font-medium mb-2 tracking-wide">
+                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
                             EMAIL *
                           </label>
                           <Input 
-                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
                             type="email" 
                             placeholder="votre@email.com"
                             {...register("email")} 
                           />
                           {errors.email && (
-                            <p className="text-red-400 text-xs mt-1">Email valide requis</p>
+                            <p className="text-red-500 text-xs mt-1">Email valide requis</p>
                           )}
                         </div>
                       </div>
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-white font-medium mb-2 tracking-wide">
+                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
                             TÉLÉPHONE
                           </label>
                           <Input 
-                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
                             placeholder="+213 XXX XX XX XX"
                             {...register("phone")} 
                           />
                         </div>
                         <div>
-                          <label className="block text-white font-medium mb-2 tracking-wide">
-                            TYPE DE MEUBLE
+                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
+                            TYPE DE PRODUIT
                           </label>
                           <Input 
-                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
-                            placeholder="Cuisine, Dressing, Salon..."
+                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
+                            placeholder="Vases, Bougies, Sculptures..."
                             {...register("service")} 
                           />
                         </div>
@@ -268,46 +259,46 @@ function ContactInner(): ReactElement {
 
                       <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-white font-medium mb-2 tracking-wide">
+                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
                             BUDGET ESTIMATIF
                           </label>
                           <Input 
-                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
-                            placeholder="Ex: 200 000 - 500 000 DA"
+                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
+                            placeholder="Ex: 50 000 - 200 000 DA"
                             {...register("budget")} 
                           />
                         </div>
                         <div>
-                          <label className="block text-white font-medium mb-2 tracking-wide">
+                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
                             DÉLAI SOUHAITÉ
                           </label>
                           <Input 
-                            className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
-                            placeholder="2-3 semaines, 1-2 mois..."
+                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
+                            placeholder="1-2 semaines, 1 mois..."
                             {...register("timeline")} 
                           />
                         </div>
                       </div>
 
                       <div>
-                        <label className="block text-white font-medium mb-2 tracking-wide">
+                        <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
                           LIEU D&apos;INSTALLATION
                         </label>
                         <Input 
-                          className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500" 
+                          className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
                           placeholder="Ville, commune..." 
                           {...register("location")} 
                         />
                       </div>
 
                       <div>
-                        <label className="block text-white font-medium mb-2 tracking-wide">
+                        <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
                           DESCRIPTION DU PROJET
                         </label>
                         <Textarea 
-                          className="luxury-card border-rose-900/40 text-white placeholder-white/60 focus:border-rose-500 min-h-[120px]" 
+                          className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355] min-h-[120px]" 
                           rows={4} 
-                          placeholder="Décrivez votre projet : dimensions, style, matériaux préférés, fonctionnalités spéciales..."
+                          placeholder="Décrivez votre projet : style, couleurs préférées, espace à décorer, ambiance souhaitée..."
                           {...register("message")} 
                         />
                       </div>
@@ -317,7 +308,7 @@ function ContactInner(): ReactElement {
                         disabled={isSubmitting} 
                         variant="primary"
                         size="lg"
-                        className="w-full mafia-glow premium-shadow text-lg py-5"
+                        className="w-full bg-[#2d2d2d] hover:bg-[#8b7355] text-lg py-5"
                       >
                         <Send className="w-5 h-5 mr-3" />
                         {isSubmitting ? "ENVOI EN COURS..." : "ENVOYER LA DEMANDE"}
@@ -331,55 +322,54 @@ function ContactInner(): ReactElement {
             {/* Contact Info Sidebar */}
             <div className="lg:col-span-1">
               <Reveal delay={300}>
-                <div className="luxury-card rounded-2xl p-8 sticky top-8">
-                  <h3 className="mafia-heading text-2xl text-white mb-6">
+                <div className="bg-white rounded-2xl p-8 shadow-lg sticky top-8">
+                  <h3 className="text-2xl text-[#2d2d2d] mb-6 font-bold">
                     Informations 
-                    <span className="golden-accent block">Pratiques</span>
+                    <span className="block text-[#8b7355]">Pratiques</span>
                   </h3>
 
                   <div className="space-y-6">
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 luxury-card rounded-full flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-6 h-6 text-accent-gold" />
+                      <div className="w-12 h-12 bg-[#f5f3f0] rounded-full flex items-center justify-center flex-shrink-0">
+                        <Clock className="w-6 h-6 text-[#8b7355]" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold mb-1">Disponibilité</h4>
-                        <p className="text-white/80 text-sm">24h/24 - 7j/7</p>
-                        <p className="text-accent-gold text-xs">Service d&apos;urgence inclus</p>
+                        <h4 className="text-[#2d2d2d] font-semibold mb-1">Disponibilité</h4>
+                        <p className="text-[#6b6b6b] text-sm">Lundi au Vendredi, 10h à 20h</p>
+                        <p className="text-[#8b7355] text-xs">Service personnalisé</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 luxury-card rounded-full flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-6 h-6 text-accent-gold" />
+                      <div className="w-12 h-12 bg-[#f5f3f0] rounded-full flex items-center justify-center flex-shrink-0">
+                        <MapPin className="w-6 h-6 text-[#8b7355]" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold mb-1">Zone de Service</h4>
-                        <p className="text-white/80 text-sm">Côte d&apos;Azur & Italie du Nord</p>
-                        <p className="text-accent-gold text-xs">Extensions possibles</p>
+                        <h4 className="text-[#2d2d2d] font-semibold mb-1">Zone de Service</h4>
+                        <p className="text-[#6b6b6b] text-sm">Setif et environs</p>
+                        <p className="text-[#8b7355] text-xs">Livraison possible</p>
                       </div>
                     </div>
 
                     <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 luxury-card rounded-full flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-6 h-6 text-accent-gold" />
+                      <div className="w-12 h-12 bg-[#f5f3f0] rounded-full flex items-center justify-center flex-shrink-0">
+                        <Mail className="w-6 h-6 text-[#8b7355]" />
                       </div>
                       <div>
-                        <h4 className="text-white font-semibold mb-1">Temps de Réponse</h4>
-                        <p className="text-white/80 text-sm">Moins d&apos;1 heure</p>
-                        <p className="text-accent-gold text-xs">Confirmation garantie</p>
+                        <h4 className="text-[#2d2d2d] font-semibold mb-1">Temps de Réponse</h4>
+                        <p className="text-[#6b6b6b] text-sm">Moins d&apos;1 heure</p>
+                        <p className="text-[#8b7355] text-xs">Confirmation garantie</p>
                       </div>
                     </div>
                   </div>
 
-                  <div className="mt-8 pt-6 border-t border-accent-gold/20">
-                    <div className="luxury-card rounded-xl overflow-hidden aspect-square relative">
-                      <div className="absolute inset-0 bg-gray-50" />
+                  <div className="mt-8 pt-6 border-t border-[#d4c4b0]">
+                    <div className="bg-[#f5f3f0] rounded-xl overflow-hidden aspect-square relative">
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="text-center">
-                          <Crown className="w-12 h-12 text-accent-gold mx-auto mb-4" />
-                          <h4 className="text-white font-semibold mb-2">QR Code</h4>
-                          <p className="text-white/60 text-xs">Accès direct au site</p>
+                          <Crown className="w-12 h-12 text-[#8b7355] mx-auto mb-4" />
+                          <h4 className="text-[#2d2d2d] font-semibold mb-2">QR Code</h4>
+                          <p className="text-[#6b6b6b] text-xs">Accès direct au site</p>
                         </div>
                       </div>
                     </div>

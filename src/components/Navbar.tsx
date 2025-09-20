@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useEffect, useState, type ReactElement } from "react";
-import { Menu, Phone, X } from "lucide-react";
+import { Menu, X } from "lucide-react";
 
 export default function Navbar(): ReactElement {
   const [isOpen, setIsOpen] = useState(false);
@@ -39,42 +39,38 @@ export default function Navbar(): ReactElement {
         <div className="flex items-center">
           <Link href="/" className="group flex items-center">
             <span 
-              className="text-4xl font-black text-slate-900 tracking-tight"
-              style={{ fontFamily: 'var(--font-playfair)' }}
+              className="text-3xl font-bold text-[#2d2d2d] tracking-wider"
+              style={{ 
+                fontFamily: 'Georgia, "Times New Roman", serif',
+                fontStyle: 'italic',
+                letterSpacing: '0.1em',
+                textShadow: '1px 1px 2px rgba(139, 115, 85, 0.2)'
+              }}
             >
-              <span className="italic">TRIOMPHE</span>
-              <span 
-                className="text-2xl font-light text-slate-600 ml-3 tracking-wider"
-                style={{ fontFamily: 'var(--font-cormorant)' }}
-              >
-                HOME DESIGN
-              </span>
+              TRIOMPHE
             </span>
           </Link>
         </div>
 
         <div className="hidden md:flex items-center gap-8">
-          <Link className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200 px-4 py-2" href="/about">
+          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/">
+            Accueil
+          </Link>
+          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/services">
+            Boutique
+          </Link>
+          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/about">
             À propos
           </Link>
-          <Link className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200 px-4 py-2" href="/services">
-            Services
-          </Link>
-          <Link className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200 px-4 py-2" href="/pricing">
-            Tarifs
-          </Link>
-          <Link className="text-sm font-medium text-slate-700 hover:text-slate-900 transition-colors duration-200 px-4 py-2" href="/contact">
+          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/contact">
             Contact
           </Link>
           
-          <div className="h-6 w-px bg-slate-300 mx-4" />
-          
           <Link
-            href="/contact"
-            className="inline-flex items-center gap-2 bg-slate-900 text-white px-6 py-3 text-sm font-semibold rounded-lg hover:bg-slate-800 transition-colors duration-200"
+            href="/pricing"
+            className="inline-flex items-center gap-2 bg-[#2d2d2d] text-white px-6 py-3 text-sm font-semibold rounded-lg hover:bg-[#8b7355] transition-colors duration-200"
           >
-            <Phone size={16} />
-            DEVIS GRATUIT
+            ACHETER MAINTENANT
           </Link>
         </div>
 
@@ -88,42 +84,42 @@ export default function Navbar(): ReactElement {
 
         {/* Mobile menu */}
         {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white border-b border-slate-200 shadow-lg md:hidden">
+          <div className="absolute top-full left-0 right-0 bg-white border-b border-[#d4c4b0] shadow-lg md:hidden">
             <div className="px-4 py-4 space-y-2">
               <Link 
-                href="/about" 
+                href="/" 
                 onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200"
+                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
               >
-                À propos
+                Accueil
               </Link>
               <Link 
                 href="/services" 
                 onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200"
+                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
               >
-                Services
+                Boutique
               </Link>
               <Link 
-                href="/pricing" 
+                href="/about" 
                 onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200"
+                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
               >
-                Tarifs
+                À propos
               </Link>
               <Link 
                 href="/contact" 
                 onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-slate-700 hover:text-slate-900 hover:bg-slate-50 rounded-lg transition-colors duration-200"
+                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
               >
                 Contact
               </Link>
               <Link 
-                href="/contact" 
+                href="/pricing" 
                 onClick={handleCloseMenu}
-                className="block mt-4 px-4 py-3 bg-slate-900 text-white text-sm font-semibold rounded-lg text-center"
+                className="block mt-4 px-4 py-3 bg-[#2d2d2d] text-white text-sm font-semibold rounded-lg text-center"
               >
-                DEVIS GRATUIT
+                ACHETER MAINTENANT
               </Link>
             </div>
           </div>

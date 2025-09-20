@@ -1,25 +1,25 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0f172a;
-  --foreground: #f8fafc;
+  --background: #faf9f7;
+  --foreground: #2d2d2d;
   --custom-green: #123524;
-  --background-secondary: #1e293b;
-  --background-tertiary: #334155;
-  --accent-primary: #3b82f6;
-  --accent-primary-bright: #60a5fa;
-  --accent-primary-dark: #1d4ed8;
-  --accent-secondary: #6366f1;
-  --accent-secondary-dark: #4338ca;
-  --accent-silver: #e2e8f0;
-  --accent-smoke: #475569;
-  --accent-steel: #64748b;
-  --text-muted: #cbd5e1;
-  --text-smoke: #94a3b8;
-  --glass-bg: rgba(248, 250, 252, 0.03);
-  --glass-border: rgba(59, 130, 246, 0.15);
-  --shadow-blue: rgba(59, 130, 246, 0.3);
-  --shadow-dark: rgba(15, 23, 42, 0.9);
+  --background-secondary: #f5f3f0;
+  --background-tertiary: #ebe8e3;
+  --accent-primary: #8b7355;
+  --accent-primary-bright: #a68b5b;
+  --accent-primary-dark: #6b5a42;
+  --accent-secondary: #c4a484;
+  --accent-secondary-dark: #9d7f5f;
+  --accent-silver: #e8e4dd;
+  --accent-smoke: #8b8680;
+  --accent-steel: #a09a94;
+  --text-muted: #6b6b6b;
+  --text-smoke: #8b8680;
+  --glass-bg: rgba(250, 249, 247, 0.8);
+  --glass-border: rgba(139, 115, 85, 0.15);
+  --shadow-blue: rgba(139, 115, 85, 0.2);
+  --shadow-dark: rgba(45, 45, 45, 0.1);
 }
 
 @theme inline {
@@ -50,7 +50,7 @@
 body {
   color: var(--foreground);
   font-family: var(--font-sans), system-ui, sans-serif;
-  background: linear-gradient(to bottom right, #0f172a 0%, #92400e 50%, #0f172a 100%);
+  background: linear-gradient(to bottom right, #faf9f7 0%, #f5f3f0 50%, #ebe8e3 100%);
   background-attachment: fixed;
 }
 
@@ -142,23 +142,23 @@ body {
 }
 
 .luxury-card {
-  background: linear-gradient(to bottom right, #0f172a, #581c87, #0f172a);
-  border: 1px solid #581c87;
+  background: linear-gradient(to bottom right, #faf9f7, #f5f3f0, #ebe8e3);
+  border: 1px solid #d4c4b0;
   box-shadow: 
-    0 8px 32px rgba(0, 0, 0, 0.6),
-    0 16px 64px rgba(88, 28, 135, 0.15),
-    inset 0 1px 0 rgba(88, 28, 135, 0.2),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
+    0 8px 32px rgba(45, 45, 45, 0.1),
+    0 16px 64px rgba(139, 115, 85, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3),
+    inset 0 -1px 0 rgba(139, 115, 85, 0.1);
   transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
 .luxury-card:hover {
-  border-color: #581c87;
+  border-color: #8b7355;
   box-shadow: 
-    0 12px 40px rgba(0, 0, 0, 0.7),
-    0 20px 80px rgba(88, 28, 135, 0.2),
-    inset 0 1px 0 rgba(88, 28, 135, 0.3),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.15);
+    0 12px 40px rgba(45, 45, 45, 0.15),
+    0 20px 80px rgba(139, 115, 85, 0.12),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    inset 0 -1px 0 rgba(139, 115, 85, 0.15);
 }
 
 .smoke-text {
