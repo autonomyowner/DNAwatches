@@ -57,6 +57,23 @@ export default function Footer(): ReactElement {
               </a>
             </div>
           </div>
+
+          {/* Made by Section */}
+          <div className="border-t border-[#d4c4b0] pt-8">
+            <div className="text-center">
+              <p className="text-sm text-[#6b6b6b]">
+                Made by{" "}
+                <a 
+                  href="https://www.sitedz.store/" 
+                  target="_blank" 
+                  rel="noreferrer noopener"
+                  className="text-[#8b7355] hover:text-[#2d2d2d] transition-colors duration-300 font-medium"
+                >
+                  @sitedz.store
+                </a>
+              </p>
+            </div>
+          </div>
         </div>
       </Container>
     </footer>
