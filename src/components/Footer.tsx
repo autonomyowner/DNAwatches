@@ -1,83 +1,129 @@
 import type { ReactElement } from "react";
-import { siteConfig } from "@/config/site";
-import { Instagram, Facebook, MessageSquare } from "lucide-react";
+import { Instagram, Facebook, MessageSquare, MapPin, Phone, Package, Clock, Send } from "lucide-react";
 import Container from "./Container";
+import { siteConfig } from "@/config/site";
 
+const quickLinks = [
+  { href: "/collection", label: "Collection" },
+  { href: "/about", label: "La marque" },
+  { href: "/shipping", label: "Livraison & retours" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Footer(): ReactElement {
   return (
-    <footer className="bg-[#faf9f7] border-t border-[#d4c4b0]">
+    <footer className="border-t border-white/10 bg-black/95 text-white">
       <Container>
-        <div className="py-16">
-          {/* Main Footer Content */}
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-12">
-            {/* Brand Section */}
-            <div>
-              <div className="mb-6">
-                <span className="text-2xl font-bold text-[#2d2d2d]">
-                  TRIOMPHE
-                </span>
-                <p className="text-sm text-[#8b7355] mt-2">Maison de la Perfection</p>
-              </div>
+        <div className="grid gap-12 py-16 md:grid-cols-5">
+          <div className="md:col-span-2 space-y-6">
+            <div className="space-y-2">
+              <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
+                OUSS AURA
+              </span>
+              <h3 className="text-2xl font-bold uppercase tracking-[0.25em]">Boutique</h3>
             </div>
-
-            {/* Contact/Hours */}
-            <div className="text-right">
-              <div className="text-sm text-[#6b6b6b]">
-                <p>Lundi au Vendredi</p>
-                <p>10h à 20h</p>
-              </div>
-            </div>
-
-            {/* Social Media Icons */}
-            <div className="flex justify-end gap-4">
-              <a 
+            <p className="text-sm leading-relaxed text-white/70">{siteConfig.description}</p>
+            <div className="flex items-center gap-4">
+              <a
                 href={siteConfig.whatsappLink}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="w-8 h-8 bg-[#2d2d2d] rounded-full flex items-center justify-center text-white hover:bg-[#8b7355] transition-colors duration-300"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors duration-200 hover:border-white hover:bg-white hover:text-black"
               >
-                <MessageSquare className="w-4 h-4" />
+                <MessageSquare className="h-4 w-4" aria-hidden />
               </a>
-              <a 
+              <a
                 href={siteConfig.instagramLink}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="w-8 h-8 bg-[#2d2d2d] rounded-full flex items-center justify-center text-white hover:bg-[#8b7355] transition-colors duration-300"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors duration-200 hover:border-white hover:bg-white hover:text-black"
               >
-                <Instagram className="w-4 h-4" />
+                <Instagram className="h-4 w-4" aria-hidden />
               </a>
-              <a 
+              <a
                 href={siteConfig.facebookLink}
                 target="_blank"
                 rel="noreferrer noopener"
-                className="w-8 h-8 bg-[#2d2d2d] rounded-full flex items-center justify-center text-white hover:bg-[#8b7355] transition-colors duration-300"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-white/20 transition-colors duration-200 hover:border-white hover:bg-white hover:text-black"
               >
-                <Facebook className="w-4 h-4" />
+                <Facebook className="h-4 w-4" aria-hidden />
               </a>
             </div>
           </div>
 
-          {/* Made by Section */}
-          <div className="border-t border-[#d4c4b0] pt-8">
-            <div className="text-center">
-              <p className="text-sm text-[#6b6b6b]">
-                Made by{" "}
-                <a 
-                  href="https://www.sitedz.store/" 
-                  target="_blank" 
-                  rel="noreferrer noopener"
-                  className="text-[#8b7355] hover:text-[#2d2d2d] transition-colors duration-300 font-medium"
-                >
-                  @sitedz.store
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-white/60">Navigation</h4>
+            <ul className="space-y-3 text-sm text-white/70">
+              {quickLinks.map((item) => (
+                <li key={item.href}>
+                  <a href={item.href} className="transition-colors duration-150 hover:text-white">
+                    {item.label}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-white/60">Livraison</h4>
+            <ul className="space-y-4 text-sm text-white/70">
+              <li className="flex items-start gap-3">
+                <Package className="mt-1 h-4 w-4 text-white/50" aria-hidden />
+                <span>Livraison express dans les 58 wilayas</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Clock className="mt-1 h-4 w-4 text-white/50" aria-hidden />
+                <span>Expedition 24/48h sur stock</span>
+              </li>
+              <li className="flex items-start gap-3">
+                <Send className="mt-1 h-4 w-4 text-white/50" aria-hidden />
+                <span>Suivi de commande en temps reel</span>
+              </li>
+            </ul>
+          </div>
+
+          <div className="space-y-6">
+            <h4 className="text-sm font-semibold uppercase tracking-[0.25em] text-white/60">Contact</h4>
+            <ul className="space-y-4 text-sm text-white/70">
+              <li className="flex items-start gap-3">
+                <Phone className="mt-1 h-4 w-4 text-white/50" aria-hidden />
+                <a href={`tel:${siteConfig.phone}`} className="transition-colors duration-150 hover:text-white">
+                  {siteConfig.phone}
                 </a>
-              </p>
-            </div>
+              </li>
+              <li className="flex items-start gap-3">
+                <MessageSquare className="mt-1 h-4 w-4 text-white/50" aria-hidden />
+                <a href={siteConfig.whatsappLink} target="_blank" rel="noreferrer noopener" className="transition-colors duration-150 hover:text-white">
+                  WhatsApp direct
+                </a>
+              </li>
+              <li className="flex items-start gap-3">
+                <MapPin className="mt-1 h-4 w-4 text-white/50" aria-hidden />
+                <a href={siteConfig.googleMapsLink} target="_blank" rel="noreferrer noopener" className="transition-colors duration-150 hover:text-white">
+                  {siteConfig.address}
+                </a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div className="border-t border-white/10 py-8 text-center text-xs text-white/40">
+          <div className="uppercase tracking-[0.3em]">
+            {new Date().getFullYear()} © {siteConfig.name}. Tous droits reserves.
+          </div>
+          <div className="mt-2 text-[10px] tracking-wider">
+            Developed by{" "}
+            <a
+              href="https://www.sitedz.store"
+              target="_blank"
+              rel="noreferrer noopener"
+              className="text-white/60 transition-colors duration-200 hover:text-white"
+            >
+              www.sitedz.store
+            </a>
           </div>
         </div>
       </Container>
     </footer>
   );
 }
-
-

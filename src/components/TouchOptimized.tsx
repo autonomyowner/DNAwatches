@@ -25,19 +25,15 @@ export default function TouchOptimized({
     if (!element) return;
 
     // Add touch event listeners with passive option for better performance
-    const touchStartHandler = (_e: TouchEvent) => {
+    const touchStartHandler = () => {
       onTouchStart?.();
-      // Prevent default to avoid scrolling issues on mobile
-      if (_e.touches.length > 1) {
-        _e.preventDefault();
-      }
     };
 
-    const touchEndHandler = (_e: TouchEvent) => {
+    const touchEndHandler = () => {
       onTouchEnd?.();
     };
 
-    const touchMoveHandler = (_e: TouchEvent) => {
+    const touchMoveHandler = () => {
       onTouchMove?.();
     };
 

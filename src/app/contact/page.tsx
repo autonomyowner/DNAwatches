@@ -1,382 +1,227 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
-import Link from "next/link";
-import { useForm } from "react-hook-form";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
 import { Suspense, useState, type ReactElement } from "react";
-import { siteConfig } from "@/config/site";
+import Link from "next/link";
+import { useSearchParams } from "next/navigation";
+import { useForm } from "react-hook-form";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { z } from "zod";
+import { MessageSquare, Phone, Instagram, MapPin, Clock, ShieldCheck, Send } from "lucide-react";
 import Container from "@/components/Container";
 import Section from "@/components/Section";
+import Reveal from "@/components/Reveal";
 import Input from "@/components/ui/Input";
 import Textarea from "@/components/ui/Textarea";
 import Button from "@/components/ui/Button";
-import Reveal from "@/components/Reveal";
-import { Phone, MessageSquare, Instagram, Crown, Mail, MapPin, Clock, CheckCircle, Send } from "lucide-react";
+import { siteConfig } from "@/config/site";
 
 const contactSchema = z.object({
-  name: z.string().min(2),
-  email: z.string().email(),
+  name: z.string().min(2, "Nom obligatoire"),
+  email: z.string().email("Email invalide"),
   phone: z.string().optional(),
-  service: z.string().optional(),
-  projectType: z.string().optional(),
-  budget: z.string().optional(),
-  timeline: z.string().optional(),
-  message: z.string().optional(),
-  location: z.string().optional(),
+  topic: z.string().optional(),
+  message: z.string().min(5, "Merci de detailler votre demande"),
 });
 
 type ContactForm = z.infer<typeof contactSchema>;
 
 const contactMethods = [
   {
-    icon: Phone,
-    title: "TÉLÉPHONE",
-    subtitle: "Disponible 24/7",
+    icon: MessageSquare,
+    label: "WhatsApp direct",
+    description: "Support 7 j/7, reponse moyenne 5 minutes.",
     value: siteConfig.phone,
-    href: `tel:${siteConfig.phone}`,
-    primary: true
+    href: siteConfig.whatsappLink,
   },
   {
-    icon: MessageSquare,
-    title: "WHATSAPP",
-    subtitle: "Réponse immédiate",
-    value: "Nous contacter",
-    href: siteConfig.whatsappLink,
-    primary: false
+    icon: Phone,
+    label: "Hotline OUSS AURA",
+    description: "Du lundi au samedi, 9h - 22h.",
+    value: siteConfig.phone,
+    href: `tel:${siteConfig.phone}`,
   },
   {
     icon: Instagram,
-    title: "INSTAGRAM",
-    subtitle: "Suivez nos actualités",
-    value: "@triomphe_homedesign",
+    label: "Instagram",
+    description: "Suivez les drops et DM pour precommandes.",
+    value: "@oussaura.boutique",
     href: siteConfig.instagramLink,
-    primary: false
-  }
+  },
 ];
-
-export default function ContactPage(): ReactElement {
-  return (
-    <Suspense fallback={
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-32 text-center">
-        <div className="luxury-card inline-block px-8 py-4 rounded-lg">
-          <span className="text-accent-gold font-medium">Chargement...</span>
-        </div>
-      </div>
-    }>
-      <ContactInner />
-    </Suspense>
-  );
-}
 
 function ContactInner(): ReactElement {
   const search = useSearchParams();
-  const defaultService = search.get("service") ?? undefined;
+  const defaultTopic = search.get("service") ?? search.get("product") ?? "";
 
   const {
     register,
     handleSubmit,
     formState: { errors, isSubmitting },
+    reset,
   } = useForm<ContactForm>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { service: defaultService },
+    defaultValues: { topic: defaultTopic },
   });
 
   const [isSent, setIsSent] = useState(false);
 
-  async function handleSubmitContact(values: ContactForm): Promise<void> {
+  async function onSubmit(values: ContactForm): Promise<void> {
     const res = await fetch("/api/contact", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(values),
     });
-    if (res.ok) setIsSent(true);
+
+    if (res.ok) {
+      setIsSent(true);
+      reset({ name: "", email: "", phone: "", topic: "", message: "" });
+    }
   }
 
   return (
     <>
-      {/* Hero Section */}
-      <Section className="relative overflow-hidden pt-32 pb-20">
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat" 
-          style={{ backgroundImage: "url('/pexels-heyho-6970074.jpg')" }}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        
+      <Section className="relative overflow-hidden pb-24 pt-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00623322,transparent_65%)]" aria-hidden />
         <Container>
-          <div className="relative z-10 max-w-5xl mx-auto text-center">
+          <Reveal>
+            <div className="mx-auto max-w-3xl space-y-6 text-center">
+              <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.35em] text-white/70">
+                Contact
+                <span className="h-2 w-2 rounded-full bg-[#d21034]" />
+              </div>
+              <h1 className="text-4xl font-semibold uppercase tracking-[0.25em] text-white sm:text-5xl">
+                Support OUSS AURA
+              </h1>
+              <p className="text-sm leading-relaxed text-white/70 sm:text-base">
+                Besoin d infos sur un drop, une precommande ou la livraison dans votre wilaya ? Ecrivez-nous. L equipe
+                repond en quelques minutes via WhatsApp ou email.
+              </p>
+            </div>
+          </Reveal>
+        </Container>
+      </Section>
+
+      <Section className="bg-background-secondary">
+        <Container>
+          <div className="grid gap-8 lg:grid-cols-[1.1fr_1fr]">
             <Reveal>
-              <div className="mb-8">
-                <span className="inline-block px-6 py-3 bg-white/95 backdrop-blur-sm text-[#2d2d2d] border border-[#d4c4b0] text-sm font-semibold tracking-widest uppercase rounded-full">
-                  Votre Demande, Notre Priorité
-                </span>
+              <div className="space-y-6">
+                <div className="grid gap-4 rounded-[32px] border border-white/10 bg-white/5 p-6">
+                  <div className="text-left">
+                    <div className="text-xs uppercase tracking-[0.35em] text-white/50">Formulaire</div>
+                    <h2 className="mt-3 text-2xl font-semibold uppercase tracking-[0.25em] text-white">
+                      Nous envoyer un message
+                    </h2>
+                  </div>
+
+                  <form className="space-y-4" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="text-xs uppercase tracking-[0.3em] text-white/50">Nom complet</label>
+                        <Input placeholder="Nom et prenom" {...register("name")} />
+                        {errors.name && (
+                          <p className="mt-1 text-xs text-[#d21034]">{errors.name.message}</p>
+                        )}
+                      </div>
+                      <div>
+                        <label className="text-xs uppercase tracking-[0.3em] text-white/50">Email</label>
+                        <Input placeholder="email@exemple.com" type="email" {...register("email")} />
+                        {errors.email && (
+                          <p className="mt-1 text-xs text-[#d21034]">{errors.email.message}</p>
+                        )}
+                      </div>
+                    </div>
+
+                    <div className="grid gap-4 sm:grid-cols-2">
+                      <div>
+                        <label className="text-xs uppercase tracking-[0.3em] text-white/50">Telephone</label>
+                        <Input placeholder="+213 5xx xx xx xx" {...register("phone")} />
+                      </div>
+                      <div>
+                        <label className="text-xs uppercase tracking-[0.3em] text-white/50">Produit ou drop</label>
+                        <Input placeholder="Ex: Northside, Drop 08" {...register("topic")} />
+                      </div>
+                    </div>
+
+                    <div>
+                      <label className="text-xs uppercase tracking-[0.3em] text-white/50">Votre message</label>
+                      <Textarea rows={5} placeholder="Donnez des details sur votre demande" {...register("message")} />
+                      {errors.message && (
+                        <p className="mt-1 text-xs text-[#d21034]">{errors.message.message}</p>
+                      )}
+                    </div>
+
+                    <Button type="submit" size="lg" className="w-full gap-3" disabled={isSubmitting}>
+                      <Send className="h-4 w-4" aria-hidden />
+                      {isSubmitting ? "Envoi en cours..." : "Envoyer le message"}
+                    </Button>
+
+                    {isSent && (
+                      <div className="rounded-3xl border border-[#006233]/40 bg-[#006233]/20 px-4 py-3 text-sm text-white/80">
+                        Merci ! Nous revenons vers vous rapidement.
+                      </div>
+                    )}
+                  </form>
+                </div>
               </div>
             </Reveal>
-            
-            <Reveal delay={200}>
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl text-white leading-tight mb-8 font-bold">
-                Nous Contacter
-              </h1>
-            </Reveal>
-            
-            <Reveal delay={400}>
-              <p className="text-xl sm:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed font-light">
-                Partagez votre projet de décoration avec nous.
-                <span className="font-medium block mt-2"> Notre équipe vous répond dans l&apos;heure.</span>
-              </p>
-            </Reveal>
-          </div>
-        </Container>
-      </Section>
 
-      {/* Contact Methods */}
-      <Section className="bg-white py-20">
-        <Container>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-            {contactMethods.map((method, idx) => (
-              <Reveal key={method.title} delay={idx * 150}>
-                <a 
-                  href={method.href}
-                  target={method.title === "INSTAGRAM" ? "_blank" : undefined}
-                  rel={method.title === "INSTAGRAM" ? "noreferrer noopener" : undefined}
-                  className={`bg-[#f5f3f0] p-8 rounded-xl group hover:shadow-lg transition-all duration-500 block ${method.primary ? 'border-2 border-[#8b7355]' : ''}`}
-                >
-                  <div className="text-center">
-                    <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center group-hover:bg-[#8b7355]/10 transition-colors duration-300">
-                      <method.icon className="w-8 h-8 text-[#8b7355]" />
-                    </div>
-                    <h3 className="text-xl text-[#2d2d2d] mb-2 group-hover:text-[#8b7355] transition-colors duration-300 font-bold">
-                      {method.title}
-                    </h3>
-                    <p className="text-[#8b7355] text-sm font-medium mb-2">
-                      {method.subtitle}
-                    </p>
-                    <p className="text-[#6b6b6b] text-sm">
-                      {method.value}
-                    </p>
-                  </div>
-                </a>
-              </Reveal>
-            ))}
-          </div>
-        </Container>
-      </Section>
-
-      {/* Contact Form */}
-      <Section className="bg-[#faf9f7] py-20">
-        <Container>
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
-            <div className="lg:col-span-2">
-              <Reveal>
-                <div className="mb-8">
-                  <h2 className="text-4xl lg:text-5xl text-[#2d2d2d] mb-4 font-bold">
-                    Formulaire de 
-                    <span className="block text-[#8b7355]">Contact</span>
-                  </h2>
-                  <p className="text-lg leading-relaxed text-[#6b6b6b]">
-                    Complétez ce formulaire pour votre projet de décoration sur mesure. 
-                    Chaque détail compte pour créer votre espace idéal.
+            <Reveal delay={150}>
+              <aside className="space-y-6">
+                <div className="rounded-[32px] border border-white/10 bg-white/5 p-6">
+                  <h3 className="text-lg font-semibold uppercase tracking-[0.2em] text-white">Canaux directs</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-white/60">
+                    Pour toute question urgente, utilisez WhatsApp ou la hotline. Nous confirmons chaque commande et
+                    envoyons un suivi colis personnalise.
                   </p>
-                </div>
-              </Reveal>
-
-              <Reveal delay={200}>
-                <div className="bg-white rounded-2xl p-8 shadow-lg">
-                  {isSent ? (
-                    <div className="text-center py-12">
-                      <div className="w-20 h-20 mx-auto mb-6 bg-[#f5f3f0] rounded-full flex items-center justify-center">
-                        <CheckCircle className="w-10 h-10 text-[#8b7355]" />
-                      </div>
-                      <h3 className="text-2xl text-[#2d2d2d] mb-4 font-bold">Demande Reçue</h3>
-                      <p className="text-[#6b6b6b] mb-6">
-                        Merci pour votre confiance. Notre équipe vous recontacte dans l&apos;heure 
-                        pour discuter de votre projet.
-                      </p>
-                      <Button 
-                        variant="primary" 
-                        size="lg" 
-                        asChild 
-                        className="bg-[#2d2d2d] hover:bg-[#8b7355]"
+                  <div className="mt-6 space-y-4">
+                    {contactMethods.map((method) => (
+                      <Link
+                        key={method.label}
+                        href={method.href}
+                        target="_blank"
+                        rel="noreferrer noopener"
+                        className="flex items-center gap-4 rounded-3xl border border-white/10 bg-black/40 p-4 transition-colors duration-150 hover:border-white/30"
                       >
-                        <Link href="/">RETOUR À L&apos;ACCUEIL</Link>
-                      </Button>
-                    </div>
-                  ) : (
-                    <form className="space-y-6" onSubmit={handleSubmit(handleSubmitContact)}>
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <method.icon className="h-5 w-5 text-white/60" aria-hidden />
                         <div>
-                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                            NOM COMPLET *
-                          </label>
-                          <Input 
-                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
-                            placeholder="Votre nom et prénom"
-                            {...register("name")} 
-                          />
-                          {errors.name && (
-                            <p className="text-red-500 text-xs mt-1">Nom requis</p>
-                          )}
+                          <div className="text-xs uppercase tracking-[0.3em] text-white/50">{method.label}</div>
+                          <div className="text-sm font-semibold text-white">{method.value}</div>
+                          <p className="text-xs text-white/50">{method.description}</p>
                         </div>
-                        <div>
-                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                            EMAIL *
-                          </label>
-                          <Input 
-                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
-                            type="email" 
-                            placeholder="votre@email.com"
-                            {...register("email")} 
-                          />
-                          {errors.email && (
-                            <p className="text-red-500 text-xs mt-1">Email valide requis</p>
-                          )}
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                            TÉLÉPHONE
-                          </label>
-                          <Input 
-                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
-                            placeholder="+213 XXX XX XX XX"
-                            {...register("phone")} 
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                            TYPE DE PRODUIT
-                          </label>
-                          <Input 
-                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
-                            placeholder="Vases, Bougies, Sculptures..."
-                            {...register("service")} 
-                          />
-                        </div>
-                      </div>
-
-                      <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                            BUDGET ESTIMATIF
-                          </label>
-                          <Input 
-                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
-                            placeholder="Ex: 50 000 - 200 000 DA"
-                            {...register("budget")} 
-                          />
-                        </div>
-                        <div>
-                          <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                            DÉLAI SOUHAITÉ
-                          </label>
-                          <Input 
-                            className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
-                            placeholder="1-2 semaines, 1 mois..."
-                            {...register("timeline")} 
-                          />
-                        </div>
-                      </div>
-
-                      <div>
-                        <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                          LIEU D&apos;INSTALLATION
-                        </label>
-                        <Input 
-                          className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355]" 
-                          placeholder="Ville, commune..." 
-                          {...register("location")} 
-                        />
-                      </div>
-
-                      <div>
-                        <label className="block text-[#2d2d2d] font-medium mb-2 tracking-wide">
-                          DESCRIPTION DU PROJET
-                        </label>
-                        <Textarea 
-                          className="border-[#d4c4b0] text-[#2d2d2d] placeholder-[#6b6b6b] focus:border-[#8b7355] min-h-[120px]" 
-                          rows={4} 
-                          placeholder="Décrivez votre projet : style, couleurs préférées, espace à décorer, ambiance souhaitée..."
-                          {...register("message")} 
-                        />
-                      </div>
-
-                      <Button 
-                        type="submit" 
-                        disabled={isSubmitting} 
-                        variant="primary"
-                        size="lg"
-                        className="w-full bg-[#2d2d2d] hover:bg-[#8b7355] text-lg py-5"
-                      >
-                        <Send className="w-5 h-5 mr-3" />
-                        {isSubmitting ? "ENVOI EN COURS..." : "ENVOYER LA DEMANDE"}
-                      </Button>
-                    </form>
-                  )}
-                </div>
-              </Reveal>
-            </div>
-
-            {/* Contact Info Sidebar */}
-            <div className="lg:col-span-1">
-              <Reveal delay={300}>
-                <div className="bg-white rounded-2xl p-8 shadow-lg sticky top-8">
-                  <h3 className="text-2xl text-[#2d2d2d] mb-6 font-bold">
-                    Informations 
-                    <span className="block text-[#8b7355]">Pratiques</span>
-                  </h3>
-
-                  <div className="space-y-6">
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[#f5f3f0] rounded-full flex items-center justify-center flex-shrink-0">
-                        <Clock className="w-6 h-6 text-[#8b7355]" />
-                      </div>
-                      <div>
-                        <h4 className="text-[#2d2d2d] font-semibold mb-1">Disponibilité</h4>
-                        <p className="text-[#6b6b6b] text-sm">Lundi au Vendredi, 10h à 20h</p>
-                        <p className="text-[#8b7355] text-xs">Service personnalisé</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[#f5f3f0] rounded-full flex items-center justify-center flex-shrink-0">
-                        <MapPin className="w-6 h-6 text-[#8b7355]" />
-                      </div>
-                      <div>
-                        <h4 className="text-[#2d2d2d] font-semibold mb-1">Zone de Service</h4>
-                        <p className="text-[#6b6b6b] text-sm">Setif et environs</p>
-                        <p className="text-[#8b7355] text-xs">Livraison possible</p>
-                      </div>
-                    </div>
-
-                    <div className="flex items-start gap-4">
-                      <div className="w-12 h-12 bg-[#f5f3f0] rounded-full flex items-center justify-center flex-shrink-0">
-                        <Mail className="w-6 h-6 text-[#8b7355]" />
-                      </div>
-                      <div>
-                        <h4 className="text-[#2d2d2d] font-semibold mb-1">Temps de Réponse</h4>
-                        <p className="text-[#6b6b6b] text-sm">Moins d&apos;1 heure</p>
-                        <p className="text-[#8b7355] text-xs">Confirmation garantie</p>
-                      </div>
-                    </div>
-                  </div>
-
-                  <div className="mt-8 pt-6 border-t border-[#d4c4b0]">
-                    <div className="bg-[#f5f3f0] rounded-xl overflow-hidden aspect-square relative">
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <div className="text-center">
-                          <Crown className="w-12 h-12 text-[#8b7355] mx-auto mb-4" />
-                          <h4 className="text-[#2d2d2d] font-semibold mb-2">QR Code</h4>
-                          <p className="text-[#6b6b6b] text-xs">Accès direct au site</p>
-                        </div>
-                      </div>
-                    </div>
+                      </Link>
+                    ))}
                   </div>
                 </div>
-              </Reveal>
-            </div>
+
+                <div className="rounded-[32px] border border-white/10 bg-white/5 p-6 space-y-4">
+                  <div className="flex items-start gap-3">
+                    <MapPin className="h-5 w-5 text-white/60" aria-hidden />
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/50">Studio</div>
+                      <div className="text-sm text-white">{siteConfig.address}</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <Clock className="h-5 w-5 text-white/60" aria-hidden />
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/50">Horaires</div>
+                      <div className="text-sm text-white">Lundi - Samedi / 09h - 22h</div>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <ShieldCheck className="h-5 w-5 text-white/60" aria-hidden />
+                    <div>
+                      <div className="text-xs uppercase tracking-[0.3em] text-white/50">SAV</div>
+                      <div className="text-sm text-white">Echange sous 14 jours avec ticket.</div>
+                    </div>
+                  </div>
+                  <div className="rounded-3xl border border-white/10 bg-black/40 p-4 text-xs uppercase tracking-[0.3em] text-white/50">
+                    Livraison express disponible dans les 58 wilayas via partenaires logistiques verifies.
+                  </div>
+                </div>
+              </aside>
+            </Reveal>
           </div>
         </Container>
       </Section>
@@ -384,4 +229,16 @@ function ContactInner(): ReactElement {
   );
 }
 
-
+export default function ContactPage(): ReactElement {
+  return (
+    <Suspense
+      fallback={
+        <div className="flex min-h-[60vh] items-center justify-center text-sm uppercase tracking-[0.3em] text-white/60">
+          Chargement...
+        </div>
+      }
+    >
+      <ContactInner />
+    </Suspense>
+  );
+}

@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono, Playfair_Display, Cormorant_Garamond, Dancing_Script } from "next/font/google";
+import type { Metadata, Viewport } from "next";
+import { Montserrat, Bebas_Neue, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -7,59 +7,47 @@ import Analytics from "@/components/Analytics";
 import PerformanceMonitor from "@/components/PerformanceMonitor";
 import { siteConfig } from "@/config/site";
 
-// Optimized font loading with display swap and preload
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const montserrat = Montserrat({
+  variable: "--font-sans",
   subsets: ["latin"],
-  display: 'swap',
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
+  preload: true,
+});
+
+const bebasNeue = Bebas_Neue({
+  variable: "--font-display",
+  subsets: ["latin"],
+  weight: "400",
+  display: "swap",
   preload: true,
 });
 
 const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+  variable: "--font-mono",
   subsets: ["latin"],
-  display: 'swap',
-  preload: false, // Only preload primary font
-});
-
-const playfair = Playfair_Display({
-  variable: "--font-playfair",
-  subsets: ["latin"],
-  display: 'swap',
+  display: "swap",
   preload: false,
 });
 
-const cormorant = Cormorant_Garamond({
-  variable: "--font-cormorant",
-  subsets: ["latin"],
-  weight: ["300", "400", "500", "600", "700"],
-  display: 'swap',
-  preload: false,
-});
-
-const dancingScript = Dancing_Script({
-  variable: "--font-dancing",
-  subsets: ["latin"],
-  display: 'swap',
-  preload: false,
-});
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} — Fabrication de Meubles Modernes`,
-    template: `%s — ${siteConfig.name}`,
+    default: `${siteConfig.name} – Casquettes streetwear premium`,
+    template: `%s – ${siteConfig.name}`,
   },
   description: siteConfig.description,
+  keywords: siteConfig.keywords,
   metadataBase: new URL(siteConfig.baseUrl),
   alternates: { canonical: "/" },
-  viewport: {
-    width: 'device-width',
-    initialScale: 1,
-    maximumScale: 5,
-    userScalable: true,
-  },
   openGraph: {
-    title: `${siteConfig.name} — Fabrication de Meubles Modernes`,
+    title: `${siteConfig.name} – Casquettes streetwear premium`,
     description: siteConfig.description,
     url: "/",
     siteName: siteConfig.name,
@@ -70,13 +58,13 @@ export const metadata: Metadata = {
         url: "/og-default.jpg",
         width: 1200,
         height: 630,
-        alt: `${siteConfig.name}`,
+        alt: siteConfig.name,
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} — Agence de Voyages et Tourisme`,
+    title: `${siteConfig.name} – Streetwear algerien`,
     description: siteConfig.description,
   },
 };
@@ -87,24 +75,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="fr">
       <head>
-        {/* Preload critical resources */}
-        <link rel="preload" href="/pexels-heyho-6970074.jpg" as="image" type="image/jpeg" />
-        {/* DNS prefetch for external resources */}
         <link rel="dns-prefetch" href="//fonts.googleapis.com" />
         <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-        {/* Web App Manifest */}
         <link rel="manifest" href="/manifest.json" />
-        {/* Mobile optimizations */}
         <meta name="format-detection" content="telephone=no" />
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Triomphe" />
-        <meta name="theme-color" content="#faf9f7" />
-        <meta name="msapplication-TileColor" content="#faf9f7" />
-        {/* Service Worker Registration */}
+        <meta name="apple-mobile-web-app-title" content={siteConfig.name} />
+        <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -123,9 +105,9 @@ export default function RootLayout({
           }}
         />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} ${playfair.variable} ${cormorant.variable} ${dancingScript.variable} antialiased pt-20 bg-gradient-to-br from-slate-900 via-teal-900 to-slate-900`}>
+      <body className={`${montserrat.variable} ${bebasNeue.variable} ${geistMono.variable} antialiased`}>
         <Navbar />
-        <main>{children}</main>
+        <main className="pt-20 bg-background text-foreground">{children}</main>
         <Footer />
         <Analytics />
         <PerformanceMonitor />

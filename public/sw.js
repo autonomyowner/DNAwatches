@@ -1,162 +1,120 @@
-// Service Worker for mobile performance optimization
-const CACHE_NAME = 'triomphe-v1';
-const STATIC_CACHE = 'triomphe-static-v1';
-const IMAGE_CACHE = 'triomphe-images-v1';
+// Service Worker for caching OUSS AURA assets
+const CACHE_NAME = 'oussaura-pages-v1';
+const STATIC_CACHE = 'oussaura-static-v1';
+const IMAGE_CACHE = 'oussaura-images-v1';
 
-// Assets to cache immediately
 const STATIC_ASSETS = [
   '/',
-  '/services',
+  '/collection',
   '/about',
+  '/shipping',
   '/contact',
   '/pricing',
-  '/manifest.json'
+  '/privacy',
+  '/manifest.json',
 ];
 
-// Install event - cache static assets
 self.addEventListener('install', (event) => {
   event.waitUntil(
-    caches.open(STATIC_CACHE)
-      .then((cache) => {
-        return cache.addAll(STATIC_ASSETS);
-      })
-      .then(() => {
-        return self.skipWaiting();
-      })
+    caches.open(STATIC_CACHE).then((cache) => cache.addAll(STATIC_ASSETS)).then(() => self.skipWaiting()),
   );
 });
 
-// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys()
-      .then((cacheNames) => {
-        return Promise.all(
+    caches
+      .keys()
+      .then((cacheNames) =>
+        Promise.all(
           cacheNames.map((cacheName) => {
-            if (cacheName !== CACHE_NAME && 
-                cacheName !== STATIC_CACHE && 
-                cacheName !== IMAGE_CACHE) {
+            if (![CACHE_NAME, STATIC_CACHE, IMAGE_CACHE].includes(cacheName)) {
               return caches.delete(cacheName);
             }
-          })
-        );
-      })
-      .then(() => {
-        return self.clients.claim();
-      })
+            return undefined;
+          }),
+        ),
+      )
+      .then(() => self.clients.claim()),
   );
 });
 
-// Fetch event - implement caching strategies
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
 
-  // Skip non-GET requests
-  if (request.method !== 'GET') {
-    return;
-  }
+  if (request.method !== 'GET') return;
 
-  // Handle images with cache-first strategy
   if (request.destination === 'image') {
     event.respondWith(
-      caches.open(IMAGE_CACHE)
-        .then((cache) => {
-          return cache.match(request)
-            .then((response) => {
-              if (response) {
-                return response;
+      caches.open(IMAGE_CACHE).then((cache) =>
+        cache.match(request).then((response) => {
+          if (response) return response;
+
+          return fetch(request)
+            .then((networkResponse) => {
+              if (networkResponse.status === 200) {
+                cache.put(request, networkResponse.clone());
               }
-              
-              return fetch(request)
-                .then((fetchResponse) => {
-                  // Only cache successful responses
-                  if (fetchResponse.status === 200) {
-                    cache.put(request, fetchResponse.clone());
-                  }
-                  return fetchResponse;
-                })
-                .catch(() => {
-                  // Return a placeholder image if fetch fails
-                  return new Response(
-                    '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#f3f4f6"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#9ca3af">Image non disponible</text></svg>',
-                    { headers: { 'Content-Type': 'image/svg+xml' } }
-                  );
-                });
-            });
-        })
+              return networkResponse;
+            })
+            .catch(
+              () =>
+                new Response(
+                  '<svg width="400" height="300" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="#0f0f0f"/><text x="50%" y="50%" text-anchor="middle" dy=".3em" fill="#b0b0b0">Image non disponible</text></svg>',
+                  { headers: { 'Content-Type': 'image/svg+xml' } },
+                ),
+            );
+        }),
+      ),
     );
     return;
   }
 
-  // Handle static assets with cache-first strategy
-  if (url.origin === location.origin && 
-      (url.pathname.startsWith('/_next/static/') || 
-       url.pathname.endsWith('.js') || 
-       url.pathname.endsWith('.css'))) {
+  if (
+    url.origin === self.location.origin &&
+    (url.pathname.startsWith('/_next/static/') || url.pathname.endsWith('.js') || url.pathname.endsWith('.css'))
+  ) {
     event.respondWith(
-      caches.open(STATIC_CACHE)
-        .then((cache) => {
-          return cache.match(request)
-            .then((response) => {
-              if (response) {
-                return response;
-              }
-              
-              return fetch(request)
-                .then((fetchResponse) => {
-                  if (fetchResponse.status === 200) {
-                    cache.put(request, fetchResponse.clone());
-                  }
-                  return fetchResponse;
-                });
-            });
-        })
+      caches.open(STATIC_CACHE).then((cache) =>
+        cache.match(request).then((response) => {
+          if (response) return response;
+          return fetch(request).then((networkResponse) => {
+            if (networkResponse.status === 200) {
+              cache.put(request, networkResponse.clone());
+            }
+            return networkResponse;
+          });
+        }),
+      ),
     );
     return;
   }
 
-  // Handle pages with network-first strategy
   if (request.destination === 'document') {
     event.respondWith(
       fetch(request)
         .then((response) => {
-          // Cache successful responses
           if (response.status === 200) {
-            const responseClone = response.clone();
-            caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(request, responseClone);
-              });
+            const clone = response.clone();
+            caches.open(CACHE_NAME).then((cache) => cache.put(request, clone));
           }
           return response;
         })
-        .catch(() => {
-          // Fallback to cache if network fails
-          return caches.match(request)
-            .then((response) => {
-              if (response) {
-                return response;
-              }
-              // Return offline page if no cache available
-              return caches.match('/')
-                .then((offlineResponse) => {
-                  return offlineResponse || new Response(
-                    '<html><body><h1>Hors ligne</h1><p>Veuillez vérifier votre connexion internet.</p></body></html>',
-                    { headers: { 'Content-Type': 'text/html' } }
-                  );
-                });
-            });
-        })
+        .catch(() =>
+          caches.match(request).then((cachedResponse) => {
+            if (cachedResponse) return cachedResponse;
+            return caches.match('/').then(
+              (offline) =>
+                offline ||
+                new Response('<html><body><h1>Hors ligne</h1><p>Veuillez verifier votre connexion internet.</p></body></html>', {
+                  headers: { 'Content-Type': 'text/html' },
+                }),
+            );
+          }),
+        ),
     );
     return;
   }
 
-  // Default: network-first for other requests
-  event.respondWith(
-    fetch(request)
-      .catch(() => {
-        return caches.match(request);
-      })
-  );
+  event.respondWith(fetch(request).catch(() => caches.match(request)));
 });

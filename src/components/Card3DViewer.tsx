@@ -177,12 +177,12 @@ export default function Card3DViewer(): ReactElement {
   };
   
   const sampleContent = {
-    name: "Amira Benali",
-    title: "Architecte d'Intérieur",
-    company: "Triomphe Home Design",
-    phone: "+213 550 322 808",
-    email: "contact@triomphe-homedesign.com",
-    website: "www.triomphe-homedesign.com"
+    name: "Oussama A.",
+    title: "Creative Director",
+    company: "OUSS AURA Boutique",
+    phone: "+213 561 218 586",
+    email: "support@oussaura.com",
+    website: "www.oussaura.com"
   };
 
   const handleFlip = () => {
@@ -356,7 +356,7 @@ export default function Card3DViewer(): ReactElement {
                         <Sparkles className={`w-8 h-8 ${currentTemplate.accentColor}`} />
                       </div>
                       <h4 className={`${currentTemplate.textColor} text-lg font-bold tracking-widest card-text-smooth`} style={{ textShadow: '0 1px 3px rgba(0,0,0,0.5)' }}>
-                        TRIOMPHE HOME DESIGN
+                        OUSS AURA BOUTIQUE
                       </h4>
                     </div>
                     

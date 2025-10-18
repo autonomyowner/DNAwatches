@@ -1,14 +1,19 @@
 import type { MetadataRoute } from "next";
+import { siteConfig } from "@/config/site";
+import { products } from "@/data/products";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.granturismoriviera.com";
+  const baseUrl = siteConfig.baseUrl;
   const now = new Date();
-  const routes = ["/", "/about", "/services", "/pricing", "/contact", "/privacy"];
-  return routes.map((route) => ({
+
+  const staticRoutes = ["/", "/collection", "/about", "/shipping", "/pricing", "/contact", "/privacy"];
+  const productRoutes = products.map((product) => `/product/${product.slug}`);
+
+  return [...staticRoutes, ...productRoutes].map((route) => ({
     url: `${baseUrl}${route}`,
     lastModified: now,
     changeFrequency: "weekly",
-    priority: route === "/" ? 1 : 0.6,
+    priority: route === "/" ? 1 : route.startsWith("/product/") ? 0.5 : 0.7,
   }));
 }
 

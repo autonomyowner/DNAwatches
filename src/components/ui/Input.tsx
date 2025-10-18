@@ -7,12 +7,10 @@ export default function Input({ className, ...props }: InputProps): ReactElement
   return (
     <input
       className={clsx(
-        "block w-full rounded-lg border border-blue-400/20 bg-background-tertiary/50 backdrop-blur-sm px-4 py-3 text-sm text-white placeholder:text-white/40 outline-none transition-all duration-300 focus:border-blue-400 focus:bg-background-tertiary focus:shadow-lg focus:shadow-blue-400/10 hover:border-blue-400/40",
-        className
+        "w-full rounded-full border border-white/15 bg-black/40 px-5 py-3 text-sm text-white placeholder:text-white/40 outline-none transition-all duration-200 focus:border-white/40 focus:bg-black/60 focus:ring-2 focus:ring-[#006233]/40",
+        className,
       )}
       {...props}
     />
   );
 }
-
-

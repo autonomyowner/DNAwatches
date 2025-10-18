@@ -3,104 +3,128 @@
 import Link from "next/link";
 import { memo, type ReactElement } from "react";
 import { motion } from "framer-motion";
-import Image from "next/image";
 import Container from "@/components/Container";
 import Button from "@/components/ui/Button";
+import OptimizedImage from "@/components/OptimizedImage";
+
+const heroImages = [
+  {
+    src: "/products/2222.png",
+    alt: "Casquette streetwear OUSS AURA en mouvement",
+    className: "rounded-3xl border border-white/10 shadow-[0_25px_60px_-30px_rgba(0,0,0,0.7)]",
+  },
+  {
+    src: "/products/c1.jpg",
+    alt: "Detail broderie OUSS AURA",
+    className: "rounded-3xl border border-white/10 shadow-[0_20px_40px_-30px_rgba(0,0,0,0.8)]",
+  },
+];
 
 function Hero(): ReactElement {
-  // Debug: Log when component renders
-  console.log('Hero component rendering');
-
   return (
-    <section className="relative isolate overflow-hidden">
-      <div className="relative h-screen w-full flex items-center pt-20 sm:pt-0" aria-label="Triomphe décoration maison">
-        {/* Hero background image with overlay - optimized for mobile */}
-        <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-          style={{ backgroundImage: "url('/pexels-heyho-6970074.jpg')" }}
-          aria-hidden="true"
-        />
-        <Image
-          src="/pexels-heyho-6970074.jpg"
-          alt="Décoration maison moderne"
-          fill
-          priority
-          quality={90}
-          sizes="100vw"
-          className="object-cover"
-          placeholder="blur"
-          blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
-          onLoad={() => console.log('Hero image loaded successfully')}
-          onError={(e) => console.error('Hero image failed to load:', e)}
-        />
-        <div className="absolute inset-0 bg-black/40" />
-        
-        <Container>
-          <motion.div 
-            className="relative z-10 max-w-4xl text-center"
-            initial={{ opacity: 0, y: 50 }}
+    <section className="relative overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,#00623322,transparent_60%)]" aria-hidden />
+      <Container>
+        <div className="grid items-center gap-12 pb-24 pt-28 lg:grid-cols-[1.1fr_1fr] lg:gap-16">
+          <motion.div
+            className="space-y-9"
+            initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1.2, ease: "easeOut" }}
+            transition={{ duration: 0.9, ease: "easeOut" }}
           >
-            <motion.h1 
-              className="text-5xl sm:text-6xl lg:text-7xl text-white tracking-tight leading-tight mb-8"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.3 }}
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-                textShadow: '2px 2px 4px rgba(0,0,0,0.7)'
-              }}
-            >
-              Décorez votre espace de rêve avec nos pièces.
-            </motion.h1>
-            
-            <motion.p 
-              className="text-lg sm:text-xl text-white/90 max-w-2xl mx-auto leading-relaxed mb-12 font-light"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.5 }}
-              style={{ 
-                fontFamily: 'var(--font-sans)',
-                textShadow: '1px 1px 2px rgba(0,0,0,0.6)'
-              }}
-            >
-              Transformez votre maison avec notre collection soigneusement sélectionnée de meubles et d&apos;objets de décoration modernes. 
-              Des vases élégants aux bougies douillettes, nous apportons style et confort à chaque coin de votre espace.
-            </motion.p>
-            
-            <motion.div 
-              className="flex justify-center"
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 1, delay: 0.7 }}
-            >
-              <Button variant="outline" size="lg" asChild className="border-2 border-white/30 bg-white/10 backdrop-blur-sm text-white hover:bg-white hover:text-[#2d2d2d] font-semibold shadow-xl">
-                <Link href="/services" className="text-lg px-8 py-4 font-semibold tracking-wide">
-                  EXPLORER MAINTENANT
-                </Link>
+            <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-white/70">
+              Drop Capsule 2025
+              <span className="h-2 w-2 rounded-full bg-[#d21034]" />
+            </div>
+
+            <div className="space-y-4">
+              <h1 className="font-[var(--font-display)] text-4xl uppercase tracking-[0.25em] text-white sm:text-5xl lg:text-6xl">
+                Porte ton style.
+                <br />
+                Montre ton aura.
+              </h1>
+              <p className="max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
+                Caps premium concues a Alger et livre dans les 58 wilayas. Matiere technique, broderies 3D et editions
+                limitees pour ceux qui representent la street culture algerienne.
+              </p>
+            </div>
+
+            <div className="flex flex-col gap-4 sm:flex-row sm:items-center">
+              <Button asChild size="lg">
+                <Link href="/collection">Decouvrir la collection</Link>
               </Button>
-            </motion.div>
-            
-            {/* Decorative elements */}
-            <motion.div
-              className="absolute left-8 top-1/2 transform -translate-y-1/2 hidden lg:block"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 1, delay: 1 }}
-            >
-              <div className="space-y-3">
-                <div className="w-3 h-3 bg-white/60 rounded-full"></div>
-                <div className="w-3 h-3 bg-white/40 rounded-full"></div>
-                <div className="w-3 h-3 bg-white/20 rounded-full"></div>
+              <Button asChild variant="outline" size="lg">
+                <Link href="/shipping">Livraison 58 wilayas</Link>
+              </Button>
+            </div>
+
+            <div className="grid gap-6 text-xs uppercase tracking-[0.25em] text-white/60 sm:grid-cols-3">
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div className="text-[0.65rem]">Livraison premium</div>
+                <div className="mt-3 text-lg font-semibold text-white">58 wilayas</div>
               </div>
-            </motion.div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div className="text-[0.65rem]">Nouvelles drops</div>
+                <div className="mt-3 text-lg font-semibold text-white">Chaque mois</div>
+              </div>
+              <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
+                <div className="text-[0.65rem]">Qualite verifiee</div>
+                <div className="mt-3 text-lg font-semibold text-white">Inspection 3 points</div>
+              </div>
+            </div>
           </motion.div>
-        </Container>
-      </div>
+
+          <motion.div
+            className="relative space-y-6"
+            initial={{ opacity: 0, y: 40 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1, ease: "easeOut", delay: 0.2 }}
+          >
+            <div className="absolute -left-24 top-10 hidden h-80 w-80 rounded-full bg-[#006233]/20 blur-3xl lg:block" />
+            <div className="absolute -right-24 bottom-0 hidden h-72 w-72 rounded-full bg-[#d21034]/20 blur-3xl lg:block" />
+
+            <div className="relative overflow-hidden rounded-[40px] border border-white/10 bg-white/5 p-6">
+              <div className="absolute inset-x-6 top-6 h-28 rounded-3xl bg-gradient-to-br from-white/40 via-transparent to-white/5 blur-2xl" />
+              <div className="grid gap-6">
+                <OptimizedImage
+                  src={heroImages[0].src}
+                  alt={heroImages[0].alt}
+                  width={1200}
+                  height={280}
+                  className={`h-[280px] w-full ${heroImages[0].className}`}
+                  quality={85}
+                />
+                <div className="grid gap-4 rounded-3xl border border-white/10 bg-black/50 p-6">
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-white/60">Capsule</div>
+                  <div className="text-2xl font-bold uppercase tracking-[0.15em] text-white">
+                    Northside // Drop 07
+                  </div>
+                  <p className="text-xs leading-relaxed text-white/60">
+                    Broderie 3D OUSS AURA, visiere suede hydrofuge, snapback premium. Disponible en noir et vert
+                    drapeau.
+                  </p>
+                  <div className="flex items-center justify-between text-xs text-white/60">
+                    <span>Disponible maintenant</span>
+                    <span>5 900 DZD</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="flex items-center gap-4 rounded-3xl border border-white/10 bg-white/5 p-4 backdrop-blur">
+              <div className="h-12 w-12 overflow-hidden rounded-2xl border border-white/10">
+                <OptimizedImage src={heroImages[1].src} alt={heroImages[1].alt} width={800} height={800} className="h-full w-full" quality={80} />
+              </div>
+              <div className="text-xs uppercase tracking-[0.25em] text-white/60">
+                <div className="text-white">Edition limitee</div>
+                <div>Precommande Drop 08</div>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </Container>
     </section>
   );
 }
 
-// Memoize the component to prevent unnecessary re-renders
 export default memo(Hero);

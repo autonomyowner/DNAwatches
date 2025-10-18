@@ -1,15 +1,15 @@
 {
-  "name": "Triomphe - Décoration Maison",
-  "short_name": "Triomphe",
-  "description": "Transformez votre maison avec notre collection soigneusement sélectionnée de meubles et d'objets de décoration modernes.",
+  "name": "OUSS AURA Boutique",
+  "short_name": "OUSS AURA",
+  "description": "OUSS AURA Boutique propose des casquettes streetwear premium livre dans les 58 wilayas.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#faf9f7",
-  "theme_color": "#faf9f7",
+  "background_color": "#050505",
+  "theme_color": "#000000",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "fr",
-  "categories": ["shopping", "lifestyle"],
+  "categories": ["shopping", "fashion"],
   "icons": [
     {
       "src": "/icon-192.png",

@@ -3,25 +3,33 @@
 import Link from "next/link";
 import { useEffect, useState, memo, useCallback, type ReactElement } from "react";
 import { Menu, X } from "lucide-react";
+import { siteConfig } from "@/config/site";
+
+const links = [
+  { href: "/", label: "Accueil" },
+  { href: "/collection", label: "Collection" },
+  { href: "/about", label: "La marque" },
+  { href: "/shipping", label: "Livraison" },
+  { href: "/contact", label: "Contact" },
+];
 
 function Navbar(): ReactElement {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
-  // Throttle scroll events for better performance
   useEffect(() => {
     let ticking = false;
-    
-    function onScroll() {
-      if (!ticking) {
-        requestAnimationFrame(() => {
-          setScrolled(window.scrollY > 4);
-          ticking = false;
-        });
-        ticking = true;
-      }
+
+    function onScroll(): void {
+      if (ticking) return;
+
+      ticking = true;
+      requestAnimationFrame(() => {
+        setScrolled(window.scrollY > 4);
+        ticking = false;
+      });
     }
-    
+
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -37,107 +45,79 @@ function Navbar(): ReactElement {
 
   return (
     <header
-      className={
-        "fixed inset-x-0 top-0 z-50 transition-all duration-700 " +
-        (scrolled 
-          ? "bg-white/95 backdrop-blur-xl border-b border-slate-200/60 shadow-xl shadow-black/10" 
-          : "bg-white/90 backdrop-blur-lg"
-        )
-      }
+      className={`fixed inset-x-0 top-0 z-50 transition-all duration-500 ${
+        scrolled
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/10 shadow-[0_12px_40px_-15px_rgba(0,0,0,0.65)]"
+          : "bg-transparent"
+      }`}
     >
-      <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between" aria-label="Primary">
-        <div className="flex items-center">
-          <Link href="/" className="group flex items-center">
-            <span 
-              className="text-3xl font-bold text-[#2d2d2d] tracking-wider"
-              style={{ 
-                fontFamily: 'Georgia, "Times New Roman", serif',
-                fontStyle: 'italic',
-                letterSpacing: '0.1em',
-                textShadow: '1px 1px 2px rgba(139, 115, 85, 0.2)'
-              }}
-            >
-              TRIOMPHE
-            </span>
-          </Link>
-        </div>
+      <nav
+        className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8"
+        aria-label="Navigation principale"
+      >
+        <Link href="/" className="flex items-center gap-3">
+          <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
+            OUSS AURA
+          </span>
+          <span className="text-2xl font-bold uppercase tracking-[0.3em] text-white">
+            BOUTIQUE
+          </span>
+        </Link>
 
-        <div className="hidden md:flex items-center gap-8">
-          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/">
-            Accueil
-          </Link>
-          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/services">
-            Boutique
-          </Link>
-          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/about">
-            À propos
-          </Link>
-          <Link className="text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] transition-colors duration-200 px-4 py-2" href="/contact">
-            Contact
-          </Link>
-          
+        <div className="hidden items-center gap-6 md:flex">
+          {links.map((item) => (
+            <Link
+              key={item.href}
+              href={item.href}
+              className="text-sm font-medium uppercase tracking-[0.18em] text-white/70 transition-colors duration-200 hover:text-white"
+            >
+              {item.label}
+            </Link>
+          ))}
+
           <Link
-            href="/pricing"
-            className="inline-flex items-center gap-2 bg-[#2d2d2d] text-white px-6 py-3 text-sm font-semibold rounded-lg hover:bg-[#8b7355] transition-colors duration-200"
+            href="/collection"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 bg-white text-sm font-semibold uppercase tracking-[0.25em] text-black transition-all duration-300 hover:-translate-y-0.5 hover:border-white hover:bg-white"
           >
-            ACHETER MAINTENANT
+            <span className="px-6 py-3">Acheter</span>
           </Link>
         </div>
 
         <button
           aria-label="Ouvrir le menu"
           onClick={handleToggleMenu}
-          className="md:hidden inline-flex items-center justify-center rounded-lg p-3 text-slate-600 hover:text-slate-900 hover:bg-slate-100 transition-colors duration-200"
+          className="inline-flex items-center justify-center rounded-full border border-white/20 p-3 text-white hover:border-white/40 md:hidden"
         >
-          {isOpen ? <X aria-hidden size={24} /> : <Menu aria-hidden size={24} />}
+          {isOpen ? <X aria-hidden size={22} /> : <Menu aria-hidden size={22} />}
         </button>
-
-        {/* Mobile menu */}
-        {isOpen && (
-          <div className="absolute top-full left-0 right-0 bg-white border-b border-[#d4c4b0] shadow-lg md:hidden">
-            <div className="px-4 py-4 space-y-2">
-              <Link 
-                href="/" 
-                onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
-              >
-                Accueil
-              </Link>
-              <Link 
-                href="/services" 
-                onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
-              >
-                Boutique
-              </Link>
-              <Link 
-                href="/about" 
-                onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
-              >
-                À propos
-              </Link>
-              <Link 
-                href="/contact" 
-                onClick={handleCloseMenu}
-                className="block px-4 py-3 text-sm font-medium text-[#2d2d2d] hover:text-[#8b7355] hover:bg-[#f5f3f0] rounded-lg transition-colors duration-200"
-              >
-                Contact
-              </Link>
-              <Link 
-                href="/pricing" 
-                onClick={handleCloseMenu}
-                className="block mt-4 px-4 py-3 bg-[#2d2d2d] text-white text-sm font-semibold rounded-lg text-center"
-              >
-                ACHETER MAINTENANT
-              </Link>
-            </div>
-          </div>
-        )}
       </nav>
+
+      {isOpen && (
+        <div className="border-t border-white/10 bg-black/95 text-white md:hidden">
+          <div className="space-y-3 px-4 py-6">
+            <div className="text-xs uppercase tracking-[0.3em] text-white/60">{siteConfig.tagline}</div>
+            {links.map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                onClick={handleCloseMenu}
+                className="block rounded-xl border border-white/5 bg-white/5 px-4 py-4 text-sm font-semibold uppercase tracking-[0.2em] transition-all duration-200 hover:border-white/40 hover:bg-white/10"
+              >
+                {item.label}
+              </Link>
+            ))}
+            <Link
+              href="/collection"
+              onClick={handleCloseMenu}
+              className="block rounded-full bg-white px-6 py-4 text-center text-sm font-semibold uppercase tracking-[0.25em] text-black transition-all duration-200 hover:-translate-y-0.5"
+            >
+              Acheter maintenant
+            </Link>
+          </div>
+        </div>
+      )}
     </header>
   );
 }
 
-// Memoize the component to prevent unnecessary re-renders
 export default memo(Navbar);
