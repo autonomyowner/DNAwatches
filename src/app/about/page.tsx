@@ -3,7 +3,6 @@ import { Flame, Globe2, Users, Sparkles, Compass, ShieldCheck } from "lucide-rea
 import Container from "@/components/Container";
 import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
-import OptimizedImage from "@/components/OptimizedImage";
 import Button from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
 
@@ -119,13 +118,13 @@ export default function AboutPage(): ReactElement {
             <Reveal delay={150}>
               <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 p-6">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,#d2103422,transparent_65%)]" aria-hidden />
-                <OptimizedImage
-                  src="/watches/1.jpg"
-                  alt="Collection DNA WATCHES"
-                  width={900}
-                  height={320}
+                <video
+                  src="/watches/Your paragraph text (4).mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
                   className="h-80 w-full rounded-[28px] border border-white/10 object-cover"
-                  quality={85}
                 />
                 <div className="mt-6 space-y-3 rounded-3xl border border-white/10 bg-black/60 p-6 text-sm text-white/70">
                   <div className="flex items-center gap-3 text-white">
