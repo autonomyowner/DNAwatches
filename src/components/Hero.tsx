@@ -86,13 +86,13 @@ function Hero(): ReactElement {
             <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-white/5 p-4 sm:rounded-[32px] sm:p-5 lg:rounded-[40px] lg:p-6">
               <div className="absolute inset-x-4 top-4 h-20 rounded-3xl bg-gradient-to-br from-white/40 via-transparent to-white/5 blur-2xl sm:inset-x-5 sm:top-5 sm:h-24 lg:inset-x-6 lg:top-6 lg:h-28" />
               <div className="grid gap-4 sm:gap-6">
-                <OptimizedImage
-                  src={heroImages[0].src}
-                  alt={heroImages[0].alt}
-                  width={1200}
-                  height={280}
-                  className={`h-48 w-full sm:h-64 lg:h-[280px] ${heroImages[0].className}`}
-                  quality={85}
+                <video
+                  src="/watches/Extreme_macro_close_up_K_res.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className={`h-48 w-full sm:h-64 lg:h-[280px] object-cover ${heroImages[0].className}`}
                 />
                 <div className="grid gap-3 rounded-2xl border border-white/10 bg-black/50 p-4 sm:rounded-3xl sm:gap-4 sm:p-5 lg:p-6">
                   <div className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-white/60 sm:text-xs sm:tracking-[0.35em]">Collection</div>
