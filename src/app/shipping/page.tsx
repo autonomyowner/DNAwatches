@@ -27,7 +27,7 @@ const faqItems = [
   },
   {
     title: "Retour ou echange",
-    description: "14 jours pour echanger si la casquette n a pas ete portee et etiquettes intactes.",
+    description: "14 jours pour échanger si la montre n'a pas été portée et étiquettes intactes.",
     icon: RefreshCw,
   },
   {
@@ -43,8 +43,8 @@ const faqItems = [
 ];
 
 export const metadata = {
-  title: "Livraison - OUSS AURA Boutique",
-  description: "Infos livraison OUSS AURA Boutique: delais, frais et conditions pour les 58 wilayas.",
+  title: "Livraison - DNA WATCHES Magasin",
+  description: "Infos livraison DNA WATCHES Magasin: délais, frais et conditions pour les 58 wilayas.",
 };
 
 export default function ShippingPage(): ReactElement {
@@ -61,8 +61,8 @@ export default function ShippingPage(): ReactElement {
               </div>
               <h1 className="text-4xl font-semibold uppercase tracking-[0.25em] sm:text-5xl">Livraison 58 wilayas</h1>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                OUSS AURA expédie chaque commande depuis Alger avec des partenaires selectionnes. Paiement a la livraison
-                disponible partout. Suivi en temps reel via WhatsApp.
+                DNA WATCHES expédie chaque commande depuis Alger avec des partenaires sélectionnés. Paiement à la livraison
+                disponible partout. Suivi en temps réel via WhatsApp.
               </p>
             </div>
           </Reveal>
@@ -107,7 +107,7 @@ export default function ShippingPage(): ReactElement {
               <div className="space-y-6">
                 <span className="text-xs uppercase tracking-[0.35em] text-white/50">Process</span>
                 <h2 className="text-3xl font-semibold uppercase tracking-[0.25em] sm:text-4xl">
-                  Parcours de votre casquette
+                  Parcours de votre montre
                 </h2>
                 <div className="space-y-4">
                   {steps.map((step, index) => (
@@ -148,7 +148,7 @@ export default function ShippingPage(): ReactElement {
                   </div>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-black/40 p-4 text-xs uppercase tracking-[0.3em] text-white/50">
-                  Chaque commande inclut un packaging recycle, une carte numerotee et un sticker collector.
+                  Chaque commande inclut un packaging soigné, une garantie certifiée et documentation produit.
                 </div>
                 <Button asChild size="lg">
                   <a href={siteConfig.whatsappLink} target="_blank" rel="noreferrer noopener">

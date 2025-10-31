@@ -18,9 +18,9 @@ export default function Footer(): ReactElement {
           <div className="md:col-span-2 space-y-6">
             <div className="space-y-2">
               <span className="inline-flex items-center rounded-full border border-white/15 bg-white/5 px-3 py-1 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-                OUSS AURA
+                DNA WATCHES
               </span>
-              <h3 className="text-2xl font-bold uppercase tracking-[0.25em]">Boutique</h3>
+              <h3 className="text-2xl font-bold uppercase tracking-[0.25em]">Magasin</h3>
             </div>
             <p className="text-sm leading-relaxed text-white/70">{siteConfig.description}</p>
             <div className="flex items-center gap-4">

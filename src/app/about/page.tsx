@@ -8,9 +8,9 @@ import Button from "@/components/ui/Button";
 import { siteConfig } from "@/config/site";
 
 export const metadata = {
-  title: "La marque - OUSS AURA Boutique",
+  title: "La marque - DNA WATCHES Magasin de bijoux et de montres",
   description:
-    "Decouvrez l histoire d OUSS AURA Boutique: une equipe basee a Alger qui repousse les codes du streetwear algerien avec des casquettes premium.",
+    "Découvrez l'histoire de DNA WATCHES: un magasin basé à Alger spécialisé dans les montres originales, bijoux et accessoires premium.",
 };
 
 const stats = [
@@ -22,18 +22,18 @@ const stats = [
 
 const beliefs = [
   {
-    title: "Identite algerienne",
-    description: "Chaque collection raconte une histoire locale: clubs, quartiers, artistes et energies des rues.",
+    title: "Authenticité garantie",
+    description: "Nous proposons uniquement des montres 100% originales avec certification et garantie officielle.",
     icon: Globe2,
   },
   {
-    title: "Innovation textile",
-    description: "Tissus techniques, broderies 3D et packaging recycle pour une casquette qui dure.",
+    title: "Qualité premium",
+    description: "Sélection rigoureuse parmi les meilleures marques: Naviforce, Festina, Rolex, TOMI et bien d'autres.",
     icon: Sparkles,
   },
   {
-    title: "Community first",
-    description: "Drops limites, precommandes prioritaire, events pop-up et support WhatsApp 7 j/7.",
+    title: "Service client",
+    description: "Support WhatsApp 7 j/7, livraison 58 wilayas et paiement à la livraison disponible partout en Algérie.",
     icon: Users,
   },
 ];
@@ -51,12 +51,12 @@ export default function AboutPage(): ReactElement {
                 <span className="h-2 w-2 rounded-full bg-[#d21034]" />
               </div>
               <h1 className="text-4xl font-semibold uppercase tracking-[0.25em] sm:text-5xl">
-                OUSS AURA Boutique
+                DNA WATCHES Magasin
               </h1>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                Née dans les rues d Alger, OUSS AURA donne une voix aux creatives qui veulent afficher leur style. Nous
-                dessinons et produisons des casquettes premium en series limitees, controlees et livre dans les 58
-                wilayas.
+                Magasin de bijoux et de montres basé à Alger, DNA WATCHES sélectionne avec soin des montres originales parmi
+                les meilleures marques. Nous proposons des produits certifiés avec garantie, livrés dans les 58 wilayas avec
+                paiement à la livraison.
               </p>
               <Button asChild size="lg">
                 <a href="/collection">Decouvrir la collection</a>
@@ -90,24 +90,25 @@ export default function AboutPage(): ReactElement {
               <div className="space-y-6">
                 <span className="text-xs uppercase tracking-[0.35em] text-white/50">Notre histoire</span>
                 <h2 className="text-3xl font-semibold uppercase tracking-[0.25em] sm:text-4xl">
-                  De la casquette au mouvement
+                  Excellence en horlogerie
                 </h2>
                 <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                  Nous avons commence sur les marches d Alger avec un objectif simple: creer des caps qui representent la
-                  culture locale avec la meme exigence que les grandes marques internationales. Aujourd hui, OUSS AURA
-                  travaille avec des artisans brodeurs et logisticiens locaux pour offrir une experience premium.
+                  DNA WATCHES est né de la passion pour les montres et bijoux de qualité. Notre objectif est simple: proposer
+                  des montres 100% originales avec garantie, en sélectionnant parmi les meilleures marques internationales.
+                  Aujourd'hui, nous travaillons avec des partenaires certifiés pour offrir une expérience premium à nos
+                  clients.
                 </p>
                 <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                  Nos drops sont inspires par les clubs de foot, les equipements vintage, la musique urbaine et les
-                  voyageuses qui portent fierement leurs racines. Nous restons independants pour garder la main sur notre
-                  vision et ecouter la community.
+                  Nous proposons une sélection rigoureuse de montres Naviforce, Festina, Rolex, TOMI et bien d'autres marques.
+                  Chaque montre est vérifiée, certifiée authentique et livrée avec sa garantie. Notre engagement: qualité,
+                  authenticité et satisfaction client.
                 </p>
                 <div className="flex flex-wrap gap-4">
                   <div className="rounded-3xl border border-white/10 bg-white/5 px-6 py-4 text-xs uppercase tracking-[0.3em] text-white/60">
-                    Drops numerotes
+                    Produits originaux
                   </div>
                   <div className="rounded-3xl border border-white/10 bg-white/5 px-6 py-4 text-xs uppercase tracking-[0.3em] text-white/60">
-                    Atelier broderie Alger
+                    Garantie certifiée
                   </div>
                   <div className="rounded-3xl border border-white/10 bg-white/5 px-6 py-4 text-xs uppercase tracking-[0.3em] text-white/60">
                     Support WhatsApp 7 j/7
@@ -119,8 +120,8 @@ export default function AboutPage(): ReactElement {
               <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 p-6">
                 <div className="absolute inset-0 bg-[radial-gradient(circle_at_bottom,#d2103422,transparent_65%)]" aria-hidden />
                 <OptimizedImage
-                  src="/products/b3.jpg"
-                  alt="Atelier OUSS AURA"
+                  src="/watches/1.jpg"
+                  alt="Collection DNA WATCHES"
                   width={900}
                   height={320}
                   className="h-80 w-full rounded-[28px] border border-white/10 object-cover"
@@ -129,15 +130,15 @@ export default function AboutPage(): ReactElement {
                 <div className="mt-6 space-y-3 rounded-3xl border border-white/10 bg-black/60 p-6 text-sm text-white/70">
                   <div className="flex items-center gap-3 text-white">
                     <ShieldCheck className="h-5 w-5 text-white/60" aria-hidden />
-                    Controle qualite triple
+                    Contrôle qualité et certification
                   </div>
                   <div className="flex items-center gap-3 text-white">
                     <Compass className="h-5 w-5 text-white/60" aria-hidden />
-                    Design et R&D a Alger
+                    Sélection rigoureuse à Alger
                   </div>
                   <div className="flex items-center gap-3 text-white">
                     <Flame className="h-5 w-5 text-white/60" aria-hidden />
-                    Editions limitees numerotees
+                    Montres originales garanties
                   </div>
                 </div>
               </div>
@@ -175,14 +176,14 @@ export default function AboutPage(): ReactElement {
           <div className="grid gap-10 lg:grid-cols-[1.1fr_1fr] lg:items-center">
             <Reveal>
               <div className="space-y-6">
-                <span className="text-xs uppercase tracking-[0.35em] text-white/50">Quartier general</span>
+                <span className="text-xs uppercase tracking-[0.35em] text-white/50">Boutique</span>
                 <h2 className="text-3xl font-semibold uppercase tracking-[0.25em] sm:text-4xl">
-                  Studio et showroom Alger
+                  Magasin DNA WATCHES Alger
                 </h2>
                 <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                  Notre studio est base a Alger, proche du port pour faciliter les expeditions. Nous y organisons des
-                  sessions d essayage, des shootings et des rencontres avec la community. Prenez rendez-vous pour decouvrir
-                  les drops avant leur sortie.
+                  Notre magasin est basé à Alger pour faciliter les expéditions. Nous proposons des montres originales avec
+                  garantie. Contactez-nous par WhatsApp ou email pour découvrir nos collections et prendre rendez-vous pour
+                  voir les montres en personne.
                 </p>
                 <ul className="space-y-3 text-sm text-white/70">
                   <li>- Adresse: {siteConfig.address}</li>
@@ -207,7 +208,7 @@ export default function AboutPage(): ReactElement {
               <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 p-6">
                 <iframe
                   src={siteConfig.googleMapsLink}
-                  title="Localisation OUSS AURA Boutique"
+                  title="Localisation DNA WATCHES Magasin"
                   className="h-80 w-full rounded-[28px] border border-white/10"
                   loading="lazy"
                 />

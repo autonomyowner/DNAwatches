@@ -9,13 +9,13 @@ import OptimizedImage from "@/components/OptimizedImage";
 
 const heroImages = [
   {
-    src: "/products/2222.png",
-    alt: "Casquette streetwear OUSS AURA en mouvement",
+    src: "/watches/1.jpg",
+    alt: "Montre DNA WATCHES élégante",
     className: "rounded-3xl border border-white/10 shadow-[0_25px_60px_-30px_rgba(0,0,0,0.7)]",
   },
   {
-    src: "/products/c1.jpg",
-    alt: "Detail broderie OUSS AURA",
+    src: "/watches/3.jpg",
+    alt: "Détail montre DNA WATCHES",
     className: "rounded-3xl border border-white/10 shadow-[0_20px_40px_-30px_rgba(0,0,0,0.8)]",
   },
 ];
@@ -33,19 +33,19 @@ function Hero(): ReactElement {
             transition={{ duration: 0.9, ease: "easeOut" }}
           >
             <div className="inline-flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-[0.4em] text-white/70">
-              Drop Capsule 2025
+              Collection Premium 2025
               <span className="h-2 w-2 rounded-full bg-[#d21034]" />
             </div>
 
             <div className="space-y-4">
               <h1 className="font-[var(--font-display)] text-4xl uppercase tracking-[0.25em] text-white sm:text-5xl lg:text-6xl">
-                Porte ton style.
+                Elegance intemporelle.
                 <br />
-                Montre ton aura.
+                Precision exceptionnelle.
               </h1>
               <p className="max-w-xl text-base leading-relaxed text-white/70 sm:text-lg">
-                Caps premium concues a Alger et livre dans les 58 wilayas. Matiere technique, broderies 3D et editions
-                limitees pour ceux qui representent la street culture algerienne.
+                Montres originales et bijoux premium livrés dans les 58 wilayas. Sélection rigoureuse parmi les meilleures
+                marques pour vous offrir qualité, authenticité et élégance.
               </p>
             </div>
 
@@ -64,12 +64,12 @@ function Hero(): ReactElement {
                 <div className="mt-3 text-lg font-semibold text-white">58 wilayas</div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
-                <div className="text-[0.65rem]">Nouvelles drops</div>
+                <div className="text-[0.65rem]">Nouvelles collections</div>
                 <div className="mt-3 text-lg font-semibold text-white">Chaque mois</div>
               </div>
               <div className="rounded-2xl border border-white/10 bg-white/5 p-4">
                 <div className="text-[0.65rem]">Qualite verifiee</div>
-                <div className="mt-3 text-lg font-semibold text-white">Inspection 3 points</div>
+                <div className="mt-3 text-lg font-semibold text-white">Produits originaux</div>
               </div>
             </div>
           </motion.div>
@@ -95,17 +95,17 @@ function Hero(): ReactElement {
                   quality={85}
                 />
                 <div className="grid gap-4 rounded-3xl border border-white/10 bg-black/50 p-6">
-                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-white/60">Capsule</div>
+                  <div className="text-xs font-semibold uppercase tracking-[0.35em] text-white/60">Collection</div>
                   <div className="text-2xl font-bold uppercase tracking-[0.15em] text-white">
-                    Northside // Drop 07
+                    Naviforce // Original
                   </div>
                   <p className="text-xs leading-relaxed text-white/60">
-                    Broderie 3D OUSS AURA, visiere suede hydrofuge, snapback premium. Disponible en noir et vert
-                    drapeau.
+                    Montre Naviforce double design, produit 100% original avec garantie. Design moderne et fonctionnalités
+                    avancées.
                   </p>
                   <div className="flex items-center justify-between text-xs text-white/60">
                     <span>Disponible maintenant</span>
-                    <span>5 900 DZD</span>
+                    <span>15 900 DZD</span>
                   </div>
                 </div>
               </div>
@@ -116,8 +116,8 @@ function Hero(): ReactElement {
                 <OptimizedImage src={heroImages[1].src} alt={heroImages[1].alt} width={800} height={800} className="h-full w-full" quality={80} />
               </div>
               <div className="text-xs uppercase tracking-[0.25em] text-white/60">
-                <div className="text-white">Edition limitee</div>
-                <div>Precommande Drop 08</div>
+                <div className="text-white">Collection exclusive</div>
+                <div>Montres Rolex</div>
               </div>
             </div>
           </motion.div>

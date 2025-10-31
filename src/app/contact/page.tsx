@@ -35,7 +35,7 @@ const contactMethods = [
   },
   {
     icon: Phone,
-    label: "Hotline OUSS AURA",
+    label: "Hotline DNA WATCHES",
     description: "Du lundi au samedi, 9h - 22h.",
     value: siteConfig.phone,
     href: `tel:${siteConfig.phone}`,
@@ -90,11 +90,11 @@ function ContactInner(): ReactElement {
                 <span className="h-2 w-2 rounded-full bg-[#d21034]" />
               </div>
               <h1 className="text-4xl font-semibold uppercase tracking-[0.25em] text-white sm:text-5xl">
-                Support OUSS AURA
+                Support DNA WATCHES
               </h1>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                Besoin d infos sur un drop, une precommande ou la livraison dans votre wilaya ? Ecrivez-nous. L equipe
-                repond en quelques minutes via WhatsApp ou email.
+                Besoin d'infos sur une montre, une collection ou la livraison dans votre wilaya ? Écrivez-nous. L'équipe
+                répond en quelques minutes via WhatsApp ou email.
               </p>
             </div>
           </Reveal>
@@ -138,8 +138,8 @@ function ContactInner(): ReactElement {
                         <Input placeholder="+213 5xx xx xx xx" {...register("phone")} />
                       </div>
                       <div>
-                        <label className="text-xs uppercase tracking-[0.3em] text-white/50">Produit ou drop</label>
-                        <Input placeholder="Ex: Northside, Drop 08" {...register("topic")} />
+                        <label className="text-xs uppercase tracking-[0.3em] text-white/50">Produit ou collection</label>
+                        <Input placeholder="Ex: Naviforce, Festina, Rolex" {...register("topic")} />
                       </div>
                     </div>
 
@@ -172,7 +172,7 @@ function ContactInner(): ReactElement {
                   <h3 className="text-lg font-semibold uppercase tracking-[0.2em] text-white">Canaux directs</h3>
                   <p className="mt-3 text-sm leading-relaxed text-white/60">
                     Pour toute question urgente, utilisez WhatsApp ou la hotline. Nous confirmons chaque commande et
-                    envoyons un suivi colis personnalise.
+                    envoyons un suivi colis personnalisé.
                   </p>
                   <div className="mt-6 space-y-4">
                     {contactMethods.map((method) => (

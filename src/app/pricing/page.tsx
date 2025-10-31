@@ -11,7 +11,7 @@ const partnerTiers = [
     name: "Starter stockist",
     price: "150 000 DZD",
     description: "Pack d entree pour concept stores et boutiques locales.",
-    includes: ["30 casquettes mix estampilles", "Presentoir OUSS AURA", "Supports visuels digitaux", "Formation equipe 30 min"],
+    includes: ["30 montres mix marques", "Présentoir DNA WATCHES", "Supports visuels digitaux", "Formation équipe 30 min"],
   },
   {
     name: "Pro retailer",
@@ -33,7 +33,7 @@ const partnerTiers = [
     includes: [
       "Capsule personnalisee",
       "Design exclusif avec notre studio",
-      "Evenement pop-up OUSS AURA",
+      "Événement pop-up DNA WATCHES",
       "Suivi logistique dedie",
       "Pack media complet",
     ],
@@ -64,8 +64,8 @@ const logisticsPerks = [
 ];
 
 export const metadata = {
-  title: "Partenariats retail - OUSS AURA Boutique",
-  description: "Programmes grossistes OUSS AURA Boutique pour distributeurs streetwear en Algerie.",
+  title: "Partenariats retail - DNA WATCHES Magasin",
+  description: "Programmes grossistes DNA WATCHES Magasin pour distributeurs bijoux et montres en Algérie.",
 };
 
 export default function PartnershipsPage(): ReactElement {
@@ -81,11 +81,11 @@ export default function PartnershipsPage(): ReactElement {
                 <span className="h-2 w-2 rounded-full bg-[#d21034]" />
               </div>
               <h1 className="text-4xl font-semibold uppercase tracking-[0.25em] sm:text-5xl">
-                Devenir partenaire OUSS AURA
+                Devenir partenaire DNA WATCHES
               </h1>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                Rejoignez le reseau de boutiques qui distribuent nos casquettes premium. Packs adaptes a votre taille,
-                activations marketing et support logistique dedie.
+                Rejoignez le réseau de boutiques qui distribuent nos montres originales. Packs adaptés à votre taille,
+                activations marketing et support logistique dédié.
               </p>
             </div>
           </Reveal>
@@ -162,7 +162,7 @@ export default function PartnershipsPage(): ReactElement {
                   <div>
                     <div className="text-xs uppercase tracking-[0.3em] text-white/50">Pour qui ?</div>
                     <p className="mt-1 text-sm text-white/70">
-                      Concept stores, boutiques streetwear, revendeurs sneakers, plateformes online.
+                      Bijouteries, horlogeries, concept stores, plateformes online, boutiques accessoires.
                     </p>
                   </div>
                 </div>
@@ -176,7 +176,7 @@ export default function PartnershipsPage(): ReactElement {
                   </div>
                 </div>
                 <div className="rounded-3xl border border-white/10 bg-black/40 p-4 text-xs uppercase tracking-[0.3em] text-white/50">
-                  Packs personnalises disponibles pour collaborations marques, events ou equipes sportives.
+                  Packs personnalisés disponibles pour collaborations marques, événements ou entreprises.
                 </div>
                 <Button asChild size="lg">
                   <a href={siteConfig.whatsappLink} target="_blank" rel="noreferrer noopener">
@@ -195,11 +195,11 @@ export default function PartnershipsPage(): ReactElement {
             <div className="rounded-[36px] border border-white/10 bg-white/5 p-8 text-center">
               <div className="text-xs uppercase tracking-[0.35em] text-white/50">Next step</div>
               <h2 className="mt-4 text-3xl font-semibold uppercase tracking-[0.25em] text-white sm:text-4xl">
-                Lancez OUSS AURA dans votre boutique
+                Lancez DNA WATCHES dans votre boutique
               </h2>
               <p className="mt-4 text-sm text-white/70 sm:text-base">
-                Nous preparons les assortiments, le merchandising et le plan marketing. Il ne vous reste qu a prendre la
-                commande et faire vibrer votre clientele.
+                Nous préparons les assortiments, le merchandising et le plan marketing. Il ne vous reste qu'à prendre la
+                commande et faire vibrer votre clientèle.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <Button asChild size="lg">

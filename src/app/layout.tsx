@@ -39,7 +39,7 @@ export const viewport: Viewport = {
 
 export const metadata: Metadata = {
   title: {
-    default: `${siteConfig.name} – Casquettes streetwear premium`,
+    default: `${siteConfig.name} – Montres originales et bijoux premium`,
     template: `%s – ${siteConfig.name}`,
   },
   description: siteConfig.description,
@@ -47,7 +47,7 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.baseUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    title: `${siteConfig.name} – Casquettes streetwear premium`,
+    title: `${siteConfig.name} – Montres originales et bijoux premium`,
     description: siteConfig.description,
     url: "/",
     siteName: siteConfig.name,
@@ -64,7 +64,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${siteConfig.name} – Streetwear algerien`,
+    title: `${siteConfig.name} – Montres et bijoux Algerie`,
     description: siteConfig.description,
   },
 };

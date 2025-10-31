@@ -7,6 +7,7 @@ import Section from "@/components/Section";
 import Reveal from "@/components/Reveal";
 import Button from "@/components/ui/Button";
 import OptimizedImage from "@/components/OptimizedImage";
+import BuyButton from "@/components/BuyButton";
 import { products } from "@/data/products";
 import type { Product } from "@/data/products";
 
@@ -28,12 +29,12 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
 
   if (!product) {
     return {
-      title: "Produit introuvable – OUSS AURA Boutique",
+      title: "Produit introuvable – DNA WATCHES Magasin",
     };
   }
 
   return {
-    title: `${product.name} – OUSS AURA Boutique`,
+    title: `${product.name} – DNA WATCHES Magasin`,
     description: product.shortDescription,
   };
 }
@@ -184,7 +185,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
                     <div>
                       <div className="text-xs uppercase tracking-[0.3em] text-white/50">Finition</div>
                       <div className="mt-2 text-sm text-white/70">
-                        Broderie 3D, doublure signature et packaging recycle.
+                        Produit original certifié avec garantie et packaging soigné.
                       </div>
                     </div>
                   </div>
@@ -192,11 +193,9 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
 
               <div className="flex flex-col gap-4 sm:flex-row">
-                <Button asChild size="lg">
-                  <Link href="/collection">Ajouter au panier</Link>
-                </Button>
+                <BuyButton product={product} />
                 <Button asChild variant="outline" size="lg">
-                  <Link href="/contact">Parler au support</Link>
+                  <Link href="/collection">Voir autres produits</Link>
                 </Button>
               </div>
             </aside>

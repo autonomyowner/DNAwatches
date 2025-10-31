@@ -1,7 +1,7 @@
-// Service Worker for caching OUSS AURA assets
-const CACHE_NAME = 'oussaura-pages-v1';
-const STATIC_CACHE = 'oussaura-static-v1';
-const IMAGE_CACHE = 'oussaura-images-v1';
+// Service Worker for caching DNA WATCHES assets
+const CACHE_NAME = 'dnawatches-pages-v1';
+const STATIC_CACHE = 'dnawatches-static-v1';
+const IMAGE_CACHE = 'dnawatches-images-v1';
 
 const STATIC_ASSETS = [
   '/',

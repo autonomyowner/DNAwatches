@@ -57,10 +57,10 @@ function Navbar(): ReactElement {
       >
         <Link href="/" className="flex items-center gap-3">
           <span className="rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-white/70">
-            OUSS AURA
+            DNA WATCHES
           </span>
           <span className="text-2xl font-bold uppercase tracking-[0.3em] text-white">
-            BOUTIQUE
+            MAGASIN
           </span>
         </Link>
 

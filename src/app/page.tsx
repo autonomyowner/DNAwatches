@@ -15,47 +15,47 @@ const featuredProducts = products.slice(0, 4);
 
 const brandPillars = [
   {
-    title: "Design algerien",
-    description: "Nous dessinons et brodons nos caps a Alger en series limitees, inspirees par la culture street locale.",
+    title: "Montres originales",
+    description: "Nous proposons uniquement des montres 100% originales avec garantie, sélectionnées parmi les meilleures marques.",
     icon: Sparkles,
   },
   {
     title: "Qualite premium",
-    description: "Tissus techniques, inspections 3 points et packaging recycle. Chaque piece est controlee avant expedition.",
+    description: "Sélection rigoureuse, contrôle qualité et packaging soigné. Chaque montre est vérifiée avant expédition.",
     icon: ShieldCheck,
   },
   {
     title: "Livraison 58 wilayas",
-    description: "Expedition express via partenaires fiables, paiement a la livraison disponible partout en Algerie.",
+    description: "Expédition express via partenaires fiables, paiement à la livraison disponible partout en Algérie.",
     icon: Package,
   },
 ];
 
 const drops = [
   {
-    title: "Drop 07 — Northside",
-    description: "Broderie 3D, snapback premium, double texture suede et mesh.",
+    title: "Collection Naviforce",
+    description: "Montres Naviforce originales, design moderne et fonctionnalités avancées.",
     status: "Disponible maintenant",
-    image: "/products/b1.jpg",
+    image: "/watches/1.jpg",
   },
   {
-    title: "Drop 08 — Midnight Bloom",
-    description: "Velours noir, broderie or 24k, disponible en precommande numerotee.",
-    status: "Precommande ouverte",
-    image: "/products/11.jpg",
+    title: "Collection Festina",
+    description: "Montres Festina mécaniques, étanches avec bracelet acier inoxydable.",
+    status: "En stock",
+    image: "/watches/2.jpg",
   },
   {
-    title: "Drop 09 — Skyline 58",
-    description: "Edition hommage aux 58 wilayas avec patch laser et tissu impermeable.",
-    status: "Arrive bientot",
-    image: "/products/c1.jpg",
+    title: "Collection TOMI",
+    description: "Montres TOMI originales, étanches, waterproof avec bracelet en cuir premium.",
+    status: "Disponible",
+    image: "/watches/4.jpg",
   },
 ];
 
 const communityShots = [
-  "/products/b2.jpg",
-  "/products/c2.jpg",
-  "/products/111.jpg",
+  "/watches/3.jpg",
+  "/watches/5.jpg",
+  "/watches/7.jpg",
 ];
 
 export default function Home(): ReactElement {
@@ -68,9 +68,9 @@ export default function Home(): ReactElement {
           <Reveal>
             <div className="mb-12 flex flex-col gap-6 lg:flex-row lg:items-end lg:justify-between">
               <div>
-                <span className="text-xs uppercase tracking-[0.35em] text-white/50">Top drops</span>
+                <span className="text-xs uppercase tracking-[0.35em] text-white/50">Collections</span>
                 <h2 className="mt-3 text-3xl font-semibold uppercase tracking-[0.25em] text-white sm:text-4xl">
-                  Selection OUSS AURA
+                  Selection DNA WATCHES
                 </h2>
               </div>
               <Button asChild variant="ghost" size="sm">
@@ -99,25 +99,25 @@ export default function Home(): ReactElement {
               <div className="space-y-6">
                 <span className="text-xs uppercase tracking-[0.35em] text-white/50">Manifesto</span>
                 <h2 className="text-3xl font-semibold uppercase tracking-[0.25em] text-white sm:text-4xl">
-                  ADN OUSS AURA
+                  ADN DNA WATCHES
                 </h2>
                 <p className="max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
-                  Boutique streetwear specialisee dans les casquettes premium. Chaque drop est concu dans notre studio a
-                  Alger avec une attention obsessionnelle au detail: tissus technique, broderie 3D, doublures signature.
-                  Nous voulons mettre en avant le style algerien sur la scene urbaine internationale.
+                  Magasin de bijoux et de montres spécialisé dans les montres originales. Nous sélectionnons avec soin chaque
+                  montre parmi les meilleures marques pour vous offrir qualité, authenticité et élégance. Notre engagement est
+                  de vous proposer des montres certifiées avec garantie.
                 </p>
                 <ul className="space-y-4 text-sm text-white/70">
                   <li className="flex items-center gap-3">
                     <span className="inline-flex h-2 w-2 rounded-full bg-[#006233]" aria-hidden />
-                    Packaging recycle et cartes de collection numerotees.
+                    Produits 100% originaux avec garantie et certification.
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="inline-flex h-2 w-2 rounded-full bg-[#d21034]" aria-hidden />
-                    Editions limitees inspirees des quartiers, de la musique et du sport algeriens.
+                    Sélection parmi les meilleures marques: Naviforce, Festina, Rolex, TOMI.
                   </li>
                   <li className="flex items-center gap-3">
                     <span className="inline-flex h-2 w-2 rounded-full bg-[#c9a961]" aria-hidden />
-                    Service client reactif et suivi de commande en temps reel.
+                    Service client réactif et suivi de commande en temps réel.
                   </li>
                 </ul>
               </div>
@@ -148,9 +148,9 @@ export default function Home(): ReactElement {
         <Container>
           <Reveal>
             <div className="mb-12 space-y-4">
-              <span className="text-xs uppercase tracking-[0.35em] text-white/50">Roadmap</span>
+              <span className="text-xs uppercase tracking-[0.35em] text-white/50">Nouvelles arrivées</span>
               <h2 className="text-3xl font-semibold uppercase tracking-[0.25em] text-white sm:text-4xl">
-                Drops a venir
+                Collections disponibles
               </h2>
             </div>
           </Reveal>
@@ -190,9 +190,9 @@ export default function Home(): ReactElement {
           <Reveal>
             <div className="mb-8 flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
               <div>
-                <span className="text-xs uppercase tracking-[0.35em] text-white/50">Community</span>
+                <span className="text-xs uppercase tracking-[0.35em] text-white/50">Galerie</span>
                 <h2 className="mt-3 text-3xl font-semibold uppercase tracking-[0.25em] text-white sm:text-4xl">
-                  OUSS AURA Crew
+                  Montres DNA WATCHES
                 </h2>
               </div>
               <Button asChild variant="outline" size="sm">
@@ -207,7 +207,7 @@ export default function Home(): ReactElement {
             {communityShots.map((image, index) => (
               <Reveal key={image} delay={index * 120}>
                 <div className="relative overflow-hidden rounded-[32px] border border-white/10">
-                  <OptimizedImage src={image} alt="Community OUSS AURA" width={1200} height={288} className="h-72 w-full" quality={85} />
+                  <OptimizedImage src={image} alt="Montre DNA WATCHES" width={1200} height={288} className="h-72 w-full" quality={85} />
                 </div>
               </Reveal>
             ))}
@@ -225,8 +225,8 @@ export default function Home(): ReactElement {
                   Livraison 58 wilayas
                 </h2>
                 <p className="max-w-xl text-sm leading-relaxed text-white/70 sm:text-base">
-                  Nous livrons partout en Algerie via nos partenaires logistiques. Paiement a la livraison disponible,
-                  suivi en temps reel et support client WhatsApp 7 j/7.
+                  Nous livrons partout en Algérie via nos partenaires logistiques. Paiement à la livraison disponible,
+                  suivi en temps réel et support client WhatsApp 7 j/7.
                 </p>
                 <div className="grid gap-4 sm:grid-cols-2">
                   <div className="rounded-3xl border border-white/10 bg-white/5 p-5">
