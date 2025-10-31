@@ -94,20 +94,14 @@ function Hero(): ReactElement {
                   playsInline
                   className={`h-48 w-full sm:h-64 lg:h-[280px] object-cover ${heroImages[0].className}`}
                 />
-                <div className="grid gap-3 rounded-2xl border border-white/10 bg-black/50 p-4 sm:rounded-3xl sm:gap-4 sm:p-5 lg:p-6">
-                  <div className="text-[0.65rem] font-semibold uppercase tracking-[0.3em] text-white/60 sm:text-xs sm:tracking-[0.35em]">Collection</div>
-                  <div className="text-xl font-bold uppercase tracking-[0.15em] text-white sm:text-2xl">
-                    Naviforce // Original
-                  </div>
-                  <p className="text-[0.7rem] leading-relaxed text-white/60 sm:text-xs">
-                    Montre Naviforce double design, produit 100% original avec garantie. Design moderne et fonctionnalités
-                    avancées.
-                  </p>
-                  <div className="flex items-center justify-between text-[0.7rem] text-white/60 sm:text-xs">
-                    <span>Disponible maintenant</span>
-                    <span>15 900 DZD</span>
-                  </div>
-                </div>
+                <video
+                  src="/watches/Your paragraph text (4).mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="h-48 w-full rounded-2xl border border-white/10 bg-black/50 object-cover sm:h-64 sm:rounded-3xl lg:h-[280px]"
+                />
               </div>
             </div>
 
