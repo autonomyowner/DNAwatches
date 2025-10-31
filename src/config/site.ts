@@ -9,8 +9,8 @@ export const siteConfig = {
   address: "Alger, Algerie",
   googleMapsLink: "https://maps.app.goo.gl/nh5JsSvQrQiXgHSj7",
   whatsappLink: "https://wa.me/213797537731",
-  instagramLink: "https://www.instagram.com/oussaura.boutique/",
-  facebookLink: "https://www.facebook.com/oussaura.boutique/",
+  instagramLink: "https://www.instagram.com/dna__watches/",
+  facebookLink: "https://www.facebook.com/dz.vente.tt",
   tiktokLink: "https://www.tiktok.com/@oussaura.boutique",
   description:
     "DNA WATCHES Magasin de bijoux et de montres propose des montres originales, bijoux et accessoires premium avec livraison dans les 58 wilayas et paiement à la livraison.",
