@@ -198,7 +198,7 @@ export default function PartnershipsPage(): ReactElement {
                 Lancez DNA WATCHES dans votre boutique
               </h2>
               <p className="mt-4 text-sm text-white/70 sm:text-base">
-                Nous préparons les assortiments, le merchandising et le plan marketing. Il ne vous reste qu'à prendre la
+                Nous préparons les assortiments, le merchandising et le plan marketing. Il ne vous reste qu&apos;à prendre la
                 commande et faire vibrer votre clientèle.
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">

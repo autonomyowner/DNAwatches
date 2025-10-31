@@ -95,11 +95,11 @@ export default function AboutPage(): ReactElement {
                 <p className="text-sm leading-relaxed text-white/70 sm:text-base">
                   DNA WATCHES est né de la passion pour les montres et bijoux de qualité. Notre objectif est simple: proposer
                   des montres 100% originales avec garantie, en sélectionnant parmi les meilleures marques internationales.
-                  Aujourd'hui, nous travaillons avec des partenaires certifiés pour offrir une expérience premium à nos
+                  Aujourd&apos;hui, nous travaillons avec des partenaires certifiés pour offrir une expérience premium à nos
                   clients.
                 </p>
                 <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                  Nous proposons une sélection rigoureuse de montres Naviforce, Festina, Rolex, TOMI et bien d'autres marques.
+                  Nous proposons une sélection rigoureuse de montres Naviforce, Festina, Rolex, TOMI et bien d&apos;autres marques.
                   Chaque montre est vérifiée, certifiée authentique et livrée avec sa garantie. Notre engagement: qualité,
                   authenticité et satisfaction client.
                 </p>

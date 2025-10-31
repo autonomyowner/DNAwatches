@@ -93,7 +93,7 @@ function ContactInner(): ReactElement {
                 Support DNA WATCHES
               </h1>
               <p className="text-sm leading-relaxed text-white/70 sm:text-base">
-                Besoin d'infos sur une montre, une collection ou la livraison dans votre wilaya ? Écrivez-nous. L'équipe
+                Besoin d&apos;infos sur une montre, une collection ou la livraison dans votre wilaya ? Écrivez-nous. L&apos;équipe
                 répond en quelques minutes via WhatsApp ou email.
               </p>
             </div>
