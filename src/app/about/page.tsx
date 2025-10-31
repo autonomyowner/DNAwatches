@@ -207,11 +207,23 @@ export default function AboutPage(): ReactElement {
             <Reveal delay={150}>
               <div className="relative overflow-hidden rounded-[36px] border border-white/10 bg-white/5 p-6">
                 <iframe
-                  src={siteConfig.googleMapsLink}
+                  src="https://www.google.com/maps?q=36.7360269,3.187213&hl=fr&z=18&output=embed"
                   title="Localisation DNA WATCHES Magasin"
                   className="h-80 w-full rounded-[28px] border border-white/10"
                   loading="lazy"
+                  allowFullScreen
+                  referrerPolicy="no-referrer-when-downgrade"
                 />
+                <div className="absolute bottom-4 right-4 z-10">
+                  <a
+                    href="https://maps.app.goo.gl/swmsggJ578FRzy3b8"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-full bg-white/10 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white backdrop-blur-sm transition-all hover:bg-white/20"
+                  >
+                    Voir sur Google Maps
+                  </a>
+                </div>
               </div>
             </Reveal>
           </div>
